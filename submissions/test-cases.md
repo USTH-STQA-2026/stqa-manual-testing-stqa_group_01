@@ -71,8 +71,8 @@
 
 | Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
 |---|---|---|---|---|---|---|---|
-| 01 | Kiểm tra hoạt động của chức năng đăng nhập | Tài khoản tồn tại trong hệ thống | Tên đăng nhập của người dùng (email) và mật khẩu | Nhập tài khoản, mật khẩu và nhấn đăng nhập | Hệ thống phản hồi đăng nhập thành công hoặc thất bại | REQ-01 | Black-box testing |
-| 02| Kiểm tra tính năng "Tìm kiếm theo tên cuốn sách, tên tác giả"| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang ở trong mục "Sách"| Bước 1. Ấn vào hộp tìm kiếm 2. Gõ "Nguyễn Minh Đức" 3. Kiểm tra kết quả tìm được và xoá phần gõ 4. Gõ "Lập trình Flutter cơ bản" 7. Kiểm tra kết quả tìm được và xoá phần gõ 8. Gõ "ABCxyz123" 9. Kiểm tra kết quả tìm được và xoá phần gõ| "Nguyễn Minh Đức", "Lập trình Flutter cơ bản" và "ABCxyz123"| Gõ "Nguyễn Minh Đức" sẽ hiển thị tác giả "Nguyễn Minh Đức"; Gõ "Lập trình Flutter cơ bản" hiển thị sách "Lập trình Flutter cơ bản"; Gõ "ABCxyz123" sẽ hiển thị kết quả "Không tìm thấy sách nào"| REQ-3| Black-box Testing|
+| 01 | Kiểm tra hoạt động của chức năng đăng nhập | Truy cập thành công vào trang đăng nhập của hệ thống | 1. Nhập địa chỉ email vào ô "email" 2. Nhập mật khẩu vào ô "Mật khẩu" 3. Bấm nút "Đăng nhập" | Tên người dùng (địa chỉ email) và mật khẩu | Hệ thống phản hồi đăng nhập thành công hoặc thất bại | REQ-01 | Black-box testing |
+| 02 | Kiểm tra tính năng "Tìm kiếm theo tên cuốn sách, tên tác giả"| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang ở trong mục "Sách"| Bước 1. Ấn vào hộp tìm kiếm 2. Gõ "Nguyễn Minh Đức" 3. Kiểm tra kết quả tìm được và xoá phần gõ 4. Gõ "Lập trình Flutter cơ bản" 7. Kiểm tra kết quả tìm được và xoá phần gõ 8. Gõ "ABCxyz123" 9. Kiểm tra kết quả tìm được và xoá phần gõ| "Nguyễn Minh Đức", "Lập trình Flutter cơ bản" và "ABCxyz123"| Gõ "Nguyễn Minh Đức" sẽ hiển thị tác giả "Nguyễn Minh Đức"; Gõ "Lập trình Flutter cơ bản" hiển thị sách "Lập trình Flutter cơ bản"; Gõ "ABCxyz123" sẽ hiển thị kết quả "Không tìm thấy sách nào"| REQ-3| Black-box Testing|
 
 ---
 
