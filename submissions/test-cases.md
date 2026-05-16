@@ -70,6 +70,7 @@
 <!-- Mỗi TC phải ánh xạ ngược về ít nhất 1 dòng trong bảng IDM ở Bước 1. -->
 
 | Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
+|---|---|---|---|---|---|---|---|
 | 01 | Kiểm tra hoạt động của chức năng đăng nhập | Tài khoản tồn tại trong hệ thống | Tên đăng nhập của người dùng (email) và mật khẩu | Nhập tài khoản, mật khẩu và nhấn đăng nhập | Hệ thống phản hồi đăng nhập thành công hoặc thất bại | REQ-01 | Rule model |
 | | | | | | | | |
 
