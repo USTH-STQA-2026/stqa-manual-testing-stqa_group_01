@@ -71,7 +71,7 @@
 
 | Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
 |---|---|---|---|---|---|---|---|
-| 01 | Kiểm tra hoạt động của chức năng đăng nhập | Tài khoản tồn tại trong hệ thống | Tên đăng nhập của người dùng (email) và mật khẩu | Nhập tài khoản, mật khẩu và nhấn đăng nhập | Hệ thống phản hồi đăng nhập thành công hoặc thất bại | REQ-01 | Black-box testing |
+| 01 | Kiểm tra người dùng đăng nhập thành công với email và mật khẩu hợp lệ | Người dùng đã có tài khoản trong hệ thống và đang ở trang đăng nhập | 1. Nhập email hợp lệ vào ô "Email". 2. Nhập mật khẩu đúng vào ô "Mật khẩu". 3. Nhấn nút "Đăng nhập" | Tên đăng nhập: `ba.nguyen@email.com`, mật khẩu: `password123` | Hệ thống đăng nhập thành công và chuyển sang trang chủ. Hiển thị tên người dùng và vai trò | REQ-01 | Black-box testing, Positive Testing |
 | 02| Kiểm tra tính năng "Tìm kiếm theo tên cuốn sách, tên tác giả"| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang ở trong mục "Sách"| Bước 1. Ấn vào hộp tìm kiếm 2. Gõ "Nguyễn Minh Đức" 3. Kiểm tra kết quả tìm được và xoá phần gõ 4. Gõ "Lập trình Flutter cơ bản" 7. Kiểm tra kết quả tìm được và xoá phần gõ 8. Gõ "ABCxyz123" 9. Kiểm tra kết quả tìm được và xoá phần gõ| "Nguyễn Minh Đức", "Lập trình Flutter cơ bản" và "ABCxyz123"| Gõ "Nguyễn Minh Đức" sẽ hiển thị tác giả "Nguyễn Minh Đức"; Gõ "Lập trình Flutter cơ bản" hiển thị sách "Lập trình Flutter cơ bản"; Gõ "ABCxyz123" sẽ hiển thị kết quả "Không tìm thấy sách nào"| REQ-3| Black-box Testing|
 
 ---
