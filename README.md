@@ -24,7 +24,7 @@ Hệ thống cần kiểm thử: **Quản lý mượn sách Thư viện ABC** �
 |---|------|-----------|---------|
 | 1 | 2411000 | Nguyễn Anh Tuấn | Nhóm trưởng |
 | 2 | 2410473 | Vũ Trần Nam Khánh | Thành viên |
-| 3 | 2410481 | Nguyễn Đăng Khôi| Thành viên |
+| 3 | 2410481 | Nguyễn Đăng Khôi dep trai| Thành viên |
 | 4 | 2410148| Cao Chí Bảo | Thành viên |
 | 5 | 2410003 | Huỳnh Gia An | Thành viên |
 | 6 | 2410255 | Nguyễn Xuân Dương | Thành viên |
