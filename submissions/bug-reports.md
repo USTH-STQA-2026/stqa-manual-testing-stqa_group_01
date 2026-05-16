@@ -6,7 +6,7 @@
 
 | Thông tin | |
 |---|---|
-| **Nhóm** | `<!-- Tên nhóm -->` |
+| **Nhóm** | `STQA_Group_01` |
 | **Ngày báo cáo** | `<!-- DD/MM/YYYY -->` |
 
 ---
