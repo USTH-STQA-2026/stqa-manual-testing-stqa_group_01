@@ -5,10 +5,10 @@
 
 | Thông tin | |
 |---|---|
-| **Nhóm** | `<!-- Tên nhóm -->` |
-| **Ngày thực thi** | `<!-- DD/MM/YYYY -->` |
-| **Trình duyệt** | Chrome `<!-- version -->` |
-| **Hệ điều hành** | `<!-- Windows / macOS / Linux -->` |
+| **Nhóm** | `STQA_Group_01` |
+| **Ngày thực thi** | `16/05/2026` |
+| **Trình duyệt** | Chrome + Firefox |
+| **Hệ điều hành** | Windows + MacOS + Linux |
 
 ---
 
@@ -16,7 +16,7 @@
 
 | Mã TC | Nhóm chức năng | Kết quả mong đợi (tóm tắt) | Kết quả thực tế | Kết luận | Minh chứng | Bug |
 |-------|---------------|---------------------------|-----------------|---------|-----------|----| 
-| | | | | | | |
+|01|Đăng nhập vào hệ thống|Đăng nhập thành công với tài khoản trong hệ thống, thất bại nếu tài khoản không tồn tại|Thành công đăng nhập nếu đúng tài khoản và mật khẩu, thông báo mật khẩu hoặc tài khoản sai nếu thất bại|Chức năng hoạt động bình thường| |Email không theo dạng example@gmail.com vẫn có thể đăng nhập bình thường|
 
 ---
 
