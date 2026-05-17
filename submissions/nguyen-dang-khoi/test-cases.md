@@ -70,9 +70,11 @@
 <!-- Mỗi TC phải ánh xạ ngược về ít nhất 1 dòng trong bảng IDM ở Bước 1. -->
 
 | Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
-|---|---|---|---|---|---|---|---|
-| 01 | Kiểm tra hoạt động của chức năng đăng nhập | Tài khoản tồn tại trong hệ thống | Tên đăng nhập của người dùng (email) và mật khẩu | Nhập tài khoản, mật khẩu và nhấn đăng nhập | Hệ thống phản hồi đăng nhập thành công hoặc thất bại | REQ-01 | Black-box testing |
-| 02| Kiểm tra tính năng "Tìm kiếm theo tên cuốn sách, tên tác giả"| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang ở trong mục "Sách"| Bước 1. Ấn vào hộp tìm kiếm 2. Gõ "Nguyễn Minh Đức" 3. Kiểm tra kết quả tìm được và xoá phần gõ 4. Gõ "Lập trình Flutter cơ bản" 7. Kiểm tra kết quả tìm được và xoá phần gõ 8. Gõ "ABCxyz123" 9. Kiểm tra kết quả tìm được và xoá phần gõ| "Nguyễn Minh Đức", "Lập trình Flutter cơ bản" và "ABCxyz123"| Gõ "Nguyễn Minh Đức" sẽ hiển thị tác giả "Nguyễn Minh Đức"; Gõ "Lập trình Flutter cơ bản" hiển thị sách "Lập trình Flutter cơ bản"; Gõ "ABCxyz123" sẽ hiển thị kết quả "Không tìm thấy sách nào"| REQ-3| Black-box Testing|
+|-------|-------------------|---------------|---------------|-----------------|------------------|-----|--------|
+|TC-01|Tính năng mượn sách|Đăng nhập vào thành viên đang hoạt động|Nhấn vào dấu cộng của những quyển sách đang có sẵn|Nhấn vào dấu cộng|Chuyển sang trạng thái đang mượn|REQ-02|EP|
+|TC-02|Phạm vi mượn sách|Đăng nhập vào thành viên đang hoạt động|Nhấn vào dấu cộng 4 quyển sách đang có sẵn|Nhấn vào dấu cộng 4 quyển sách khác nhau|Không thỏa mãn giới hạn quyển sách được mượn là 3 do vẫn thành công mượn được 4 quyển sách|REQ-02|BVA|
+|TC-03|Tính năng trả sách|Đăng nhập vào thành viên đang hoạt động hoặc thủ thư|Nhấn vào nút trả sách đang mượn đối với thành viên, nhấn nút trả sách khi quá hạn đối với thủ thư|Nhấn trả sách|Hiện "Đã trả"|REQ-02|State Transition|
+|TC-04|Hiển thị thông tin mượn sách|Đăng nhập vào thành viên đang hoạt động hoặc thủ thư|1. Đăng nhập vào tài khoản thành viên đang hoạt động 2. Mượn sách 3. Đăng nhập vào tài khoản thủ thư 4. Kiểm tra sách được mượn|Thành viên mượn sách|Thủ thư thấy sách được mượn|REQ-02|Decision Table|
 
 ---
 
