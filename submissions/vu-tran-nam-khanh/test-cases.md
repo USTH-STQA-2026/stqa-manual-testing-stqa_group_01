@@ -47,19 +47,10 @@
 
 | Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
 |---|---|---|---|---|---|---|---|
-| TC-01 | Kiểm tra tính năng '"Tìm kiếm theo Tên sách, Tên tác giả"' và xử lý khi không có dữ liệu khớp.| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang ở trong mục "Sách"| Bước 1. Nhấp chuột vào thanh tìm kiếm. 
-2. Nhập vào Tên tác giả và xác nhận bộ lọc. 
-
-3. Xóa thanh tìm kiếm, nhập vào Tên sách cụ thể. 
-
-4. Xóa thanh tìm kiếm, nhập vào một chuỗi ký tự không tồn tại.| '"Nguyễn Minh Đức"', '"Lập trình Flutter cơ bản"' và '"ABCxyz123"'| Sau bước 2, sẽ hiển thị cuốn sách với mã 'BOOK001' (Lập trình Flutter cơ bản) và 'BOOK009' (Nhập môn lập trình Python).
-
-Sau bước 3, Hiển thị duy nhất 1 cuốn sách mã 'BOOK001' (Lập trình Flutter cơ bản). 
-
-Sau bước 4 sẽ hiển thị kết quả chuỗi chính xác 'Không tìm thấy sách nào'| REQ-03| EP và Black-box Testing|
-| TC-02 | Kiểm tra tính không phân biệt chữ HOA/thường (Case-Insensitivity) khi tìm kiếm sách.| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang ở trong mục "Sách"| Bước 1. Ấn vào hộp tìm kiếm 2. Gõ "nGuyễn mInh ĐứC" 3. Kiểm tra kết quả tìm đuọc và xoá phần nhập 4. Gõ "lẬp trìnH flUTTer cơ bẢn" 5. Kiểm tra kết quả tìm đuọc| "nGuyễn mInh ĐứC" và "lẬp trìnH flUTTer cơ bẢn"| Sau bước 3, ệ thống lọc và hiển thị chính xác 2 cuốn sách của tác giả: mã BOOK001 (Lập trình Flutter cơ bản) và BOOK009 (Nhập môn lập trình Python). Các sách khác sẽ bị ẩn. Sau bước 6, hệ thống lọc và hiển thị duy nhất 1 cuốn sách: mã BOOK001 (Lập trình Flutter cơ bản).| REQ-03 | EP và Black-box Testing|
-|TC-03|Kiểm tra tính năng lọc danh sách theo thể loại với trường hợp hợp lệ và không hợp lệ.| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang ở trong mục "Sách"|Bước 1. Nhấp chuột vào thanh "Lọc theo thể loại". 2. Nhập chính xác tên một thể loại hợp lệ. 3. Kiểm tra danh sách hiển thị. 4. Xóa bộ lọc thanh thể loại. 5. Nhập vào một thể loại không tồn tại trong hệ thống.|"Công nghệ" và "Khoa học ảo tưởng"|Sau bước 3, Chỉ hiển thị 8 cuốn sách thuộc nhóm "Công nghệ" (Mã sách từ BOOK001, BOOK002, BOOK003, BOOK005, BOOK008, BOOK009, BOOK010, BOOK011). Bất kỳ sách nào thuộc thể loại khác (như Kinh tế, Văn học...) đều bị ẩn khỏi màn hình. Sau bước 5, Toàn bộ danh sách biến mất, hiển thị chuỗi chuỗi chính xác "Không tìm thấy sách nào".|REQ-03|EP và Black-box Testing|
-|TC-04| Kiểm tra tính không phân biệt chữ HOA/thường (Case-Insensitivity) của tính năng lọc theo thể loại.|Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang ở trong mục "Sách"| Bước 1. Nhấp chuột vào ô nhập "Lọc theo thể loại". 2. Nhập tên thể loại viết hoàn toàn bằng chữ thường. 3. Nhấp chuột ra ngoài hoặc nhấn Enter để kích hoạt bộ lọc. 4. Kiểm tra sự thay đổi của danh sách sách hiển thị trên màn hình.|"công nghệ"|Hệ thống nhận diện bộ lọc không phân biệt hoa thường, giữ nguyên hiển thị chính xác 8 cuốn sách thuộc nhóm thể loại "Công nghệ" giống như khi nhập chữ hoa chuẩn (BOOK001 đến BOOK011).|REQ-03| EP và Black-box Testing|
+| TC-01 | Kiểm tra tính năng '"Tìm kiếm theo Tên sách, Tên tác giả"' và xử lý khi không có dữ liệu khớp.| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang hiển thị trong mục 'Sách'| Bước 1. Nhấp chuột vào thanh tìm kiếm. 2. Nhập vào Tên tác giả và xác nhận bộ lọc. 3. Xóa thanh tìm kiếm, nhập vào Tên sách cụ thể. 4. Xóa thanh tìm kiếm, nhập vào một chuỗi ký tự không tồn tại.| '"Nguyễn Minh Đức"', '"Lập trình Flutter cơ bản"' và '"ABCxyz123"'| Sau bước 2, sẽ hiển thị cuốn sách với mã 'BOOK001' (Lập trình Flutter cơ bản) và 'BOOK009' (Nhập môn lập trình Python). Sau bước 3, Hiển thị duy nhất 1 cuốn sách mã 'BOOK001' (Lập trình Flutter cơ bản). Sau bước 4 sẽ hiển thị kết quả chuỗi chính xác 'Không tìm thấy sách nào'| REQ-03| EP và Black-box Testing|
+| TC-02 | Kiểm tra tính không phân biệt chữ HOA/thường (Case-Insensitivity) khi tìm kiếm sách.| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang hiển thị trong mục 'Sách'| Bước 1. Nhấp chuột vào thanh tìm kiếm. 2. Nhập chuỗi dữ liệu đầu vào 1. 3. Kiểm tra danh sách hiển thị. 4. Xóa toàn bộ ký tự trong thanh tìm kiếm. 5. Nhập chuỗi dữ liệu đầu vào 2. 6. Kiểm tra danh sách hiển thị.|1. '"nGuyễn mInh ĐứC"' và 2. '"lẬp trìnH flUTTer cơ bẢn"'| Sau bước 3, hệ thống lọc và hiển thị chính xác 2 cuốn sách của tác giả: mã 'BOOK001' (Lập trình Flutter cơ bản) và 'BOOK009' (Nhập môn lập trình Python), các sách khác sẽ bị ẩn. Sau bước 6, hệ thống lọc và hiển thị duy nhất 1 cuốn sách: mã 'BOOK001' (Lập trình Flutter cơ bản).| REQ-03 | EP và Black-box Testing|
+|TC-03|Kiểm tra tính năng lọc danh sách theo thể loại với trường hợp hợp lệ và không hợp lệ.| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang hiển thị trong mục 'Sách'|Bước 1. Nhấp chuột vào thanh '"Lọc theo thể loại"'. 2. Nhập chính xác tên một thể loại hợp lệ. 3. Kiểm tra danh sách hiển thị. 4. Xóa bộ lọc thanh thể loại. 5. Nhập vào một thể loại không tồn tại trong hệ thống.|"Công nghệ" và "Khoa học ảo tưởng"|Sau bước 3, Chỉ hiển thị 8 cuốn sách thuộc nhóm "Công nghệ" (Mã sách từ 'BOOK001', 'BOOK002', 'BOOK003', 'BOOK005', 'BOOK008', 'BOOK009', 'BOOK010', 'BOOK011'). Bất kỳ sách nào thuộc thể loại khác (như 'Kinh tế', 'Văn học',...) đều bị ẩn khỏi màn hình. Sau bước 5, Toàn bộ danh sách biến mất, hiển thị chuỗi chuỗi chính xác '"Không tìm thấy sách nào"'.|REQ-03|EP và Black-box Testing|
+|TC-04| Kiểm tra tính không phân biệt chữ HOA/thường (Case-Insensitivity) của tính năng lọc theo thể loại.| Đã truy cập được và đã đăng nhập thành công vào hệ thống và đang hiển thị trong mục 'Sách'| Bước 1. Nhấp chuột vào ô nhập '"Lọc theo thể loại"'. 2. Nhập tên thể loại viết hoàn toàn bằng chữ thường. 3. Nhấp chuột ra ngoài hoặc nhấn Enter để kích hoạt bộ lọc. 4. Kiểm tra sự thay đổi của danh sách sách hiển thị trên màn hình.|'"công nghệ"'|Hệ thống nhận diện bộ lọc không phân biệt hoa thường, giữ nguyên hiển thị chính xác 8 cuốn sách thuộc nhóm thể loại '"Công nghệ"' giống như khi nhập chữ hoa chuẩn (Mã sách từ 'BOOK001', 'BOOK002', 'BOOK003', 'BOOK005', 'BOOK008', 'BOOK009', 'BOOK010', 'BOOK011').|REQ-03| EP và Black-box Testing|
 
 ---
 
@@ -68,7 +59,7 @@ Sau bước 4 sẽ hiển thị kết quả chuỗi chính xác 'Không tìm th�
 # TC-01 :
 - Tại sao TC này tốt ?
 
-1. Mã TC rõ ràng: Mã TC-02 được đánh số liên tục trong phân nhóm tính năng.
+1. Mã TC rõ ràng: Mã TC-01 được đánh số liên tục trong phân nhóm tính năng.
 2. REQ cụ thể: Liên kết chặt chẽ đến tài liệu đặc tả REQ-03.
 3. Mục tiêu kiểm thử rõ ràng: Mô tả chính xác việc xác thực khả năng lọc theo cả hai điều kiện (Tên sách/Tên tác giả) trên cùng một thanh tìm kiếm và kiểm tra kịch bản không có dữ liệu.
 4. Tiền điều kiện cụ thể: Đảm bảo hệ thống ở màn hình danh sách mặc định để các phép tìm kiếm kế tiếp không bị ảnh hưởng bởi dữ liệu thừa.
@@ -84,7 +75,7 @@ Sau bước 4 sẽ hiển thị kết quả chuỗi chính xác 'Không tìm th�
 # TC-02 :
 - Tại sao TC này tốt ?
 
-1. Mã TC rõ ràng: Sử dụng mã TC-01 giúp việc theo dõi kết quả thực thi và liên kết đến các bug report sau này trở nên chính xác, dễ dàng.
+1. Mã TC rõ ràng: Sử dụng mã TC-02 giúp việc theo dõi kết quả thực thi và liên kết đến các bug report sau này trở nên chính xác, dễ dàng.
 2. REQ cụ thể: Gắn trực tiếp với mã yêu cầu nghiệp vụ REQ-03 để kiểm soát độ phủ kiểm thử.
 3. Mục tiêu kiểm thử rõ ràng: Nêu rõ mục đích cốt lõi là kiểm tra tính không phân biệt chữ HOA/thường (Case-Insensitivity) của thanh tìm kiếm.
 4. Tiền điều kiện cụ thể: Xác định rõ trạng thái bắt đầu (Thủ thư đăng nhập thành công và màn hình đang ở danh mục "Sách") nhằm đảm bảo môi trường kiểm thử luôn đồng nhất.
@@ -96,7 +87,7 @@ Kỹ thuật được áp dụng
 - Kỹ thuật sử dụng :
 
 1. Black-box Testing: Thao tác hoàn toàn trên giao diện người dùng bằng cách giả lập hành vi nhập văn bản vào hộp tìm kiếm, hoàn toàn không can thiệp hay đọc mã nguồn xử lý chuỗi của framework Flutter Web.
-2. EP (Phân lớp tương đương): Miền dữ liệu đầu vào của thanh tìm kiếm được chia làm các lớp định dạng ký tự: Chữ thường, Chữ HOA, và Chữ hỗn hợp (xen kẽ HOA/thường). TC-01 chọn lớp chữ hỗn hợp để làm giá trị đại diện kiểm thử khả năng chuẩn hóa chuỗi của hệ thống.
+2. EP (Phân lớp tương đương): Miền dữ liệu đầu vào của thanh tìm kiếm được chia làm các lớp định dạng ký tự: Chữ thường, Chữ HOA, và Chữ hỗn hợp (xen kẽ HOA/thường). TC-02 chọn lớp chữ hỗn hợp để làm giá trị đại diện kiểm thử khả năng chuẩn hóa chuỗi của hệ thống.
 
 
 # TC-03 :
