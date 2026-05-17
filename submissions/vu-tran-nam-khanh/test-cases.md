@@ -20,17 +20,6 @@
 > **Trước khi viết Test Case**, nhóm **phải** phân tích miền đầu vào bằng bảng IDM bên dưới.
 > Mỗi chức năng cần xác định: **Đặc tính (Characteristic)**, **Phân vùng (Block/Partition)**, và **Giá trị đại diện (Value)**.
 
-### IDM — Đăng nhập (REQ-01)
-
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
-|---|---|---|---|
-| Email có tồn tại trong DB? | Có | `librarian@library.com` | Đăng nhập thành công |
-| | Không | `noone@email.com` | Thông báo lỗi |
-| Mật khẩu có đúng? | Đúng | `admin123` | Đăng nhập thành công |
-| | Sai | `wrongpass` | Thông báo lỗi |
-| Ô nhập có rỗng? | Không rỗng | (giá trị bất kỳ) | Xử lý bình thường |
-| | Rỗng | `""` | Thông báo "Vui lòng nhập..." |
-
 ### IDM — Tìm kiếm sách (REQ-03)
 
 | Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
@@ -54,12 +43,6 @@
 | Số sách đang mượn? | < 3 (BVA: 0, 1, 2) | MEM006 (0 sách) | Cho phép mượn |
 | | = 3 (BVA: giới hạn) | MEM đã mượn 3 sách | Từ chối, thông báo vượt giới hạn |
 
-### IDM — `<!-- Nhóm tự bổ sung cho REQ-05 đến REQ-08 -->`
-
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
-|---|---|---|---|
-| `<!-- Nhóm tự điền -->` | | | |
-
 > 💡 **Gợi ý kỹ thuật**: Sử dụng **Phân lớp tương đương (EP)** cho các phân vùng rời rạc, **Phân tích giá trị biên (BVA)** cho các phân vùng số (ví dụ: giới hạn 3 sách). Xem textbook §6.1–6.3.
 
 ---
@@ -78,9 +61,20 @@
 
 ---
 
-## Tổng hợp
+## Bước 3: Giải thích các TCs (explanation)
 
-| Nhóm chức năng | Số TC | REQ phủ | Kỹ thuật IDM áp dụng |
-|----------------|-------|---------|----------------------|
-| | | | |
-| **Tổng** | **<!-- ≥ 20 -->** | | |
+# -> Giải thích chi tiết cho TC-01 (Kiểm tra chữ HOA/thường) :
+
+1. Mã TC rõ ràng: Sử dụng mã TC-01 giúp việc theo dõi kết quả thực thi và liên kết đến các bug report sau này trở nên chính xác, dễ dàng.
+2. REQ cụ thể: Gắn trực tiếp với mã yêu cầu nghiệp vụ REQ-03 để kiểm soát độ phủ kiểm thử.
+3. Mục tiêu kiểm thử rõ ràng: Nêu rõ mục đích cốt lõi là kiểm tra tính không phân biệt chữ HOA/thường (Case-Insensitivity) của thanh tìm kiếm.
+4. Tiền điều kiện cụ thể: Xác định rõ trạng thái bắt đầu (Thủ thư đăng nhập thành công và màn hình đang ở danh mục "Sách") nhằm đảm bảo môi trường kiểm thử luôn đồng nhất.
+5. Dữ liệu đầu vào cụ thể: Không viết chung chung là "nhập văn bản bất kỳ", test case chỉ rõ hai chuỗi hoán đổi định dạng chữ phức tạp là "nGuyễn mInh ĐứC" và "lẬp trìnH flUTTer cơ bẢn".
+6. Bước thực hiện chi tiết: Đánh số rõ ràng từ bước 1 đến bước 6; tách biệt rạch ròi các hành động nhập liệu, kiểm tra giao diện, và xóa dữ liệu cũ để tránh nhầm lẫn cho tester.
+7. Kết quả mong đợi kiểm chứng được: Oracle được viết vô cùng mạnh mẽ bằng cách chỉ rõ mã sách phải hiển thị trên màn hình (BOOK001 và BOOK009) thay vì ghi chung chung là "Hệ thống tìm kiếm được".
+Kỹ thuật được áp dụng
+
+# Kỹ thuật sử dụng :
+
+1. Black-box Testing: Thao tác hoàn toàn trên giao diện người dùng bằng cách giả lập hành vi nhập văn bản vào hộp tìm kiếm, hoàn toàn không can thiệp hay đọc mã nguồn xử lý chuỗi của framework Flutter Web.
+2. EP (Phân lớp tương đương): Miền dữ liệu đầu vào của thanh tìm kiếm được chia làm các lớp định dạng ký tự: Chữ thường, Chữ HOA, và Chữ hỗn hợp (xen kẽ HOA/thường). TC-01 chọn lớp chữ hỗn hợp để làm giá trị đại diện kiểm thử khả năng chuẩn hóa chuỗi của hệ thống.
