@@ -78,9 +78,11 @@
 
 ---
 
-## Tổng hợp
+## Tổng hợp trong phạm vi REQ-02
 
 | Nhóm chức năng | Số TC | REQ phủ | Kỹ thuật IDM áp dụng |
 |----------------|-------|---------|----------------------|
-| | | | |
-| **Tổng** | **<!-- ≥ 20 -->** | | |
+|Mượn Sách|2|REQ-02|EP,BVA|
+|Trả Sách|1|REQ-02|State Transition|
+|Hiển thị thông tin mượn sách|1|REQ-02|Decision Table|
+|Tổng|4|1 REQ|EP, BVA, State Transition, Decision Table|
