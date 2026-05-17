@@ -81,7 +81,7 @@
 |---|---|---|---|---|---|---|---|
 | 01 | Trả sách đang mượn | Sách đang ở trạng thái "đang mượn" | 1. Vào mục "Mượn/Trả" 2. Ấn nút "trả sách" của phiếu mượn đang ở trạng thái "đang mượn" 3. Quay lại mục "Sách" và kiểm tra trạng thái sách vừa trả | Thành viên có phiếu mượn ban đầu sách BOOK013 | Sách trở về trạng thái "có sẵn" | REQ-05 | EP |
 | 02 | Hiển thị **cảnh báo quá hạn** | Sách quá hạn đang ở trạng thái "đang mượn" | 1. Vào mục "Mượn/Trả" 2. Ấn nút "trả sách" của phiếu mượn đang ở trạng thái "đang mượn" | Thành viên có phiếu mượn ban đầu sách quá hạn BOOK003 | Hệ thống hiển thị **cảnh báo quá hạn** | REQ-05 | EP |
-| 03 | Kiểm tra trạng thái sách đã trả | Sách đang ở trạng thái "đã trả" | 1. Vào mục "Mượn/Trả" 2. Tìm phiếu mượn đang ở trạng thái "đã trả" 3. Quay lại mục "Sách" và kiểm tra trạng thái sách đã trả | Thành viên có phiếu mượn ban đầu sách đã trả BOOK005 | REQ-05 | EP |
+| 03 | Kiểm tra trạng thái sách đã trả | Sách đang ở trạng thái "đã trả" | 1. Vào mục "Mượn/Trả" 2. Tìm phiếu mượn đang ở trạng thái "đã trả" 3. Quay lại mục "Sách" và kiểm tra trạng thái sách đã trả | Thành viên có phiếu mượn ban đầu sách đã trả BOOK005 | Sách đang ở trạng thái "có sẵn" | REQ-05 | EP |
 
 ---
 
