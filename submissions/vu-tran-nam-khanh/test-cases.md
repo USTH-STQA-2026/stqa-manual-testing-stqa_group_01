@@ -101,7 +101,7 @@ Kỹ thuật được áp dụng
 6. Bước thực hiện chi tiết: Chia nhỏ quy trình kiểm thử thành 5 bước tuần tự hành động rõ ràng; phân định rạch ròi giữa thao tác nhập, xóa bộ lọc cũ, và nhập dữ liệu ngoại lệ để tránh việc tester thực thi sai cách.
 7. Kết quả mong đợi kiểm chứng được: Oracle xác định chính xác sự biến đổi của UI theo từng mốc dữ liệu: yêu cầu hiển thị đúng danh sách 8 mã sách cụ thể từ BOOK001 đến BOOK011 ở bước 3, và bắt buộc xuất hiện chuỗi ký tự chính xác 'No books found.' ở bước 5.
 
-- Kỹ thuật được áp dụng :
+- Kỹ thuật áp dụng :
 
 1. Black-box Testing: Thao tác kiểm thử thuần túy dựa trên các thành phần UI hiển thị đầu vào và đầu ra của hệ thống, hoàn toàn không can thiệp vào mã nguồn lưu trữ mảng dữ liệu (in-memory) của ứng dụng.
 2. EP (Phân lớp tương đương): Miền dữ liệu nhập vào thanh lọc được chia thành 2 phân vùng tương đương: Nhóm các chuỗi ký tự thuộc 6 thể loại quy định trên màn hình (đại diện bởi "Công nghệ") và Nhóm các chuỗi văn bản nằm ngoài danh mục hệ thống hỗ trợ (đại diện bởi "Khoa học giả tưởng").
@@ -117,7 +117,7 @@ Kỹ thuật được áp dụng
 6. Bước thực hiện chi tiết: Các bước thao tác (1 đến 4) mô tả chi tiết cách thức người dùng kích hoạt bộ lọc trên nền tảng Flutter Web bằng cách "Nhấp chuột ra ngoài hoặc nhấn Enter" để đảm bảo tính tái hiện lỗi cao.
 7. Kết quả mong đợi kiểm chứng được: Oracle thiết lập tiêu chuẩn kiểm chứng khách quan: hệ thống bắt buộc phải nhận diện thông minh chuỗi viết thường và hiển thị nguyên vẹn danh sách 8 mã sách thuộc thể loại đó thay vì để danh sách trống và báo lỗi. -> Vì thế, chúng ta ghi nhận kết quả Fail và xuất bản báo cáo lỗi BUG-01.
 
-- Kỹ thuật được áp dụng
+- Kỹ thuật áp dụng
 
 1. Black-box Testing: Tester chỉ đứng từ góc độ người dùng cuối để nhập dữ liệu thô từ bàn phím và đối chiếu sự thay đổi trực quan của các thẻ thành phần trên màn hình giao diện.
 2. EP (Phân lớp tương đương): Phân chia miền định dạng văn bản đầu vào của thanh lọc thể loại thành các khối định dạng ký tự khác nhau. TC-04 sử dụng một giá trị đại diện cho khối "Chữ viết thường hoàn toàn" nhằm kiểm tra toàn vẹn chức năng tự động chuyển đổi định dạng chuỗi của ứng dụng.
