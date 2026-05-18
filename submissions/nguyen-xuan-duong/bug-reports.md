@@ -7,7 +7,7 @@
 | Thông tin | |
 |---|---|
 | **Nhóm** | `STQA_Group_01` |
-| **Ngày báo cáo** | `18/05/2006 -->` |
+| **Ngày báo cáo** | `18/05/2026` |
 
 ---
 
@@ -95,7 +95,8 @@ Cần kiểm tra lại cấu trúc rẽ nhánh logic và bóc tách các mệnh 
 - Vi phạm đến yêu cầu nghiệp vụ.
 
 **Minh chứng:**
-- Mượn được 3 sách : <img width="2008" height="1160" alt="REQ-04_TC-08_07" src="https://github.com/user-attachments/assets/3ad3e644-12b8-4d97-b215-76a48c92b240" />
+- Mượn được 3 sách :
+<img width="2008" height="1160" alt="REQ-04_TC-08_07" src="https://github.com/user-attachments/assets/3ad3e644-12b8-4d97-b215-76a48c92b240" />
 
 - Hệ thống vẫn cho mượn được sách thứ 4:
 
@@ -108,7 +109,7 @@ Cần kiểm tra lại cấu trúc rẽ nhánh logic và bóc tách các mệnh 
 <img width="2008" height="1160" alt="REQ-04_TC-08_11" src="https://github.com/user-attachments/assets/5c2bc594-3184-4755-8c38-d790eff7c7e1" />
 
 **Đề xuất xử lý:**
-- Cần chỉnh sửa điều kiện logic của borrow_count thay vì ≤3 thành <3.
+- Cần chỉnh sửa điều kiện logic của `borrow_count` thay vì ≤3 thành <3.
 
 ---
 
