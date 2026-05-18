@@ -7,7 +7,7 @@
 | Thông tin | |
 |---|---|
 | **Nhóm** | `STQA_Group_01` |
-| **Ngày báo cáo** | `<!-- DD/MM/YYYY -->` |
+| **Ngày báo cáo** | `18/05/2006 -->` |
 
 ---
 
@@ -16,43 +16,44 @@
 | Thuộc tính | Chi tiết |
 |-----------|---------|
 | **Mã lỗi** | BUG-01 |
-| **TC liên quan** | `<!-- TC-xx -->` |
-| **REQ liên quan** | `<!-- REQ-xx -->` |
-| **Mức độ** | `<!-- High / Medium / Low -->` |
-| **Người phát hiện** | `<!-- Họ tên thành viên -->` |
-| **Ngày phát hiện** | `<!-- DD/MM/YYYY -->` |
-| **Trạng thái** | `<!-- Open / Closed -->` |
+| **TC liên quan** | `TC-04` |
+| **REQ liên quan** | `REQ-04` |
+| **Mức độ** | `Medium` |
+| **Người phát hiện** | `Nguyễn Xuân Dương và Vũ Trần Nam Khánh` |
+| **Ngày phát hiện** | `18/05/2026` |
+| **Trạng thái** | `Open` |
 
 **Tiêu đề:**
-`<!-- Mô tả hành vi lỗi cụ thể -->`
+`Hệ thống báo lỗi 'Thành viên hết hạn` thay vì 'Thành viên tạm ngưng' khi mượn sách trong tài khoản thành viên ở trạng thái "Tạm ngưng"`  `
 
 **Môi trường:**
-- Trình duyệt: Chrome `<!-- version -->`
-- Hệ điều hành: `<!-- OS -->`
+- Trình duyệt: Chrome
+- Hệ điều hành: `Windows`
 - Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
-`<!-- VD: Trang đăng nhập đã mở, dữ liệu đã reset -->`
+`Thành viên bị tạm ngưng, sách ở trạng thái "Có sẵn"`
 
 **Bước tái hiện:**
-1. `<!-- Bước 1 -->`
-2. `<!-- Bước 2 -->`
-3. `<!-- Bước 3 -->`
+1. `Đăng nhập vào hệ thống với tài khoản bị tạm ngưng`
+2. `Mượn bất kỳ một sách có sẵn`
+3. `Kiểm tra phản hồi của hệ thống`
 
 **Kết quả mong đợi:**
-`<!-- Kết quả đúng theo SRS -->`
+- Hệ thống báo lỗi `'Thành viên tạm ngưng'`
 
 **Kết quả thực tế:**
-`<!-- Kết quả hệ thống thật sự trả về -->`
+- `Hệ thống báo lỗi: `'Thành viên hết hạn'`
 
 **Tác động:**
-`<!-- VD: Vi phạm quy tắc nghiệp vụ cốt lõi, cho phép mượn vượt giới hạn -->`
+- Gây lỗi sai lệch luồng thông tin, ảnh hưởng đến quá trình quản lý của thủ thư.  
+- Gây lỗi đến sử dụng (UX).
 
 **Minh chứng:**
-`<!-- Đính kèm ảnh chụp màn hình nếu có -->`
+<img width="2008" height="1160" alt="REQ-04_TC-04_01" src="https://github.com/user-attachments/assets/c67c1c48-f7b2-42d5-b973-44dd0965cf9c" />
 
 **Đề xuất xử lý:**
-`<!-- Gợi ý cách sửa lỗi nếu có -->` 
+Cần kiểm tra lại cấu trúc rẽ nhánh logic và bóc tách các mệnh đề kiểm tra điều kiện clauses của trạng thái thành viên.
 
 ---
 
@@ -61,35 +62,53 @@
 | Thuộc tính | Chi tiết |
 |-----------|---------|
 | **Mã lỗi** | BUG-02 |
-| **TC liên quan** | `<!-- TC-xx -->` |
-| **REQ liên quan** | `<!-- REQ-xx -->` |
-| **Mức độ** | `<!-- High / Medium / Low -->` |
-| **Người phát hiện** | `<!-- Họ tên thành viên -->` |
-| **Ngày phát hiện** | `<!-- DD/MM/YYYY -->` |
-| **Trạng thái** | `<!-- Open / Closed -->` |
+| **TC liên quan** | `TC-08` |
+| **REQ liên quan** | `REQ-04` |
+| **Mức độ** | `High` |
+| **Người phát hiện** | `Nguyễn Xuan Dương và Vũ Trần Nam Khánh` |
+| **Ngày phát hiện** | `18/05/2026` |
+| **Trạng thái** | `Open` |
 
 **Tiêu đề:**
-`<!-- Mô tả hành vi lỗi -->`
+`Thành viên mượn đến 4 sách thay vì 3 sách trong hệ thống`
+
+**Môi trường:**
+- Trình duyệt: Chrome
+- Hệ điều hành: `Windows`
+- Ngôn ngữ giao diện: Tiếng Việt
+
+**Điều kiện tiên quyết:**
+`Thành viên hoạt động, sách ở trạng thái "Có sẵn"`
 
 **Bước tái hiện:**
-1. `<!-- -->`
-2. `<!-- -->`
-3. `<!-- -->`
+1. `Đăng nhập vào hệ thống với tài khoản đang hoạt động`
+2. `Mượn 1,2,3,4 sách ở trạng thái "Có sẵn"`
+3. `Kiểm tra kết quả phản hồi của hệ thống`
 
 **Kết quả mong đợi:**
-`<!-- -->`
+`Khi mượn đến sách thứ 4, hệ thống phải báo lỗi đã mượn đủ 3 sách và từ chối nhận thêm sách`
 
 **Kết quả thực tế:**
-`<!-- -->`
+`Hệ thống chấp nhận sách thứ 4 và hệ thống từ chối và báo lỗi ở sách thứ 5.`
 
 **Tác động:**
-`<!-- -->`
+- Vi phạm đến yêu cầu nghiệp vụ.
 
 **Minh chứng:**
-`<!-- -->`
+- Mượn được 3 sách : <img width="2008" height="1160" alt="REQ-04_TC-08_07" src="https://github.com/user-attachments/assets/3ad3e644-12b8-4d97-b215-76a48c92b240" />
+
+- Hệ thống vẫn cho mượn được sách thứ 4:
+
+<img width="2008" height="1160" alt="REQ-04_TC-08_09" src="https://github.com/user-attachments/assets/74370bd9-6da7-460e-bdd6-aabb54b48e41" />
+
+<img width="2008" height="1160" alt="REQ-04_TC-08_10" src="https://github.com/user-attachments/assets/afad257d-63c4-4d35-9e5c-3cfa9a4c1be9" />
+
+- Và hệ thống báo lỗi khi mượn sách thứ 5:
+
+<img width="2008" height="1160" alt="REQ-04_TC-08_11" src="https://github.com/user-attachments/assets/5c2bc594-3184-4755-8c38-d790eff7c7e1" />
 
 **Đề xuất xử lý:**
-`<!-- -->`
+- Cần chỉnh sửa điều kiện logic của borrow_count thay vì ≤3 thành <3.
 
 ---
 
