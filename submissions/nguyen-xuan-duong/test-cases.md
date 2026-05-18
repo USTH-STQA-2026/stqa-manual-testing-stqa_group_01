@@ -82,6 +82,13 @@
 | 01 | Trả sách đang mượn | Sách đang ở trạng thái "đang mượn" | 1. Vào mục "Mượn/Trả" 2. Ấn nút "trả sách" của phiếu mượn đang ở trạng thái "đang mượn" 3. Quay lại mục "Sách" và kiểm tra trạng thái sách vừa trả | Thành viên có phiếu mượn ban đầu sách BOOK013 | Sách trở về trạng thái "có sẵn" | REQ-05 | EP |
 | 02 | Hiển thị **cảnh báo quá hạn** | Sách quá hạn đang ở trạng thái "đang mượn" | 1. Vào mục "Mượn/Trả" 2. Ấn nút "trả sách" của phiếu mượn đang ở trạng thái "đang mượn" | Thành viên có phiếu mượn ban đầu sách quá hạn BOOK003 | Hệ thống hiển thị **cảnh báo quá hạn** | REQ-05 | EP |
 | 03 | Kiểm tra trạng thái sách đã trả | Sách đang ở trạng thái "đã trả" | 1. Vào mục "Mượn/Trả" 2. Tìm phiếu mượn đang ở trạng thái "đã trả" 3. Quay lại mục "Sách" và kiểm tra trạng thái sách đã trả | Thành viên có phiếu mượn ban đầu sách đã trả BOOK005 | Sách đang ở trạng thái "có sẵn" | REQ-05 | EP |
+|---|---|---|---|---|---|---|---|
+| 04 | Kiểm tra thành viên bị tạm ngưng | Thành viên bị tạm ngưng, sách ở trạng thái "Có sẵn" | 1. Đăng nhập vào hệ thống với tài khoản bị tạm ngưng 2. Mượn bất kỳ một sách có sẵn | Tài khoản tạm ngưng (MEM004) | Thành viên không được mượn sách và hiển thị đúng lí do từ chối | REQ-04 | EP |
+| 05 | Kiểm tra thành viên bị hết hạn | Thành viên bị hết hạn, sách ở trạng thái "Có sẵn" | 1. Đăng nhập vào hệ thống với tài khoản bị hết hạn 2. Mượn bất kỳ một sách có sẵn | Tài khoản hết hạn (MEM005) | Thành viên không được mượn sách và hiển thị đúng lí do từ chối | REQ-04 | EP |
+| 06 | Kiểm tra thành viên đang hoạt động | Thành viên hoạt động, sách ở trạng thái "Có sẵn" | 1. Đăng nhập vào hệ thống với tài khoản đang hoạt đọng 2. Mượn bất kỳ một sách có sẵn | Tài khoản hoạt động (MEM006) | Thành viên được mượn sách và hiển thị mượn sách thành công | REQ-04 | EP |
+| 07 | Mượn sách đã được mượn | Thành viên hoạt động, sách ở trạng thái "Đang mượn" | 1. Đăng nhập vào hệ thống với tài khoản đang hoạt động 2. Tìm sách ở trạng thái "đang mượn" và cố thử mượn | Tài khoản hoạt động (MEM006) |Thành viên không được mượn sách | REQ-04 | EP |
+| 08 | Mượn sách quá giới hạn | Thành viên hoạt dộng, sách ở trạng thái "Có sẵn" | 1. Đăng nhập vào hệ thống với tài khoản đang hoạt động 2. Mượn 1,2,3,4 sách ở trạng thái "Có sẵn" | Tài khoản hoạt động (MEM006) | Thành viên bị từ chối mượn thêm sách nếu quá giới hạn và báo lí do từ chối | REQ-04 | EP, BVA | 
+| 09 | Mượn sách thành công | Thành viên hoạt động, sách ở trạng thái "Có sẵn", mượn số sách dưới giới hạn | 1. Đăng nhập vào hệ thống với tài khoản đang hoạt động 2. Mượn 1/2/3 sách ở trạng thái "Có sẵn" | Tài khoản hoạt động (MEM006) | Thành viên mượn sách thành công và thời hạn là 14 ngày kể từ ngày mượn | REQ-04 | EP, Decision Table |
 
 ---
 
