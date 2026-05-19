@@ -29,7 +29,7 @@
 
 | Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
 |-------|-------------------|---------------|---------------|-----------------|------------------|-----|--------|
-|TC-01|Tính năng mượn sách|Đăng nhập vào thành viên đang hoạt động|Nhấn vào dấu cộng của những quyển sách đang có sẵn|Nhấn vào dấu cộng|Chuyển sang trạng thái đang mượn|REQ-02|EP|
+|TC-01|Tính năng mượn sách|Đăng nhập vào thành viên đang hoạt động|Nhấn vào dấu cộng của những quyển sách đang có sẵn|Nhấn vào dấu cộng của từng quyển sách|Chuyển sang trạng thái đang mượn|REQ-02|EP|
 |TC-02|Phạm vi mượn sách|Đăng nhập vào thành viên đang hoạt động|Nhấn vào dấu cộng 4 quyển sách đang có sẵn|Nhấn vào dấu cộng 4 quyển sách khác nhau|Không thỏa mãn giới hạn quyển sách được mượn là 3 do vẫn thành công mượn được 4 quyển sách|REQ-02|BVA|
 |TC-03|Tính năng trả sách|Đăng nhập vào thành viên đang hoạt động hoặc thủ thư|Nhấn vào nút trả sách đang mượn đối với thành viên, nhấn nút trả sách khi quá hạn đối với thủ thư|Nhấn trả sách|Hiện "Đã trả"|REQ-02|State Transition|
 |TC-04|Hiển thị thông tin mượn sách|Đăng nhập vào thành viên đang hoạt động hoặc thủ thư|1. Đăng nhập vào tài khoản thành viên đang hoạt động <br> 2. Mượn sách <br> 3. Đăng nhập vào tài khoản thủ thư <br> 4. Kiểm tra sách được mượn|Thành viên mượn sách|Thủ thư thấy sách được mượn|REQ-02|Decision Table|
