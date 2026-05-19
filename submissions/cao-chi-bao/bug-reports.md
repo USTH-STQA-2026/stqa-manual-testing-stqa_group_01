@@ -89,7 +89,7 @@
 ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC05.png)
 
 **Đề xuất xử lý:**
-`Nhanh chóng kiểm tra lại logic trong phần code của mục "Thêm thành viên"`
+`Nhanh chóng kiểm tra lại logic API trong phần code của mục "Thêm thành viên" để hệ thống chấp nhận thông tin đúng và lưu thành viên thành công`
 
 ---
 
