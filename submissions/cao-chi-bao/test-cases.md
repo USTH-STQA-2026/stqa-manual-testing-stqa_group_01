@@ -75,6 +75,7 @@
 | TC_REQ07_2 | Kiểm tra khi thiếu mục "Họ và tên" thì hệ thống có báo lỗi không | Đã đăng nhập tài khoản Thủ thư, đang ở form Thêm thành viên. |Nhập email và SĐT hợp lệ, bỏ trống Họ và tên. Nhấn nút "Thêm". | Email: noname@email.com, SĐT: 0123456791 |Hệ thống từ chối tạo tài khoản và hiển thị thông báo lỗi thiếu Họ và tên. | REQ-07 | Decision Table (thiếu tên)|
 | TC_REQ07_3 | Kiểm tra hệ thống có chặn email thiếu @ không | Đã đăng nhập tài khoản Thủ thư, đang ở form Thêm thành viên. |Nhập Họ tên và SĐT hợp lệ. Nhập email có dấu "." nhưng thiếu "@". Nhấn nút "Thêm". | Họ tên: Vũ Hải, Email: haivuemail.com, SĐT: 0133456798 |Hệ thống từ chối tạo tài khoản và hiển thị thông báo lỗi định dạng email không hợp lệ. | REQ-07 | EP / BVA |
 | TC_REQ07_4 | Kiểm tra hệ thống có chặn email thiếu dấu . ở domain hay không | Đã đăng nhập tài khoản Thủ thư, đang ở form Thêm thành viên. |Nhập Họ tên và SĐT hợp lệ. Nhập email có "@" nhưng thiếu dấu "." ở sau đó. Nhấn nút "Thêm". | Họ tên: Trần Đạt, Email: trandat@emailcom, SĐT: 0123456798 |Hệ thống từ chối tạo tài khoản và hiển thị thông báo lỗi định dạng email không hợp lệ. | REQ-07 | EP / BVA |
+| TC_REQ07_5 | Kiểm tra hoạt động bình thường của tính năng | Đã đăng nhập tài khoản Thủ thư, đang ở form Thêm thành viên. |Nhập Họ tên, Email và SĐT. Nhấn nút "Thêm". | Họ tên: Lê Gít, Email: legit@email.com, SĐT: 0234567891 |Hệ thống thêm thành viên thành công. | REQ-07 | EP |
 
 ---
 
