@@ -37,13 +37,13 @@
 **Bước tái hiện:**
 1. `Truy cập hệ thống mượn sách https://stqa.rbc.vn/ và đăng nhập vào tài khoản thủ thư`
 2. `Click icon "Thêm thành viên" ở góc phải`
-3. 
+3. `Nhập thông tin đầy đủ về Họ và tên và SĐT cùng email thiếu "@"`
 
 **Kết quả mong đợi:**
-`<!-- Kết quả đúng theo SRS -->`
+`Hệ thống báo lỗi do email sai cú pháp`
 
 **Kết quả thực tế:**
-`<!-- Kết quả hệ thống thật sự trả về -->`
+`Thêm thành viên thành công`
 
 **Tác động:**
 `<!-- VD: Vi phạm quy tắc nghiệp vụ cốt lõi, cho phép mượn vượt giới hạn -->`
@@ -61,32 +61,32 @@
 | Thuộc tính | Chi tiết |
 |-----------|---------|
 | **Mã lỗi** | BUG-02 |
-| **TC liên quan** | `<!-- TC-xx -->` |
-| **REQ liên quan** | `<!-- REQ-xx -->` |
-| **Mức độ** | `<!-- High / Medium / Low -->` |
-| **Người phát hiện** | `<!-- Họ tên thành viên -->` |
-| **Ngày phát hiện** | `<!-- DD/MM/YYYY -->` |
-| **Trạng thái** | `<!-- Open / Closed -->` |
+| **TC liên quan** | `TC-05` |
+| **REQ liên quan** | `REQ-07` |
+| **Mức độ** | `High` |
+| **Người phát hiện** | `Cao Chí Bảo` |
+| **Ngày phát hiện** | `19/05/2026` |
+| **Trạng thái** | `Open` |
 
 **Tiêu đề:**
-`<!-- Mô tả hành vi lỗi -->`
+`Hệ thống không cho phép thêm thành viên với thông tin đầy đủ và hợp lệ`
 
 **Bước tái hiện:**
-1. `<!-- -->`
-2. `<!-- -->`
-3. `<!-- -->`
+1. `Truy cập hệ thống mượn sách https://stqa.rbc.vn/ và đăng nhập vào tài khoản thủ thư`
+2. `Click icon "Thêm thành viên" ở góc phải`
+3. `Nhập các thông tin đầy đủ và đúng cú pháp`
 
 **Kết quả mong đợi:**
-`<!-- -->`
+`Hệ thống báo thêm thành viên thành công`
 
 **Kết quả thực tế:**
-`<!-- -->`
+`Hệ thống báo email không hợp lệ`
 
 **Tác động:**
 `<!-- -->`
 
 **Minh chứng:**
-`<!-- -->`
+![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/)
 
 **Đề xuất xử lý:**
 `<!-- -->`
