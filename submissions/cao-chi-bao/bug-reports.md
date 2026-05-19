@@ -46,13 +46,13 @@
 `Thêm thành viên thành công`
 
 **Tác động:**
-`<!-- VD: Vi phạm quy tắc nghiệp vụ cốt lõi, cho phép mượn vượt giới hạn -->`
+`Hệ thống bị lưu dữ liệu sai, gây lỗi khi gửi email thông báo mượn/trả sách sau này.`
 
 **Minh chứng:**
-`<!-- Đính kèm ảnh chụp màn hình nếu có -->`
+![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC04.png)
 
 **Đề xuất xử lý:**
-`<!-- Gợi ý cách sửa lỗi nếu có -->` 
+`Bổ sung/ kiểm tra lại hàm kiểm tra định dạng để chặn và báo lỗi ngay tại ô Email.` 
 
 ---
 
