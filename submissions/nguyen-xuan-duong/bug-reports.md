@@ -24,7 +24,7 @@
 | **Trạng thái** | `Open` |
 
 **Tiêu đề:**
-`Hệ thống báo lỗi 'Thành viên hết hạn` thay vì 'Thành viên tạm ngưng' khi mượn sách trong tài khoản thành viên ở trạng thái "Tạm ngưng"`  `
+Hệ thống báo lỗi 'Thành viên hết hạn' thay vì 'Thành viên tạm ngưng' khi mượn sách trong tài khoản thành viên ở trạng thái "Tạm ngưng"
 
 **Môi trường:**
 - Trình duyệt: Chrome
@@ -43,7 +43,7 @@
 - Hệ thống báo lỗi `'Thành viên tạm ngưng'`
 
 **Kết quả thực tế:**
-- `Hệ thống báo lỗi: `'Thành viên hết hạn'`
+- Hệ thống báo lỗi: `'Thành viên hết hạn'`
 
 **Tác động:**
 - Gây lỗi sai lệch luồng thông tin, ảnh hưởng đến quá trình quản lý của thủ thư.  
@@ -70,7 +70,7 @@ Cần kiểm tra lại cấu trúc rẽ nhánh logic và bóc tách các mệnh 
 | **Trạng thái** | `Open` |
 
 **Tiêu đề:**
-`Thành viên mượn đến 4 sách thay vì 3 sách trong hệ thống`
+Thành viên mượn đến 4 sách thay vì 3 sách trong hệ thống
 
 **Môi trường:**
 - Trình duyệt: Chrome
@@ -109,8 +109,54 @@ Cần kiểm tra lại cấu trúc rẽ nhánh logic và bóc tách các mệnh 
 <img width="2008" height="1160" alt="REQ-04_TC-08_11" src="https://github.com/user-attachments/assets/5c2bc594-3184-4755-8c38-d790eff7c7e1" />
 
 **Đề xuất xử lý:**
-- Cần chỉnh sửa điều kiện logic của `borrow_count` thay vì ≤3 thành <3.
+Cần chỉnh sửa điều kiện logic của `borrow_count` thay vì ≤3 thành <3.
 
 ---
+
+## BUG-03
+
+| Thuộc tính | Chi tiết |
+|-----------|---------|
+| **Mã lỗi** | BUG-03 |
+| **TC liên quan** | `TC-02` |
+| **REQ liên quan** | `REQ-05` |
+| **Mức độ** | `Medium` |
+| **Người phát hiện** | `Nguyễn Xuan Dương` |
+| **Ngày phát hiện** | `18/05/2026` |
+| **Trạng thái** | `Open` |
+
+**Tiêu đề:**
+Hệ thống không hiển thị **cảnh báo quá hạn** khi trả sách quá hạn
+
+**Môi trường:**
+- Trình duyệt: Firefox
+- Hệ điều hành: `Windows`
+- Ngôn ngữ giao diện: Tiếng Việt
+
+**Điều kiện tiên quyết:**
+`Thành viên có phiếu mượn ban đầu ở trạng thái "Đang mượn" và quá hạn, sách quá hạn ở trạng thái "Đang mượn"`
+
+**Bước tái hiện:**
+1. `Vào mục "Mượn/Trả`
+2. `Ấn nút "Trả sách" ở phiếu mượn của sách quá hạn đang ở đang ở trạng thái "Đang mượn"`
+3. `Kiểm tra thông báo của hệ thống`
+
+**Kết quả mong đợi:**
+`Hệ thống hiển thị cảnh báo quá hạn`
+
+**Kết quả thực tế:**
+`Hệ thống chỉ hiển thị mỗi thông báo trả sách thành công`
+
+**Tác động:**
+- Vi phạm đến yêu cầu nghiệp vụ BO-02.
+- Vi phạm đến yêu phần mêm REQ-05.
+
+**Minh chứng**
+
+https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-05_baoquahan.png?raw=true
+
+**Đề xuất xử lý:**
+Kiểm tra cảnh báo quá hạn đã được viết chưa và kiểm tra điều kiện hiển thị cảnh báo đúng chưa 
+
 
 <!-- Copy template BUG trên để thêm BUG-03, BUG-04, ... cho mỗi TC Fail -->
