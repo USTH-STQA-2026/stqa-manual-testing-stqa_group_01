@@ -20,7 +20,7 @@
 |02|Thêm thành viên đầy đủ Họ và tên| Hệ thống báo lỗi do thiếu thông tin Họ và tên | Hệ thống phản hồi "Họ tên không được để trống"|Chức năng hoạt động bình thường|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC02.png)|---|
 |03|Kiểm tra khả năng check cú pháp email| Hệ thống báo lỗi do email thiếu "@"| Hệ thống phản hồi "Email không hợp lệ"|Chức năng hoạt động bình thường|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC03.png)|---|
 |04|Kiểm tra khả năng check cú pháp email| Hệ thống báo lỗi do email thiếu dấu "."| Thêm thành công thành viên mới dù email không hợp lệ|Chức năng không hoạt động|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC04.png)|email không hợp lệ vẫn được thêm thành công|
-|05|Kiểm tra hoạt động cơ bản của tính năng Thêm thành viên| Hệ thống thêm thành viên thành công| Hệ thống báo email không hợp lệ|Chức năng không hoạt động|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC05.png)|Không thể thêm thành viên dù không mắc lỗi khi nhập thông tin|
+|05|Kiểm tra hoạt động cơ bản của tính năng Thêm thành viên| Hệ thống thêm thành viên thành công| Hệ thống báo email không hợp lệ|Chức năng không hoạt động|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC04.png)|Không thể thêm thành viên dù không mắc lỗi khi nhập thông tin|
 
 
 ---
