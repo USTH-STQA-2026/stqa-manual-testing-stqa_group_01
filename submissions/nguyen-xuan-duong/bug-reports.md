@@ -153,7 +153,7 @@ Hệ thống không hiển thị **cảnh báo quá hạn** khi trả sách quá
 
 **Minh chứng**
 
-<img width="1918" height="800" alt="REQ-05_sachcosan" src="https://github.com/user-attachments/assets/fa5be162-c5ed-40f5-9821-415b5cdb812a" />
+<img width="1912" height="815" alt="REQ-05_baoquahan" src="https://github.com/user-attachments/assets/cbce76bc-3f7f-4c07-92a3-250f8b8cd726" />
 
 **Đề xuất xử lý:**
 Kiểm tra cảnh báo quá hạn đã được viết chưa và kiểm tra điều kiện hiển thị cảnh báo đúng chưa 
