@@ -71,9 +71,7 @@
 
 | Mã TC | Mục tiêu kiểm thử | Tiền điều kiện | Bước thực hiện | Dữ liệu đầu vào | Kết quả mong đợi | REQ | Kỹ thuật |
 |---|---|---|---|---|---|---|---|
-| 01 | Kiểm tra hoạt động của chức năng đăng nhập | Tài khoản tồn tại trong hệ thống | Tên đăng nhập của người dùng (email) và mật khẩu | Nhập tài khoản, mật khẩu và nhấn đăng nhập | Hệ thống phản hồi đăng nhập thành công hoặc thất bại | REQ-01 | Black-box testing |
-
-|  TC_REQ07_01 | Kiểm tra quyền thêm thành viên của tài khoản không phải thủ thư | Đã đăng nhập tài khoản thành viên | iểm tra sự xuất hiện của icon "Thành viên" trên góc phải | Login: ba.nguyen@email.com, password: password123  | Icon "Thêm thành viên" không xuất hiện | REQ-07 | Decision Table (Phân quyền) |
+| TC_REQ07_01 | Kiểm tra hoạt động của chức năng đăng nhập | Tài khoản tồn tại trong hệ thống | Tên đăng nhập của người dùng (email) và mật khẩu | Nhập tài khoản, mật khẩu và nhấn đăng nhập | Hệ thống phản hồi đăng nhập thành công hoặc thất bại | REQ-01 | Black-box testing |
 
 | TC_REQ07_01 | Kiểm tra quyền thêm thành viên của tài khoản không phải thủ thư | Đã đăng nhập tài khoản thành viên | Kiểm tra sự xuất hiện của icon "Thành viên" trên góc phải | Login: ba.nguyen@email.com, password: password123 | Icon "Thêm thành viên" không xuất hiện| REQ-07 | Decision Table (Phân quyền)|
 
