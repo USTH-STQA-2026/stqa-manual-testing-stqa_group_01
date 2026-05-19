@@ -84,5 +84,5 @@
 
 | Nhóm chức năng | Số TC | REQ phủ | Kỹ thuật IDM áp dụng |
 |----------------|-------|---------|----------------------|
-|Thêm thành viên| |1 REQ|EP, BVA, Decision Table|
-|Tổng| |1 REQ|EP, BVA, Decision Table|
+|Thêm thành viên| ||EP, BVA, Decision Table|
+|Tổng| ||EP, BVA, Decision Table|
