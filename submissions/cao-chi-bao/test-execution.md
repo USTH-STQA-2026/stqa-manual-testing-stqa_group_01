@@ -17,7 +17,7 @@
 | Mã TC | Nhóm chức năng | Kết quả mong đợi (tóm tắt) | Kết quả thực tế | Kết luận | Minh chứng | Bug |
 |-------|---------------|---------------------------|-----------------|---------|-----------|----| 
 |01|Độc quyền Thêm thành viên (của thủ thư)|Icon "Thêm thành viên" không xuất hiện|Icon "Thêm thành viên không xuất hiện trên tài khoản người mượn sách|Chức năng hoạt động bình thường|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC01.png)| --- |
-|01|Thêm thành viên đầy đủ Họ và tên| Hệ thống báo lỗi do thiếu thông tin Họ và tên | Hệ thống phản hồi "Họ tên không được để trống|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC02.png)| --- |
+|01|Thêm thành viên đầy đủ Họ và tên| Hệ thống báo lỗi do thiếu thông tin Họ và tên | Hệ thống phản hồi "Họ tên không được để trống|chức năng hoạt động bình thường|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC02.png)| --- |
 
 
 ---
