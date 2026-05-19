@@ -79,8 +79,9 @@
 ---
 
 ## Tổng hợp
+## Tổng hợp trong phạm vi REQ-02
 
 | Nhóm chức năng | Số TC | REQ phủ | Kỹ thuật IDM áp dụng |
-|Thêm thành viên mới|04|REQ-07|EP, BVA|
-| | | | |
-| **Tổng** | **<!-- ≥ 20 -->** | | |
+|----------------|-------|---------|----------------------|
+|Thêm thành viên|4|1 REQ|EP, BVA, Decision Table|
+|Tổng|4|1 REQ|EP, BVA, Decision Table|
