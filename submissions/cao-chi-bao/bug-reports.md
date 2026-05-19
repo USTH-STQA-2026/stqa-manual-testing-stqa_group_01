@@ -16,28 +16,28 @@
 | Thuộc tính | Chi tiết |
 |-----------|---------|
 | **Mã lỗi** | BUG-01 |
-| **TC liên quan** | `<!-- TC-xx -->` |
-| **REQ liên quan** | `<!-- REQ-xx -->` |
-| **Mức độ** | `<!-- High / Medium / Low -->` |
-| **Người phát hiện** | `<!-- Họ tên thành viên -->` |
-| **Ngày phát hiện** | `<!-- DD/MM/YYYY -->` |
-| **Trạng thái** | `<!-- Open / Closed -->` |
+| **TC liên quan** | `TC-04` |
+| **REQ liên quan** | `REQ-07` |
+| **Mức độ** | `Medium` |
+| **Người phát hiện** | `Cao Chí Bảo` |
+| **Ngày phát hiện** | `19/05/2026` |
+| **Trạng thái** | `Open` |
 
 **Tiêu đề:**
-`<!-- Mô tả hành vi lỗi cụ thể -->`
+`Hệ thống chấp nhận email sai format khi thêm thành viên`
 
 **Môi trường:**
-- Trình duyệt: Chrome `<!-- version -->`
-- Hệ điều hành: `<!-- OS -->`
+- Trình duyệt: Chrome `148`
+- Hệ điều hành: `Windows 11`
 - Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
-`<!-- VD: Trang đăng nhập đã mở, dữ liệu đã reset -->`
+`Đăng nhập tài khoản thủ thư, truy cập chức năng thêm thành viên`
 
 **Bước tái hiện:**
-1. `<!-- Bước 1 -->`
-2. `<!-- Bước 2 -->`
-3. `<!-- Bước 3 -->`
+1. `Truy cập hệ thống mượn sách https://stqa.rbc.vn/ và đăng nhập vào tài khoản thủ thư`
+2. `Click icon "Thêm thành viên" ở góc phải`
+3. 
 
 **Kết quả mong đợi:**
 `<!-- Kết quả đúng theo SRS -->`
