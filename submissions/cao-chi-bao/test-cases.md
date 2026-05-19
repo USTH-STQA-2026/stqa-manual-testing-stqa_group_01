@@ -73,6 +73,7 @@
 |---|---|---|---|---|---|---|---|
 | TC_REQ07_01 | Kiểm tra quyền thêm thành viên của tài khoản không phải thủ thư | Đã đăng nhập tài khoản thành viên | Kiểm tra sự xuất hiện của icon "Thành viên" trên góc phải | Login: ba.nguyen@email.com, password: password123 | Icon "Thêm thành viên" không xuất hiện | REQ-07 | Decision Table (Phân quyền) |
 | TC_REQ07_2 | Kiểm tra hệ thống có chặn email thiếu dấu . ở domain hay không | Đã đăng nhập tài khoản Thủ thư, đang ở form Thêm thành viên. |Nhập Họ tên và SĐT hợp lệ. Nhập email có @ nhưng thiếu dấu . ở sau đó. Nhấn nút "Thêm". | Họ tên: Trần Đạt, Email: trandat@emailcom, SĐT: 0123456798 |Hệ thống từ chối tạo tài khoản và hiển thị thông báo lỗi định dạng email không hợp lệ. | REQ-07 | EP / BVA |
+| TC_REQ07_3 | Kiểm tra hệ thống có chặn email thiếu @ không | Đã đăng nhập tài khoản Thủ thư, đang ở form Thêm thành viên. |Nhập Họ tên và SĐT hợp lệ. Nhập email có dấu. nhưng thiếu @. Nhấn nút "Thêm". | Họ tên: Vũ Hải, Email: haivuemail.com, SĐT: 0133456798 |Hệ thống từ chối tạo tài khoản và hiển thị thông báo lỗi định dạng email không hợp lệ. | REQ-07 | EP / BVA |
 
 ---
 
