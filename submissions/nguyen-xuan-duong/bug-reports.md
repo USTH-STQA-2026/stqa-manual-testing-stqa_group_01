@@ -149,11 +149,11 @@ Hệ thống không hiển thị **cảnh báo quá hạn** khi trả sách quá
 
 **Tác động:**
 - Vi phạm đến yêu cầu nghiệp vụ BO-02.
-- Vi phạm đến yêu phần mêm REQ-05.
+- Vi phạm đến yêu phần mềm REQ-05.
 
 **Minh chứng**
 
-https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-05_baoquahan.png?raw=true
+<img width="1918" height="800" alt="REQ-05_sachcosan" src="https://github.com/user-attachments/assets/fa5be162-c5ed-40f5-9821-415b5cdb812a" />
 
 **Đề xuất xử lý:**
 Kiểm tra cảnh báo quá hạn đã được viết chưa và kiểm tra điều kiện hiển thị cảnh báo đúng chưa 
