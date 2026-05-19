@@ -49,6 +49,7 @@
 `Hệ thống bị lưu dữ liệu sai, gây lỗi khi gửi email thông báo mượn/trả sách sau này.`
 
 **Minh chứng:**
+
 ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC04.png)
 
 **Đề xuất xử lý:**
