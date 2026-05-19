@@ -7,7 +7,7 @@
 | Thông tin | |
 |---|---|
 | **Nhóm** | `STQA_Group_01` |
-| **Ngày báo cáo** | `<!-- DD/MM/YYYY -->` |
+| **Ngày báo cáo** | `19/05/2026` |
 
 ---
 
