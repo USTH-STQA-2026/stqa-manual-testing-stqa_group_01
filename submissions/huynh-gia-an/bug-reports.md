@@ -11,85 +11,51 @@
 
 ---
 
-## BUG-01
+BUG-An
 
-| Thuộc tính | Chi tiết |
+| Attribute | Details |
 |-----------|---------|
-| **Mã lỗi** | BUG-01 |
-| **TC liên quan** | `<!-- TC-xx -->` |
-| **REQ liên quan** | `<!-- REQ-xx -->` |
-| **Mức độ** | `<!-- High / Medium / Low -->` |
-| **Người phát hiện** | `<!-- Họ tên thành viên -->` |
-| **Ngày phát hiện** | `<!-- DD/MM/YYYY -->` |
-| **Trạng thái** | `<!-- Open / Closed -->` |
+| **Bug ID** | BUG-02 |
+| **Related TC** | An10|
+| **Related REQ** | REQ-08 |
+| **Severity** | High |
+| **Discovered by** | Huynh Gia An|
+| **Date discovered** | 20/05/2026 |
+| **Status** | Open |
 
-**Tiêu đề:**
-`<!-- Mô tả hành vi lỗi cụ thể -->`
+**Title:**
+Member can view another member's private borrow records by entering their Member ID in the "Tra cứu phiếu mượn" lookup field
 
-**Môi trường:**
-- Trình duyệt: Chrome `<!-- version -->`
-- Hệ điều hành: `<!-- OS -->`
-- Ngôn ngữ giao diện: Tiếng Việt
+**Environment:**
+- Browser: Chrome (latest version)
+- Operating System: Windows / MacOS / Linux
+- Interface language: Vietnamese (default)
 
-**Điều kiện tiên quyết:**
-`<!-- VD: Trang đăng nhập đã mở, dữ liệu đã reset -->`
+**Preconditions:**
+- System is at initial seed data state
+- Logged in as Member MEM002 (`ba.nguyen@email.com` / `password123`)
 
-**Bước tái hiện:**
-1. `<!-- Bước 1 -->`
-2. `<!-- Bước 2 -->`
-3. `<!-- Bước 3 -->`
+**Steps to Reproduce:**
+1. Log in as Member MEM002 (`ba.nguyen@email.com` / `password123`)
+2. Navigate to the **"Mượn / Trả"** tab
+3. Locate the **"Tra cứu phiếu mượn"** (borrow record lookup) search field
+4. Enter `MEM006` (the Member ID belonging to `biet.hoang@email.com`) into the search field
+5. Observe the records returned
 
-**Kết quả mong đợi:**
-`<!-- Kết quả đúng theo SRS -->`
+**Expected Result:**
+The system returns **no records** or displays an access-denied / unauthorized message. MEM002 must not be able to view BR003 (Quản trị nhân sự hiện đại — belonging to MEM006). *(SRS REQ-08: "Member can only view their own borrow records. NOT allowed to view records of other members.")*
 
-**Kết quả thực tế:**
-`<!-- Kết quả hệ thống thật sự trả về -->`
+**Actual Result:**
+BR003 (**Quản trị nhân sự hiện đại**, borrowed by `biet.hoang` / MEM006, due 15/10/2024, status "Đang mượn") is **fully displayed** to MEM002 — including book title, borrow date, due date, and status.
 
-**Tác động:**
-`<!-- VD: Vi phạm quy tắc nghiệp vụ cốt lõi, cho phép mượn vượt giới hạn -->`
+**Impact:**
+Serious privacy and access control violation. Any Member can freely look up and read another member's borrowing history simply by knowing (or guessing) their Member ID. In a real-world deployment, this would constitute a data protection breach.
 
-**Minh chứng:**
-`<!-- Đính kèm ảnh chụp màn hình nếu có -->`
+**Evidence:**
+![AltText](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/An10.png)
 
-**Đề xuất xử lý:**
-`<!-- Gợi ý cách sửa lỗi nếu có -->` 
-
----
-
-## BUG-02
-
-| Thuộc tính | Chi tiết |
-|-----------|---------|
-| **Mã lỗi** | BUG-02 |
-| **TC liên quan** | `<!-- TC-xx -->` |
-| **REQ liên quan** | `<!-- REQ-xx -->` |
-| **Mức độ** | `<!-- High / Medium / Low -->` |
-| **Người phát hiện** | `<!-- Họ tên thành viên -->` |
-| **Ngày phát hiện** | `<!-- DD/MM/YYYY -->` |
-| **Trạng thái** | `<!-- Open / Closed -->` |
-
-**Tiêu đề:**
-`<!-- Mô tả hành vi lỗi -->`
-
-**Bước tái hiện:**
-1. `<!-- -->`
-2. `<!-- -->`
-3. `<!-- -->`
-
-**Kết quả mong đợi:**
-`<!-- -->`
-
-**Kết quả thực tế:**
-`<!-- -->`
-
-**Tác động:**
-`<!-- -->`
-
-**Minh chứng:**
-`<!-- -->`
-
-**Đề xuất xử lý:**
-`<!-- -->`
+**Suggested Fix:**
+When a Member submits a lookup query, the backend/controller must validate that the searched Member ID matches the currently logged-in user's ID. If it does not match, the system must return an empty result set or an access-denied message. This filter should be enforced server-side (or in the state management layer), not only on the UI.
 
 ---
 
