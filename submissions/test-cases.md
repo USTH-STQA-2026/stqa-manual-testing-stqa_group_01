@@ -54,6 +54,18 @@
 | Số sách đang mượn? | < 3 (BVA: 0, 1, 2) | MEM006 (0 sách) | Cho phép mượn |
 | | = 3 (BVA: giới hạn) | MEM đã mượn 3 sách | Từ chối, thông báo vượt giới hạn |
 
+### IDM — Xử lý sách quá hạn (REQ-06)
+
+| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+|---|---|---|---|
+| Vai trò người dùng? | Thủ thư | `librarian@library.com` | Thấy nút "Kiểm tra quá hạn", có thể nhấn |
+| | Thành viên | `ba.nguyen@email.com` | Không thấy nút "Kiểm tra quá hạn" |
+| Trạng thái phiếu mượn? | Đang mượn, dueDate ≤ hôm nay | BR001 (hạn 15/09/2024) | Bị đánh dấu "Quá hạn" sau khi nhấn nút |
+| | Đang mượn, dueDate > hôm nay | Phiếu mới tạo hôm nay | Giữ nguyên "Đang mượn" |
+| | Đã trả, dueDate ≤ hôm nay | BR002, BR005 | Giữ nguyên "Đã trả", không đổi thành "Quá hạn" |
+| Phạm vi hiển thị cho Thành viên? | Phiếu của chính mình | BR001 (của MEM002) | Thấy phiếu quá hạn của mình |
+| | Phiếu của người khác | BR003 (của MEM006) | Không thấy phiếu của người khác |
+
 ### IDM — `<!-- Nhóm tự bổ sung cho REQ-05 đến REQ-08 -->`
 
 | Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
@@ -91,6 +103,13 @@
 | TC-18 | Trả sách đang mượn | Sách đang ở trạng thái "Đang mượn" | 1. Vào mục "Mượn/Trả" 2. Ấn nút "Trả sách" của phiếu mượn đang ở trạng thái "Đang mượn" 3. Quay lại mục "Sách" và kiểm tra trạng thái sách vừa trả | Thành viên có phiếu mượn ban đầu sách BOOK013 | Sách trở về trạng thái "Có sẵn" | REQ-05 | EP |
 | TC-19 | Hiển thị **cảnh báo quá hạn** | Sách quá hạn đang ở trạng thái "Đang mượn" | 1. Vào mục "Mượn/Trả" 2. Ấn nút "Trả sách" của phiếu mượn đang ở trạng thái "Đang mượn" và quá hạn | Thành viên có phiếu mượn ban đầu sách quá hạn BOOK003 | Hệ thống hiển thị **cảnh báo quá hạn** | REQ-05 | EP |
 | TC-20 | Kiểm tra trạng thái sách đã trả | Sách đang ở trạng thái "Đã trả" | 1. Vào mục "Mượn/Trả" 2. Tìm phiếu mượn đang ở trạng thái "Đã trả" 3. Quay lại mục "Sách" và kiểm tra trạng thái sách đã trả | Thành viên có phiếu mượn ban đầu sách đã trả BOOK005 | Sách đang ở trạng thái "Có sẵn" | REQ-05 | EP |
+| TC-21 | Kiểm tra Thủ thư nhấn "Kiểm tra quá hạn" → phiếu đang mượn quá hạn được đánh dấu đúng | Đăng nhập tài khoản Thủ thư (`librarian@library.com` / `admin123`). Dữ liệu ở trạng thái ban đầu. | **Bước 1:** Vào tab "Mượn / Trả".<br>**Bước 2:** Nhấn nút "Kiểm tra quá hạn".<br>**Bước 3:** Quan sát trạng thái của phiếu BR001 (dueDate: 15/09/2024) và BR003 (dueDate: 15/10/2024) | BR001 (MEM002 + BOOK003, hạn 15/09/2024); BR003 (MEM006 + BOOK013, hạn 15/10/2024) | BR001 và BR003 chuyển trạng thái từ "Đang mượn" sang "Quá hạn" (cả hai đều có dueDate ≤ 18/05/2026) | REQ-06 | EP |
+| TC-22 | Kiểm tra phiếu đã trả KHÔNG bị đánh dấu "Quá hạn" sau khi nhấn "Kiểm tra quá hạn" | Đăng nhập Thủ thư. Dữ liệu ở trạng thái ban đầu. | **Bước 1:** Vào tab "Mượn / Trả".<br> **Bước 2:** Nhấn nút "Kiểm tra quá hạn".<br> **Bước 3:** Quan sát trạng thái của BR002 (Đã trả đúng hạn) và BR005 (Đã trả nhưng trễ 5 ngày) | BR002 (Trần Dựa Dẫm + BOOK001, trả 20/08/2024); BR004 (Nguyễn Học Bá + BOOK005, trả 10/07/2024); BR005 (Trần Dựa Dẫm + BOOK006, trả 20/06/2024 — trễ hạn) | BR002, BR004, BR005 giữ nguyên "Đã trả" (không đổi thành "Quá hạn" dù ngày trả sau dueDate) | REQ-06 | EP|
+| TC-23 | Kiểm tra Thành viên không thấy nút "Kiểm tra quá hạn" (kiểm soát quyền) | Đăng nhập tài khoản Thành viên (`ba.nguyen@email.com` / `password123`). | **Bước 1:** Đăng nhập tài khoản Thành viên.<br> **Bước 2:** Vào tab "Mượn / Trả".<br> **Bước 3:** Quan sát giao diện, tìm kiếm nút "Kiểm tra quá hạn" | Tài khoản: `ba.nguyen@email.com` / `password123` (vai trò: Thành viên) | Nút **"Kiểm tra quá hạn" không xuất hiện** trong giao diện của Thành viên | REQ-06 | EP  |
+| TC-24 | Kiểm tra Thành viên chỉ thấy phiếu quá hạn của chính mình, không thấy của người khác | Bước chuẩn bị: Đăng nhập Thủ thư → nhấn "Kiểm tra quá hạn" → đăng xuất. Sau đó đăng nhập MEM002. | **Bước 1:** Đăng nhập Thủ thư, nhấn "Kiểm tra quá hạn", đăng xuất.<br> **Bước 2:** Đăng nhập `ba.nguyen@email.com` / `password123`.<br> **Bước 3:** Vào tab "Mượn / Trả".<br> **Bước 4:** Quan sát toàn bộ danh sách phiếu quá hạn hiển thị | MEM002 (ba.nguyen): có BR001 (quá hạn). MEM006 (biet.hoang): có BR003 (quá hạn) | MEM002 **chỉ thấy BR001** của mình. **Không thấy BR003** của MEM006 | REQ-06 | EP  |
+| TC-25 | Kiểm tra ranh giới hạn trả: Phiếu có `dueDate` bằng đúng ngày hiện tại bị đánh dấu "Quá hạn" | Đăng nhập tài khoản Thành viên, tạo 1 phiếu mượn và giả lập dueDate = ngày hôm nay. Sau đó đăng xuất và đăng nhập tài khoản Thủ thư (`librarian@library.com` / `admin123`). | **Bước 1:** Vào tab "Mượn / Trả".<br>**Bước 2:** Nhấn nút "Kiểm tra quá hạn".<br>**Bước 3:** Quan sát trạng thái của phiếu mượn có hạn trả là ngày hôm nay. | Phiếu mượn đang ở trạng thái "Đang mượn" với dueDate trùng khớp chính xác với ngày hiện tại | Phiếu mượn chuyển trạng thái từ "Đang mượn" sang "Quá hạn" | REQ-06 | BVA |
+| TC-26 | Kiểm tra phiếu chưa tới hạn (dueDate > ngày hiện tại) KHÔNG bị đánh dấu "Quá hạn" | Đăng nhập tài khoản Thành viên, mượn 1 cuốn sách mới (hạn trả mặc định sẽ là ngày hiện tại + 14 ngày). Sau đó đăng xuất và đăng nhập tài khoản Thủ thư. | **Bước 1:** Vào tab "Mượn / Trả".<br>**Bước 2:** Nhấn nút "Kiểm tra quá hạn".<br>**Bước 3:** Quan sát trạng thái của phiếu mượn mới tạo. | Phiếu mượn mới có dueDate > ngày hiện tại | Phiếu mượn giữ nguyên trạng thái "Đang mượn" (không bị đổi thành "Quá hạn") | REQ-06 | EP |
+| TC-27 | Kiểm tra trạng thái mặc định của các phiếu quá hạn TRƯỚC khi nhấn nút "Kiểm tra quá hạn" | Đăng nhập tài khoản Thủ thư. Dữ liệu ở trạng thái ban đầu (đảm bảo CHƯA nhấn nút "Kiểm tra quá hạn"). | **Bước 1:** Vào tab "Mượn / Trả".<br>**Bước 2:** Trực tiếp quan sát trạng thái của các phiếu BR001 và BR003 ngay khi vừa vào trang. | BR001 (MEM002 + BOOK003, hạn 15/09/2024); BR003 (MEM006 + BOOK013, hạn 15/10/2024) | BR001 và BR003 vẫn hiển thị trạng thái mặc định là "Đang mượn" (chứng minh hệ thống không tự động thay đổi nếu thiếu thao tác của Thủ thư) | REQ-06 | EP |
 
 ---
 
