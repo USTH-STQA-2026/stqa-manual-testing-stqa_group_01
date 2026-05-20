@@ -7,7 +7,7 @@
 | Thông tin | |
 |---|---|
 | **Nhóm** | `STQA_Group_01` |
-| **Ngày báo cáo** | `<!-- DD/MM/YYYY -->` |
+| **Ngày báo cáo** | `20/05/2026` |
 
 ---
 
@@ -74,7 +74,7 @@ Chỉ chấp nhận email đúng định dạng theo quy tắc: `email@domain.ex
 | Thuộc tính | Chi tiết |
 |-----------|---------|
 | **Mã lỗi** | BUG-01 |
-| **TC liên quan** | `TC-04` |
+| **TC liên quan** | `TC-11` |
 | **REQ liên quan** | `REQ-03` |
 | **Mức độ** | `Medium` |
 | **Người phát hiện** | `Vũ Trần Nam Khánh` |
@@ -171,7 +171,7 @@ Cần kiểm tra lại cấu trúc rẽ nhánh logic và bóc tách các mệnh 
 | **TC liên quan** | `TC-16` |
 | **REQ liên quan** | `REQ-04` |
 | **Mức độ** | `High` |
-| **Người phát hiện** | `Nguyễn Xuan Dương và Vũ Trần Nam Khánh` |
+| **Người phát hiện** | `Nguyễn Xuân Dương và Vũ Trần Nam Khánh` |
 | **Ngày phát hiện** | `18/05/2026` |
 | **Trạng thái** | `Open` |
 
@@ -227,7 +227,7 @@ Cần chỉnh sửa điều kiện logic của `borrow_count` thay vì ≤3 thà
 | **TC liên quan** | `TC-19` |
 | **REQ liên quan** | `REQ-05` |
 | **Mức độ** | `Medium` |
-| **Người phát hiện** | `Nguyễn Xuan Dương` |
+| **Người phát hiện** | `Nguyễn Xuân Dương` |
 | **Ngày phát hiện** | `18/05/2026` |
 | **Trạng thái** | `Open` |
 
