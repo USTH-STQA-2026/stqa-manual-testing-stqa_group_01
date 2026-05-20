@@ -22,7 +22,7 @@
 | TC-04 | Đăng nhập | Từ chối email không đúng định dạng và không cho phép đăng nhập | Hệ thống chấp nhận email `example@email` và đăng nhập thành công | Fail | | BUG-01 |
 |TC-05|Mượn sách|Sách chuyển sang trạng thái "Đang mượn"|Thành công chuyển sang trạng thái đã mượn|Chức năng hoạt động bình thường|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/screenshot-2026-05-19_15.41.40.png)|không có|
 |TC-06|Trả sách|Sách chuyển sang trạng thái "Đã trả"|Thành công chuyển sang trạng thái đã trả|Chức năng hoạt động bình thường|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/screenshot-2026-05-19_15.49.03.png)|không có|
-|TC-07|Hiển thị thông tin mượn sách|Thành viên thấy sách mình mượn, Thủ thư thấy tất cả sách được mượn|Chức năng hoạt động bình thường|Thành công hiển thị sách đang mượn đối với thủ thư|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/screenshot-2026-05-19_15.54.03.png)|không có|
+|TC-07|Hiển thị thông tin mượn sách|Thành viên thấy sách mình mượn, Thủ thư thấy tất cả sách được mượn|Thành công hiển thị sách đang mượn đối với thủ thư|Chức năng hoạt động bình thường|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/screenshot-2026-05-19_15.54.03.png)|không có|
 
 ---
 
