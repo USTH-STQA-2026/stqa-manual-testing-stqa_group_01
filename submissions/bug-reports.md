@@ -263,6 +263,7 @@ Hệ thống không hiển thị **cảnh báo quá hạn** khi trả sách quá
 **Đề xuất xử lý:**
 Kiểm tra cảnh báo quá hạn đã được viết chưa và kiểm tra điều kiện hiển thị cảnh báo đúng chưa 
 
+---
 
 ## BUG-06
 
@@ -307,3 +308,42 @@ Kiểm tra cảnh báo quá hạn đã được viết chưa và kiểm tra đi�
 
 **Đề xuất xử lý:**
 `Bổ sung/ kiểm tra lại hàm kiểm tra định dạng để chặn và báo lỗi ngay tại ô Email.` 
+
+---
+
+## BUG-07
+
+| Thuộc tính | Chi tiết |
+|-----------|---------|
+| **Mã lỗi** | BUG-02 |
+| **TC liên quan** | `TC-05` |
+| **REQ liên quan** | `REQ-07` |
+| **Mức độ** | `High` |
+| **Người phát hiện** | `Cao Chí Bảo` |
+| **Ngày phát hiện** | `19/05/2026` |
+| **Trạng thái** | `Open` |
+
+**Tiêu đề:**
+`Hệ thống không cho phép thêm thành viên với thông tin đầy đủ và hợp lệ`
+
+**Bước tái hiện:**
+1. `Truy cập hệ thống mượn sách https://stqa.rbc.vn/ và đăng nhập vào tài khoản thủ thư`
+2. `Click icon "Thêm thành viên" ở góc phải`
+3. `Nhập các thông tin đầy đủ và đúng cú pháp`
+
+**Kết quả mong đợi:**
+`Hệ thống báo thêm thành viên thành công`
+
+**Kết quả thực tế:**
+`Hệ thống báo email không hợp lệ`
+
+**Tác động:**
+`Chức năng thêm thành viên mất đi hoàn toàn luồng hoạt động cốt lõi`
+
+**Minh chứng:**
+![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC05.png)
+
+**Đề xuất xử lý:**
+`Nhanh chóng kiểm tra lại logic API trong phần code của mục "Thêm thành viên" để hệ thống chấp nhận thông tin đúng và lưu thành viên thành công`
+
+---
