@@ -16,43 +16,55 @@
 | Thuộc tính | Chi tiết |
 |-----------|---------|
 | **Mã lỗi** | BUG-01 |
-| **TC liên quan** | `<!-- TC-xx -->` |
-| **REQ liên quan** | `<!-- REQ-xx -->` |
-| **Mức độ** | `<!-- High / Medium / Low -->` |
-| **Người phát hiện** | `<!-- Họ tên thành viên -->` |
-| **Ngày phát hiện** | `<!-- DD/MM/YYYY -->` |
-| **Trạng thái** | `<!-- Open / Closed -->` |
+| **TC liên quan** | TC-04 |
+| **REQ liên quan** | REQ-01 |
+| **Mức độ** | Medium |
+| **Người phát hiện** | Nguyễn Anh Tuấn |
+| **Ngày phát hiện** | `17/05/2026` |
+| **Trạng thái** | Open |
 
 **Tiêu đề:**
-`<!-- Mô tả hành vi lỗi cụ thể -->`
+Hệ thống chấp nhận email không đúng định dạng trong chức năng đăng nhập
 
 **Môi trường:**
-- Trình duyệt: Chrome `<!-- version -->`
-- Hệ điều hành: `<!-- OS -->`
+- Trình duyệt: Firefox
+- Hệ điều hành: Ubuntu Linux
 - Ngôn ngữ giao diện: Tiếng Việt
 
 **Điều kiện tiên quyết:**
-`<!-- VD: Trang đăng nhập đã mở, dữ liệu đã reset -->`
+- Tài khoản thành viên đã được tạo trong hệ thống với email không đúng định dạng: example@email
+- Người dùng đang ở màn hình đăng nhập
 
 **Bước tái hiện:**
-1. `<!-- Bước 1 -->`
-2. `<!-- Bước 2 -->`
-3. `<!-- Bước 3 -->`
+1. Mở trang đăng nhập của hệ thống.
+2. Nhập email: example@email
+3. Nhập mật khẩu đúng tương ứng với tài khoản.
+4. Nhấn nút Đăng nhập.
 
 **Kết quả mong đợi:**
-`<!-- Kết quả đúng theo SRS -->`
+Hệ thống phải từ chối email không đúng định dạng theo quy tắc: `email@domain.ext`
+Hiển thị thông báo lỗi phù hợp và không cho phép đăng nhập.
 
 **Kết quả thực tế:**
-`<!-- Kết quả hệ thống thật sự trả về -->`
+Hệ thống chấp nhận email `example@email` và cho phép đăng nhập thành công vào hệ thống.
 
 **Tác động:**
-`<!-- VD: Vi phạm quy tắc nghiệp vụ cốt lõi, cho phép mượn vượt giới hạn -->`
+Hệ thống cho phép dữ liệu email không hợp lệ tồn tại và được sử dụng trong quá trình xác thực. Điều này có thể làm giảm tính toàn vẹn dữ liệu,
+gây lỗi ở các chức năng sử dụng email sau này, tạo sự mâu thuẫn so với SRS của hệ thống.
 
 **Minh chứng:**
-`<!-- Đính kèm ảnh chụp màn hình nếu có -->`
+1. Tài khoản có email không đúng định dạng được tạo bởi thủ thư
+![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/librarian_creating_account.png)
+2. Đăng nhập bằng tài khoản trên tại trang đăng nhập
+![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/login_with_invalid_email_form.png)
+3. Hệ thống cho phép đăng nhập bình thường
+![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/successful_login.png)
 
 **Đề xuất xử lý:**
-`<!-- Gợi ý cách sửa lỗi nếu có -->` 
+Bổ sung kiểm tra định dạng email tại:
+- chức năng tạo tài khoản,
+- chức năng đăng nhập.
+Chỉ chấp nhận email đúng định dạng theo quy tắc: `email@domain.ext`
 
 ---
 
