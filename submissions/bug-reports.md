@@ -262,3 +262,48 @@ Hệ thống không hiển thị **cảnh báo quá hạn** khi trả sách quá
 
 **Đề xuất xử lý:**
 Kiểm tra cảnh báo quá hạn đã được viết chưa và kiểm tra điều kiện hiển thị cảnh báo đúng chưa 
+
+
+## BUG-06
+
+| Thuộc tính | Chi tiết |
+|-----------|---------|
+| **Mã lỗi** | BUG-01 |
+| **TC liên quan** | `TC-04` |
+| **REQ liên quan** | `REQ-07` |
+| **Mức độ** | `Medium` |
+| **Người phát hiện** | `Cao Chí Bảo` |
+| **Ngày phát hiện** | `19/05/2026` |
+| **Trạng thái** | `Open` |
+
+**Tiêu đề:**
+`Hệ thống chấp nhận email sai format khi thêm thành viên`
+
+**Môi trường:**
+- Trình duyệt: Chrome `148`
+- Hệ điều hành: `Windows 11`
+- Ngôn ngữ giao diện: Tiếng Việt
+
+**Điều kiện tiên quyết:**
+`Đăng nhập tài khoản thủ thư, truy cập chức năng thêm thành viên`
+
+**Bước tái hiện:**
+1. `Truy cập hệ thống mượn sách https://stqa.rbc.vn/ và đăng nhập vào tài khoản thủ thư`
+2. `Click icon "Thêm thành viên" ở góc phải`
+3. `Nhập thông tin đầy đủ về Họ và tên và SĐT cùng email thiếu "@"`
+
+**Kết quả mong đợi:**
+`Hệ thống báo lỗi do email sai cú pháp`
+
+**Kết quả thực tế:**
+`Thêm thành viên thành công`
+
+**Tác động:**
+`Hệ thống bị lưu dữ liệu sai, gây lỗi khi gửi email thông báo mượn/trả sách sau này.`
+
+**Minh chứng:**
+
+![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC04.png)
+
+**Đề xuất xử lý:**
+`Bổ sung/ kiểm tra lại hàm kiểm tra định dạng để chặn và báo lỗi ngay tại ô Email.` 
