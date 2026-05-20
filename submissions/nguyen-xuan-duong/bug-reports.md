@@ -149,7 +149,6 @@ Hệ thống không hiển thị **cảnh báo quá hạn** khi trả sách quá
 
 **Tác động:**
 - Vi phạm đến yêu cầu nghiệp vụ BO-02.
-- Vi phạm đến yêu phần mềm REQ-05.
 
 **Minh chứng**
 
