@@ -66,6 +66,17 @@
 | Phạm vi hiển thị cho Thành viên? | Phiếu của chính mình | BR001 (của MEM002) | Thấy phiếu quá hạn của mình |
 | | Phiếu của người khác | BR003 (của MEM006) | Không thấy phiếu của người khác |
 
+### IDM — Thêm thành viên (REQ-07)
+
+| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+|---|---|---|---|
+| **Họ và tên** | 1. Có nhập chữ (Valid) | Nguyễn Văn A | Thêm thành công |
+| | 2. Để trống (Invalid) | *(Để trống)* | Báo lỗi thiếu Họ tên |
+| **Email** | 1. Đúng cú pháp (Valid) | `nguyenvana@gmail.com` | Thêm thành công |
+| | 2. Thiếu ký tự `@` (Invalid) | `haivuemail.com` | Báo lỗi sai định dạng |
+| | 3. Thiếu dấu `.` ở domain (Invalid) | `trandat@emailcom` | Báo lỗi sai định dạng |
+| **Số điện thoại** | 1. Chữ số hợp lệ (Valid) | `0987654321` | Thêm thành công |
+| | 2. Chứa chữ/Ký tự đặc biệt (Invalid) | `0987abc678` | Báo lỗi sai định dạng |
 ### IDM — `<!-- Nhóm tự bổ sung cho REQ-05 đến REQ-08 -->`
 
 | Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
