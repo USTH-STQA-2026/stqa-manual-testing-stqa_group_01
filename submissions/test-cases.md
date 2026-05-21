@@ -82,6 +82,21 @@
 |---|---|---|---|
 | `<!-- Nhóm tự điền -->` | | | |
 
+### IDM — Borrow Record Lookup (REQ-08)
+
+| Characteristic | Block / Partition | Representative Value | Expected Result |
+|---|---|---|---|
+| User role accessing records? | Librarian | `librarian@library.com` | Sees ALL borrow records (BR001–BR005) across all members |
+| | Member | `ba.nguyen@email.com` | Sees ONLY own borrow records |
+| Member ID entered in lookup field? | Own ID | `MEM002` (logged-in user's own ID) | Records of MEM002 are displayed |
+| | Another member's ID | `MEM006` (belongs to biet.hoang) | No records shown — access denied |
+| | Non-existent ID | `MEM999` | No records found (empty result or error message) |
+| Record information completeness? | All required fields present | BR001 | Record ID, book title, borrow date, due date, status all visible |
+| Status value displayed? | Active borrow | BR001, BR003 | Status = "Đang mượn" |
+| | Returned on time | BR002, BR004 | Status = "Đã trả" |
+| | Returned late | BR005 | Status = "Đã trả" |
+| | Overdue (after Librarian check) | BR001 (post Check Overdue) | Status = "Quá hạn" |
+
 > 💡 **Gợi ý kỹ thuật**: Sử dụng **Phân lớp tương đương (EP)** cho các phân vùng rời rạc, **Phân tích giá trị biên (BVA)** cho các phân vùng số (ví dụ: giới hạn 3 sách). Xem textbook §6.1–6.3.
 
 ---
@@ -125,6 +140,10 @@
 | TC-30 | Kiểm tra hệ thống có chặn email thiếu @ không | Đã đăng nhập tài khoản Thủ thư, đang ở form Thêm thành viên. |Nhập Họ tên và SĐT hợp lệ. Nhập email có dấu "." nhưng thiếu "@". Nhấn nút "Thêm". | Họ tên: Vũ Hải, Email: haivuemail.com, SĐT: 0133456798 |Hệ thống từ chối tạo tài khoản và hiển thị thông báo lỗi định dạng email không hợp lệ. | REQ-07 | EP / BVA |
 | TC-31 | Kiểm tra hệ thống có chặn email thiếu dấu . ở domain hay không | Đã đăng nhập tài khoản Thủ thư, đang ở form Thêm thành viên. |Nhập Họ tên và SĐT hợp lệ. Nhập email có "@" nhưng thiếu dấu "." ở sau đó. Nhấn nút "Thêm". | Họ tên: Trần Đạt, Email: trandat@emailcom, SĐT: 0123456798 |Hệ thống từ chối tạo tài khoản và hiển thị thông báo lỗi định dạng email không hợp lệ. | REQ-07 | EP / BVA |
 | TC-32 | Kiểm tra hoạt động bình thường của tính năng | Đã đăng nhập tài khoản Thủ thư, đang ở form Thêm thành viên. |Nhập Họ tên, Email và SĐT. Nhấn nút "Thêm". | Họ tên: Lê Gít, Email: legit@email.com, SĐT: 0234567891 |Hệ thống thêm thành viên thành công. | REQ-07 | EP |
+| TC-33 | Verify Librarian can view all borrow records across all members | Logged in as Librarian (`librarian@library.com` / `admin123`). Initial seed data. | **Step 1:** Go to "Mượn / Trả" tab.<br>**Step 2:** Observe the full borrow record list.<br>**Step 3:** Verify BR001 (MEM002), BR002 (MEM003), BR003 (MEM006), BR004 (MEM002), BR005 (MEM003) are all listed. | All 5 seed records: BR001–BR005 | All 5 records are visible to the Librarian with correct member names, book titles, dates, and statuses | REQ-08 | EP |
+| TC-34 | Verify Member MEM002 sees only their own records in the default "my records" view | Logged in as MEM002 (`ba.nguyen@email.com` / `password123`). Initial seed data. | **Step 1:** Go to "Mượn / Trả" tab.<br>**Step 2:** Observe the borrow record list shown by default (without entering any search ID).<br>**Step 3:** Check which records are displayed. | MEM002 owns: BR001 (BOOK003 — "Đang mượn"), BR004 (BOOK005 — "Đã trả") | Only **BR001** and **BR004** are displayed. BR002, BR003, BR005 (belonging to other members) are **not visible**. | REQ-08 | EP |
+| TC-35 | Verify Member cannot view another member's records using the "lookup by member ID" feature | Logged in as MEM002 (`ba.nguyen@email.com` / `password123`). Initial seed data. | **Step 1** Go to "Mượn / Trả" tab.<br>**Step 2:** Locate the "Tra cứu phiếu mượn" (lookup) search field.<br>**Step 3:** Enter `MEM006` (belonging to biet.hoang).<br>**Step 4:** Observe the result. | Lookup input: `MEM006` (another member's ID) | System shows **no records** or displays an access-denied message. BR003 (MEM006's record) is **not shown** to MEM002. | REQ-08 | EP |
+| TC-36 | Verify all required information fields are present in each borrow record | Logged in as Librarian. Initial seed data. | **Step 1:** Go to "Mượn / Trả" tab.<br>**Step 2:** Inspect any borrow record (e.g. BR001).<br>**Step 3:** Check that all 5 fields are visible: Record ID, Book title, Borrow date, Due date, Status. | BR001: MEM002, BOOK003, borrowed 01/09/2024, due 15/09/2024, status "Đang mượn" | Record displays all 5 required fields: **Record ID** (BR001), **Book** (Kiểm thử phần mềm nhập môn), **Borrow date** (01/09/2024), **Due date** (15/09/2024), **Status** ("Đang mượn") | REQ-08 | EP  |
 
 ---
 
