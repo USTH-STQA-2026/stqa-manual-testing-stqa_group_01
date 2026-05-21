@@ -346,4 +346,50 @@ Kiểm tra cảnh báo quá hạn đã được viết chưa và kiểm tra đi�
 **Đề xuất xử lý:**
 `Nhanh chóng kiểm tra lại logic API trong phần code của mục "Thêm thành viên" để hệ thống chấp nhận thông tin đúng và lưu thành viên thành công`
 
+BUG-08
+
+| Attribute | Details |
+|-----------|---------|
+| **Bug ID** | BUG-08 |
+| **Related TC** | TC35 |
+| **Related REQ** | REQ-08 |
+| **Severity** | High |
+| **Discovered by** | Huynh Gia An|
+| **Date discovered** | 20/05/2026 |
+| **Status** | Open |
+
+**Title:**
+Member can view another member's private borrow records by entering their Member ID in the "Tra cứu phiếu mượn" lookup field
+
+**Environment:**
+- Browser: Chrome (latest version)
+- Operating System: Windows / MacOS / Linux
+- Interface language: Vietnamese (default)
+
+**Preconditions:**
+- System is at initial seed data state
+- Logged in as Member MEM002 (`ba.nguyen@email.com` / `password123`)
+
+**Steps to Reproduce:**
+1. Log in as Member MEM002 (`ba.nguyen@email.com` / `password123`)
+2. Navigate to the **"Mượn / Trả"** tab
+3. Locate the **"Tra cứu phiếu mượn"** (borrow record lookup) search field
+4. Enter `MEM006` (the Member ID belonging to `biet.hoang@email.com`) into the search field
+5. Observe the records returned
+
+**Expected Result:**
+The system returns **no records** or displays an access-denied / unauthorized message. MEM002 must not be able to view BR003 (Quản trị nhân sự hiện đại — belonging to MEM006). *(SRS REQ-08: "Member can only view their own borrow records. NOT allowed to view records of other members.")*
+
+**Actual Result:**
+BR003 (**Quản trị nhân sự hiện đại**, borrowed by `biet.hoang` / MEM006, due 15/10/2024, status "Đang mượn") is **fully displayed** to MEM002 — including book title, borrow date, due date, and status.
+
+**Impact:**
+Serious privacy and access control violation. Any Member can freely look up and read another member's borrowing history simply by knowing (or guessing) their Member ID. In a real-world deployment, this would constitute a data protection breach.
+
+**Evidence:**
+![AltText](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/An10.png)
+
+**Suggested Fix:**
+When a Member submits a lookup query, the backend/controller must validate that the searched Member ID matches the currently logged-in user's ID. If it does not match, the system must return an empty result set or an access-denied message. This filter should be enforced server-side (or in the state management layer), not only on the UI.
+
 ---
