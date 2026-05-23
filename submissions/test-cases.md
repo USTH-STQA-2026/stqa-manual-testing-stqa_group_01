@@ -143,7 +143,7 @@
 | TC-33 | Verify Librarian can view all borrow records across all members | Logged in as Librarian (`librarian@library.com` / `admin123`). Initial seed data. | **Step 1:** Go to "Mượn / Trả" tab.<br>**Step 2:** Observe the full borrow record list.<br>**Step 3:** Verify BR001 (MEM002), BR002 (MEM003), BR003 (MEM006), BR004 (MEM002), BR005 (MEM003) are all listed. | All 5 seed records: BR001–BR005 | All 5 records are visible to the Librarian with correct member names, book titles, dates, and statuses | REQ-08 | EP |
 | TC-34 | Verify Member MEM002 sees only their own records in the default "my records" view | Logged in as MEM002 (`ba.nguyen@email.com` / `password123`). Initial seed data. | **Step 1:** Go to "Mượn / Trả" tab.<br>**Step 2:** Observe the borrow record list shown by default (without entering any search ID).<br>**Step 3:** Check which records are displayed. | MEM002 owns: BR001 (BOOK003 — "Đang mượn"), BR004 (BOOK005 — "Đã trả") | Only **BR001** and **BR004** are displayed. BR002, BR003, BR005 (belonging to other members) are **not visible**. | REQ-08 | EP |
 | TC-35 | Verify Member cannot view another member's records using the "lookup by member ID" feature | Logged in as MEM002 (`ba.nguyen@email.com` / `password123`). Initial seed data. | **Step 1** Go to "Mượn / Trả" tab.<br>**Step 2:** Locate the "Tra cứu phiếu mượn" (lookup) search field.<br>**Step 3:** Enter `MEM006` (belonging to biet.hoang).<br>**Step 4:** Observe the result. | Lookup input: `MEM006` (another member's ID) | System shows **no records** or displays an access-denied message. BR003 (MEM006's record) is **not shown** to MEM002. | REQ-08 | EP |
-| TC-36 | Verify all required information fields are present in each borrow record | Logged in as Librarian. Initial seed data. | **Step 1:** Go to "Mượn / Trả" tab.<br>**Step 2:** Inspect any borrow record (e.g. BR001).<br>**Step 3:** Check that all 5 fields are visible: Record ID, Book title, Borrow date, Due date, Status. | BR001: MEM002, BOOK003, borrowed 01/09/2024, due 15/09/2024, status "Đang mượn" | Record displays all 5 required fields: **Record ID** (BR001), **Book** (Kiểm thử phần mềm nhập môn), **Borrow date** (01/09/2024), **Due date** (15/09/2024), **Status** ("Đang mượn") | REQ-08 | EP  |
+| TC-36 | Verify all required information fields are present in each borrow record | Logged in as Librarian. Initial seed data. | **Step 1:** Go to "Mượn / Trả" tab.<br>**Step 2:** Inspect any borrow record (e.g. BR001).<br>**Step 3:** Check that all 5 fields are visible: Record ID, Book title, Borrow date, Due date, Status. | BR001: MEM002, BOOK003, borrowed 01/09/2024, due 15/09/2024, status "Đang mượn" | Record displays all 5 required fields: **Record ID** (BR001), **Book** (Kiểm thử phần mềm nhập môn), **Borrow date** (01/09/2024), **Due date** (15/09/2024), **Status** ("Đang mượn") | REQ-08 | EP |
 
 ---
 
@@ -154,5 +154,17 @@
 
 | Nhóm chức năng | Số TC | REQ phủ | Kỹ thuật IDM áp dụng |
 |----------------|-------|---------|----------------------|
-| | | | |
-| **Tổng** | **<!-- ≥ 20 -->** | | |
+| Login | 4 | REQ-01 | Black-box Testing, EP, Input Validation |
+| Borrow/Return core actions | 3 | REQ-02 | EP, State Transition, Decision Table |
+| Search and filter book | 4 | REQ-03 | EP |
+| Borrowing permission rules | 6 | REQ-04 | EP, BVA, Decision Table |
+| Return book behavior | 3 | REQ-05 | EP |
+| Overdue handling | 7 | REQ-06 | EP, BVA |
+| Add member/Validation | 5 | REQ-07 | EP, BVA, Decision Table |
+| Borrow record visibility / Lookup | 4 | REQ-08 | EP |
+
+
+
+
+
+| **Tổng** | 36 | 8 | Black-box Testing, EP, BVA, Input Validation, Decision Table, State Transition |
