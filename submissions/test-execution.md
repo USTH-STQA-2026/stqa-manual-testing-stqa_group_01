@@ -54,20 +54,26 @@
 | TC-36 | Borrow Record Lookup (REQ-08) | All 5 required fields are present in each borrow record: Record ID, Book, Borrow date, Due date, Status | Logged in as Librarian → inspected BR001 → all fields visible: BR001, "Kiểm thử phần mềm nhập môn", 01/09/2024, 15/09/2024, "Đang mượn" (before clicking "Kiểm tra sách quá hạn") | Pass | ![AltText](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/An11.png) | — |
 
 ---
+## Test Result Summary
 
-## Tổng hợp kết quả
-
-| Chỉ số | Giá trị |
+| Metric | Value |
 |--------|---------|
-| Tổng số test case | `<!-- số -->` |
-| Pass | `<!-- số -->` |
-| Fail | `<!-- số -->` |
-| Blocked | `<!-- số -->` |
-| Not Run | `<!-- số -->` |
-| **Tỷ lệ Pass** | `<!-- xx% -->` |
+| Total Test Cases | 36 |
+| Pass | 28 |
+| Fail | 8 |
+| Blocked | 0 |
+| Not Run | 0 |
+| **Pass Rate** | 77.78% |
 
-### Kết quả theo nhóm chức năng
+### Result by Functional Group
 
-| Nhóm | Tổng TC | Pass | Fail | Tỷ lệ Pass |
-|------|---------|------|------|------------|
-| | | | | |
+| Functional Group | Total TCs | Pass | Fail | Pass Rate |
+|------------------|-----------|------|------|------------|
+| Login | 4 | 3 | 1 | 75.00% |
+| Borrow / Return Core Actions | 3 | 3 | 0 | 100.00% |
+| Search and Filter Books | 4 | 3 | 1 | 75.00% |
+| Borrowing Permission Rules | 6 | 4 | 2 | 66.67% |
+| Return-book Behavior | 3 | 2 | 1 | 66.67% |
+| Overdue Handling | 7 | 7 | 0 | 100.00% |
+| Add Member / Validation | 5 | 3 | 2 | 60.00% |
+| Borrow Record Visibility / Lookup | 4 | 3 | 1 | 75.00% |
