@@ -7,346 +7,348 @@
 | Thông tin | |
 |---|---|
 | **Nhóm** | `STQA_Group_01` |
-| **Ngày báo cáo** | `20/05/2026` |
+| **Ngày báo cáo** | `23/05/2026` |
 
 ---
 
 ## BUG-01
 
-| Thuộc tính | Chi tiết |
+| Attribute | Details |
 |-----------|---------|
-| **Mã lỗi** | BUG-01 |
-| **TC liên quan** | TC-04 |
-| **REQ liên quan** | REQ-01 |
-| **Mức độ** | Medium |
-| **Người phát hiện** | Nguyễn Anh Tuấn |
-| **Ngày phát hiện** | `17/05/2026` |
-| **Trạng thái** | Open |
+| **Bug ID** | BUG-01 |
+| **Related TC** | TC-04 |
+| **Related REQ** | REQ-01 |
+| **Severity** | Medium |
+| **Reported by** | Nguyễn Anh Tuấn |
+| **Date found** | `17/05/2026` |
+| **Status** | Open |
 
-**Tiêu đề:**
-Hệ thống chấp nhận email không đúng định dạng trong chức năng đăng nhập
+**Title:**
+The system accepts an invalid email format in the login function
 
-**Môi trường:**
-- Trình duyệt: Firefox
-- Hệ điều hành: Ubuntu Linux
-- Ngôn ngữ giao diện: Tiếng Việt
+**Environment:**
+- Browser: Firefox
+- Operating system: Ubuntu Linux
+- Interface language: Vietnamese
 
-**Điều kiện tiên quyết:**
-- Tài khoản thành viên đã được tạo trong hệ thống với email không đúng định dạng: example@email
-- Người dùng đang ở màn hình đăng nhập
+**Preconditions:**
+- A member account has already been created in the system with an invalid email format: example@email
+- The user is on the login screen
 
-**Bước tái hiện:**
-1. Mở trang đăng nhập của hệ thống.
-2. Nhập email: example@email
-3. Nhập mật khẩu đúng tương ứng với tài khoản.
-4. Nhấn nút Đăng nhập.
+**Steps to reproduce:**
+1. Open the system login page.
+2. Enter email: example@email
+3. Enter the correct password for the account.
+4. Click the Login button.
 
-**Kết quả mong đợi:**
-Hệ thống phải từ chối email không đúng định dạng theo quy tắc: `email@domain.ext`
-Hiển thị thông báo lỗi phù hợp và không cho phép đăng nhập.
+**Expected result:**
+The system must reject the invalid email format according to the rule: `email@domain.ext`  
+Display a suitable error message and do not allow login.
 
-**Kết quả thực tế:**
-Hệ thống chấp nhận email `example@email` và cho phép đăng nhập thành công vào hệ thống.
+**Actual result:**
+The system accepts the email `example@email` and allows successful login to the system.
 
-**Tác động:**
-Hệ thống cho phép dữ liệu email không hợp lệ tồn tại và được sử dụng trong quá trình xác thực. Điều này có thể làm giảm tính toàn vẹn dữ liệu,
-gây lỗi ở các chức năng sử dụng email sau này, tạo sự mâu thuẫn so với SRS của hệ thống.
+**Impact:**
+The system allows invalid email data to exist and be used during authentication. This may reduce data integrity, cause errors in later features that use email, and create inconsistencies with the system SRS.
 
-**Minh chứng:**
-1. Tài khoản có email không đúng định dạng được tạo bởi thủ thư
+**Evidence:**
+1. The account with an invalid email format is created by the librarian
 ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/librarian_creating_account.png)
-2. Đăng nhập bằng tài khoản trên tại trang đăng nhập
+2. Log in with that account on the login page
 ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/login_with_invalid_email_form.png)
-3. Hệ thống cho phép đăng nhập bình thường
+3. The system allows login normally
 ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/successful_login.png)
 
-**Đề xuất xử lý:**
-Bổ sung kiểm tra định dạng email tại:
-- chức năng tạo tài khoản,
-- chức năng đăng nhập.
-Chỉ chấp nhận email đúng định dạng theo quy tắc: `email@domain.ext`
+**Suggested fix:**
+Add email format validation in:
+- account creation function,
+- login function.
+
+Only accept emails in the correct format: `email@domain.ext`
 
 ---
 ---
 
 ## BUG-02
 
-| Thuộc tính | Chi tiết |
+| Attribute | Details |
 |-----------|---------|
-| **Mã lỗi** | BUG-01 |
-| **TC liên quan** | `TC-11` |
-| **REQ liên quan** | `REQ-03` |
-| **Mức độ** | `Medium` |
-| **Người phát hiện** | `Vũ Trần Nam Khánh` |
-| **Ngày phát hiện** | `17/05/2026` |
-| **Trạng thái** | `Open` |
+| **Bug ID** | BUG-01 |
+| **Related TC** | `TC-11` |
+| **Related REQ** | `REQ-03` |
+| **Severity** | `Medium` |
+| **Reported by** | `Vũ Trần Nam Khánh` |
+| **Date found** | `17/05/2026` |
+| **Status** | `Open` |
 
-**Tiêu đề:**
-Tính năng lọc theo thể loại phân biệt chữ HOA/thường, không trả kết quả khi nhập chữ thường
+**Title:**
+The category filtering feature is case-sensitive and returns no results when lowercase text is entered
 
-**Môi trường:**
-- Trình duyệt: Chrome
-- Hệ điều hành: Windows 11 / macOS
-- Ngôn ngữ giao diện: Tiếng Việt
-- Nền tảng hệ thống: Flutter Web
+**Environment:**
+- Browser: Chrome
+- Operating system: Windows 11 / macOS
+- Interface language: Vietnamese
+- System platform: Flutter Web
 
-**Điều kiện tiên quyết:**
-Đã đăng nhập thành công vào hệ thống và đang đứng tại tab "Sách".
+**Preconditions:**
+Successfully logged in to the system and currently in the "Books" tab.
 
-**Bước tái hiện:**
-1. Nhấp chuột vào thanh văn bản đầu vào: "Lọc theo thể loại (VD: Công nghệ, Kinh tế...)".
-2. Nhập vào chuỗi văn bản viết thường hoàn toàn: `"công nghệ"`.
-3. Nhấn phím Enter hoặc nhấp chuột ra ngoài vùng trống để hệ thống thực thi bộ lọc.
-4. Quan sát danh sách sách hiển thị trên màn hình UI.
+**Steps to reproduce:**
+1. Click on the input bar: "Filter by category (e.g. Technology, Economy...)"
+2. Enter the all-lowercase string: `"công nghệ"`.
+3. Press Enter or click outside the blank area so the system applies the filter.
+4. Observe the list of books displayed on the UI.
 
-**Kết quả mong đợi:**
-Hệ thống phải xử lý không phân biệt chữ hoa/chữ thường (Case-Insensitive), nhận diện được thể loại và hiển thị danh sách gồm 8 cuốn sách thuộc nhóm "Công nghệ" (Mã sách từ BOOK001, BOOK002, BOOK003, BOOK005, BOOK008, BOOK009, BOOK010, BOOK011).
+**Expected result:**
+The system must process the input in a case-insensitive manner, recognize the category, and display the list of 8 books in the "Technology" group (Book codes BOOK001, BOOK002, BOOK003, BOOK005, BOOK008, BOOK009, BOOK010, BOOK011).
 
-**Kết quả thực tế:**
-Hệ thống xử lý phân biệt chữ hoa/chữ thường. Toàn bộ danh sách sách biến mất hoàn toàn khỏi màn hình, giao diện trả về thông báo lỗi: `'Không tìm thấy sách nào'`. Bộ lọc chỉ hoạt động khi người dùng gõ chuẩn xác từng ký tự in hoa `"Công nghệ"`.
+**Actual result:**
+The system processes the filter in a case-sensitive manner. The entire book list disappears from the screen, and the interface shows the error message: `'No books found'`. The filter only works when the user types the exact uppercase form `"Công nghệ"`.
 
-**Tác động:**
-Gây ảnh hưởng tiêu cực đến trải nghiệm sử dụng (UX). Người dùng nhập liệu thủ công bằng chữ thường theo thói quen sẽ cho rằng hệ thống không có sách hoặc bị lỗi tính năng lọc dữ liệu, mặc dù dữ liệu thực tế vẫn tồn tại trong hệ thống.
+**Impact:**
+This negatively affects the user experience (UX). Users who naturally type in lowercase may think the system has no books or that the filtering feature is broken, even though the data actually exists in the system.
 
-**Minh chứng:**
+**Evidence:**
 
 
 <img width="1937" height="1159" alt="image" src="https://github.com/user-attachments/assets/1c38bd8d-9068-4e42-a239-0ae97d1a3b35" />
 
 
-**Đề xuất xử lý:**
-Lập trình viên cần chuẩn hóa cả chuỗi dữ liệu người dùng nhập vào (Input string) và thuộc tính thể loại của sách trong Database về cùng một định dạng (ví dụ: sử dụng function `.toLowerCase()` hoặc `.toUpperCase()`) trước khi thực hiện so sánh chuỗi.
+**Suggested fix:**
+Developers need to normalize both the user input string and the book category attribute in the database to the same format (for example, using `.toLowerCase()` or `.toUpperCase()`) before comparing strings.
 
 ## BUG-03
 
-| Thuộc tính | Chi tiết |
+| Attribute | Details |
 |-----------|---------|
-| **Mã lỗi** | BUG-03 |
-| **TC liên quan** | `TC-12` |
-| **REQ liên quan** | `REQ-04` |
-| **Mức độ** | `Medium` |
-| **Người phát hiện** | `Nguyễn Xuân Dương và Vũ Trần Nam Khánh` |
-| **Ngày phát hiện** | `18/05/2026` |
-| **Trạng thái** | `Open` |
+| **Bug ID** | BUG-03 |
+| **Related TC** | `TC-12` |
+| **Related REQ** | `REQ-04` |
+| **Severity** | `Medium` |
+| **Reported by** | `Nguyễn Xuân Dương và Vũ Trần Nam Khánh` |
+| **Date found** | `18/05/2026` |
+| **Status** | `Open` |
 
-**Tiêu đề:**
-Hệ thống báo lỗi 'Thành viên hết hạn' thay vì 'Thành viên tạm ngưng' khi mượn sách trong tài khoản thành viên ở trạng thái "Tạm ngưng"
+**Title:**
+The system reports 'Expired member' instead of 'Suspended member' when borrowing books with a member account in the "Suspended" status
 
-**Môi trường:**
-- Trình duyệt: Chrome
-- Hệ điều hành: `Windows`
-- Ngôn ngữ giao diện: Tiếng Việt
+**Environment:**
+- Browser: Chrome
+- Operating system: `Windows`
+- Interface language: Vietnamese
 
-**Điều kiện tiên quyết:**
-`Thành viên bị tạm ngưng, sách ở trạng thái "Có sẵn"`
+**Preconditions:**
+`Suspended member, book in "Available" status`
 
-**Bước tái hiện:**
-1. `Đăng nhập vào hệ thống với tài khoản bị tạm ngưng`
-2. `Mượn bất kỳ một sách có sẵn`
-3. `Kiểm tra phản hồi của hệ thống`
+**Steps to reproduce:**
+1. `Log in to the system with the suspended account`
+2. `Borrow any available book`
+3. `Check the system response`
 
-**Kết quả mong đợi:**
-- Hệ thống báo lỗi `'Thành viên tạm ngưng'`
+**Expected result:**
+- The system reports `'Suspended member'`
 
-**Kết quả thực tế:**
-- Hệ thống báo lỗi: `'Thành viên hết hạn'`
+**Actual result:**
+- The system reports: `'Expired member'`
 
-**Tác động:**
-- Gây lỗi sai lệch luồng thông tin, ảnh hưởng đến quá trình quản lý của thủ thư.  
-- Gây lỗi đến sử dụng (UX).
+**Impact:**
+- Causes incorrect information flow, affecting the librarian’s management process.  
+- Affects user experience (UX).
 
-**Minh chứng:**
+**Evidence:**
 <img width="2008" height="1160" alt="REQ-04_TC-04_01" src="https://github.com/user-attachments/assets/c67c1c48-f7b2-42d5-b973-44dd0965cf9c" />
 
-**Đề xuất xử lý:**
-Cần kiểm tra lại cấu trúc rẽ nhánh logic và bóc tách các mệnh đề kiểm tra điều kiện clauses của trạng thái thành viên.
+**Suggested fix:**
+Review the branching logic structure and separate the condition clauses for member status checks.
 
 ---
 
 ## BUG-04
 
-| Thuộc tính | Chi tiết |
+| Attribute | Details |
 |-----------|---------|
-| **Mã lỗi** | BUG-04 |
-| **TC liên quan** | `TC-16` |
-| **REQ liên quan** | `REQ-04` |
-| **Mức độ** | `High` |
-| **Người phát hiện** | `Nguyễn Xuân Dương và Vũ Trần Nam Khánh` |
-| **Ngày phát hiện** | `18/05/2026` |
-| **Trạng thái** | `Open` |
+| **Bug ID** | BUG-04 |
+| **Related TC** | `TC-16` |
+| **Related REQ** | `REQ-04` |
+| **Severity** | `High` |
+| **Reported by** | `Nguyễn Xuân Dương và Vũ Trần Nam Khánh` |
+| **Date found** | `18/05/2026` |
+| **Status** | `Open` |
 
-**Tiêu đề:**
-Thành viên mượn đến 4 sách thay vì 3 sách trong hệ thống
+**Title:**
+A member can borrow up to 4 books instead of 3 books in the system
 
-**Môi trường:**
-- Trình duyệt: Chrome
-- Hệ điều hành: `Windows`
-- Ngôn ngữ giao diện: Tiếng Việt
+**Environment:**
+- Browser: Chrome
+- Operating system: `Windows`
+- Interface language: Vietnamese
 
-**Điều kiện tiên quyết:**
-`Thành viên hoạt động, sách ở trạng thái "Có sẵn"`
+**Preconditions:**
+`Active member, books in "Available" status`
 
-**Bước tái hiện:**
-1. `Đăng nhập vào hệ thống với tài khoản đang hoạt động`
-2. `Mượn 1,2,3,4 sách ở trạng thái "Có sẵn"`
-3. `Kiểm tra kết quả phản hồi của hệ thống`
+**Steps to reproduce:**
+1. `Log in to the system with an active account`
+2. `Borrow 1, 2, 3, 4 books in "Available" status`
+3. `Check the system response`
 
-**Kết quả mong đợi:**
-`Khi mượn đến sách thứ 4, hệ thống phải báo lỗi đã mượn đủ 3 sách và từ chối nhận thêm sách`
+**Expected result:**
+`When borrowing the 4th book, the system must report that the 3-book limit has been reached and reject additional borrowing`
 
-**Kết quả thực tế:**
-`Hệ thống chấp nhận sách thứ 4 và hệ thống từ chối và báo lỗi ở sách thứ 5.`
+**Actual result:**
+`The system accepts the 4th book and only rejects and reports an error when borrowing the 5th book.`
 
-**Tác động:**
-- Vi phạm đến yêu cầu nghiệp vụ.
+**Impact:**
+- Violates the business requirement.
 
-**Minh chứng:**
-- Mượn được 3 sách :
+**Evidence:**
+- Borrowed 3 books:
 <img width="2008" height="1160" alt="REQ-04_TC-08_07" src="https://github.com/user-attachments/assets/3ad3e644-12b8-4d97-b215-76a48c92b240" />
 
-- Hệ thống vẫn cho mượn được sách thứ 4:
+- The system still allows borrowing the 4th book:
 
 <img width="2008" height="1160" alt="REQ-04_TC-08_09" src="https://github.com/user-attachments/assets/74370bd9-6da7-460e-bdd6-aabb54b48e41" />
 
 <img width="2008" height="1160" alt="REQ-04_TC-08_10" src="https://github.com/user-attachments/assets/afad257d-63c4-4d35-9e5c-3cfa9a4c1be9" />
 
-- Và hệ thống báo lỗi khi mượn sách thứ 5:
+- And the system reports an error when borrowing the 5th book:
 
 <img width="2008" height="1160" alt="REQ-04_TC-08_11" src="https://github.com/user-attachments/assets/5c2bc594-3184-4755-8c38-d790eff7c7e1" />
 
-**Đề xuất xử lý:**
-Cần chỉnh sửa điều kiện logic của `borrow_count` thay vì ≤3 thành <3.
+**Suggested fix:**
+Adjust the `borrow_count` logic condition from `<=3` to `<3`.
 
 ---
 
 ## BUG-05
 
-| Thuộc tính | Chi tiết |
+| Attribute | Details |
 |-----------|---------|
-| **Mã lỗi** | BUG-03 |
-| **TC liên quan** | `TC-19` |
-| **REQ liên quan** | `REQ-05` |
-| **Mức độ** | `Medium` |
-| **Người phát hiện** | `Nguyễn Xuân Dương` |
-| **Ngày phát hiện** | `18/05/2026` |
-| **Trạng thái** | `Open` |
+| **Bug ID** | BUG-03 |
+| **Related TC** | `TC-19` |
+| **Related REQ** | `REQ-05` |
+| **Severity** | `Medium` |
+| **Reported by** | `Nguyễn Xuân Dương` |
+| **Date found** | `18/05/2026` |
+| **Status** | `Open` |
 
-**Tiêu đề:**
-Hệ thống không hiển thị **cảnh báo quá hạn** khi trả sách quá hạn
+**Title:**
+The system does not display the **overdue warning** when returning an overdue book
 
-**Môi trường:**
-- Trình duyệt: Firefox
-- Hệ điều hành: `Windows`
-- Ngôn ngữ giao diện: Tiếng Việt
+**Environment:**
+- Browser: Firefox
+- Operating system: `Windows`
+- Interface language: Vietnamese
 
-**Điều kiện tiên quyết:**
-`Thành viên có phiếu mượn ban đầu ở trạng thái "Đang mượn" và quá hạn, sách quá hạn ở trạng thái "Đang mượn"`
+**Preconditions:**
+`Member has a borrowing slip initially in "Borrowed" status and overdue; overdue book is in "Borrowed" status`
 
-**Bước tái hiện:**
-1. `Vào mục "Mượn/Trả`
-2. `Ấn nút "Trả sách" ở phiếu mượn của sách quá hạn đang ở đang ở trạng thái "Đang mượn"`
-3. `Kiểm tra thông báo của hệ thống`
+**Steps to reproduce:**
+1. `Go to the "Borrow/Return" section`
+2. `Click the "Return book" button on the borrowing slip of the overdue book that is still in the "Borrowed" status`
+3. `Check the system notification`
 
-**Kết quả mong đợi:**
-`Hệ thống hiển thị cảnh báo quá hạn`
+**Expected result:**
+`The system displays an overdue warning`
 
-**Kết quả thực tế:**
-`Hệ thống chỉ hiển thị mỗi thông báo trả sách thành công`
+**Actual result:**
+`The system only displays the return successful message`
 
-**Tác động:**
-- Vi phạm đến yêu cầu nghiệp vụ BO-02.
+**Impact:**
+- Violates business requirement BO-02.
 
-**Minh chứng**
+**Evidence**
 
 <img width="1912" height="815" alt="REQ-05_baoquahan" src="https://github.com/user-attachments/assets/cbce76bc-3f7f-4c07-92a3-250f8b8cd726" />
 
-**Đề xuất xử lý:**
-Kiểm tra cảnh báo quá hạn đã được viết chưa và kiểm tra điều kiện hiển thị cảnh báo đúng chưa 
+**Suggested fix:**
+Check whether the overdue warning has been implemented and whether the display condition for the warning is correct.
 
 ---
 
 ## BUG-06
 
-| Thuộc tính | Chi tiết |
+| Attribute | Details |
 |-----------|---------|
-| **Mã lỗi** | BUG-01 |
-| **TC liên quan** | `TC-04` |
-| **REQ liên quan** | `REQ-07` |
-| **Mức độ** | `Medium` |
-| **Người phát hiện** | `Cao Chí Bảo` |
-| **Ngày phát hiện** | `19/05/2026` |
-| **Trạng thái** | `Open` |
+| **Bug ID** | BUG-01 |
+| **Related TC** | `TC-04` |
+| **Related REQ** | `REQ-07` |
+| **Severity** | `Medium` |
+| **Reported by** | `Cao Chí Bảo` |
+| **Date found** | `19/05/2026` |
+| **Status** | `Open` |
 
-**Tiêu đề:**
-`Hệ thống chấp nhận email sai format khi thêm thành viên`
+**Title:**
+`The system accepts invalid-format email when adding a member`
 
-**Môi trường:**
-- Trình duyệt: Chrome `148`
-- Hệ điều hành: `Windows 11`
-- Ngôn ngữ giao diện: Tiếng Việt
+**Environment:**
+- Browser: Chrome `148`
+- Operating system: `Windows 11`
+- Interface language: Vietnamese
 
-**Điều kiện tiên quyết:**
-`Đăng nhập tài khoản thủ thư, truy cập chức năng thêm thành viên`
+**Preconditions:**
+`Log in as librarian, access the add-member function`
 
-**Bước tái hiện:**
-1. `Truy cập hệ thống mượn sách https://stqa.rbc.vn/ và đăng nhập vào tài khoản thủ thư`
-2. `Click icon "Thêm thành viên" ở góc phải`
-3. `Nhập thông tin đầy đủ về Họ và tên và SĐT cùng email thiếu "@"`
+**Steps to reproduce:**
+1. `Access the book borrowing system https://stqa.rbc.vn/ and log in as the librarian`
+2. `Click the "Add member" icon in the top-right corner`
+3. `Enter full name, phone number, and an email missing "@"`
 
-**Kết quả mong đợi:**
-`Hệ thống báo lỗi do email sai cú pháp`
+**Expected result:**
+`The system reports an error because the email syntax is invalid`
 
-**Kết quả thực tế:**
-`Thêm thành viên thành công`
+**Actual result:**
+`Member is added successfully`
 
-**Tác động:**
-`Hệ thống bị lưu dữ liệu sai, gây lỗi khi gửi email thông báo mượn/trả sách sau này.`
+**Impact:**
+`The system stores incorrect data, which may cause errors when sending borrow/return notification emails later.`
 
-**Minh chứng:**
+**Evidence:**
 
 ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC04.png)
 
-**Đề xuất xử lý:**
-`Bổ sung/ kiểm tra lại hàm kiểm tra định dạng để chặn và báo lỗi ngay tại ô Email.` 
+**Suggested fix:**
+`Add/check the validation function to block and report the error immediately in the Email field.`
 
 ---
 
 ## BUG-07
 
-| Thuộc tính | Chi tiết |
+| Attribute | Details |
 |-----------|---------|
-| **Mã lỗi** | BUG-02 |
-| **TC liên quan** | `TC-05` |
-| **REQ liên quan** | `REQ-07` |
-| **Mức độ** | `High` |
-| **Người phát hiện** | `Cao Chí Bảo` |
-| **Ngày phát hiện** | `19/05/2026` |
-| **Trạng thái** | `Open` |
+| **Bug ID** | BUG-02 |
+| **Related TC** | `TC-05` |
+| **Related REQ** | `REQ-07` |
+| **Severity** | `High` |
+| **Reported by** | `Cao Chí Bảo` |
+| **Date found** | `19/05/2026` |
+| **Status** | `Open` |
 
-**Tiêu đề:**
-`Hệ thống không cho phép thêm thành viên với thông tin đầy đủ và hợp lệ`
+**Title:**
+`The system does not allow adding a member even with complete and valid information`
 
-**Bước tái hiện:**
-1. `Truy cập hệ thống mượn sách https://stqa.rbc.vn/ và đăng nhập vào tài khoản thủ thư`
-2. `Click icon "Thêm thành viên" ở góc phải`
-3. `Nhập các thông tin đầy đủ và đúng cú pháp`
+**Steps to reproduce:**
+1. `Access the book borrowing system https://stqa.rbc.vn/ and log in as the librarian`
+2. `Click the "Add member" icon in the top-right corner`
+3. `Enter complete information with correct syntax`
 
-**Kết quả mong đợi:**
-`Hệ thống báo thêm thành viên thành công`
+**Expected result:**
+`The system reports that the member has been added successfully`
 
-**Kết quả thực tế:**
-`Hệ thống báo email không hợp lệ`
+**Actual result:**
+`The system reports invalid email`
 
-**Tác động:**
-`Chức năng thêm thành viên mất đi hoàn toàn luồng hoạt động cốt lõi`
+**Impact:**
+`The add-member function completely loses its core workflow`
 
-**Minh chứng:**
+**Evidence:**
 ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC05.png)
 
-**Đề xuất xử lý:**
-`Nhanh chóng kiểm tra lại logic API trong phần code của mục "Thêm thành viên" để hệ thống chấp nhận thông tin đúng và lưu thành viên thành công`
+**Suggested fix:**
+`Quickly review the API logic in the "Add member" module so the system accepts valid information and saves the member successfully`
 
-BUG-08
+---
+
+## BUG-08
 
 | Attribute | Details |
 |-----------|---------|
@@ -354,7 +356,7 @@ BUG-08
 | **Related TC** | TC35 |
 | **Related REQ** | REQ-08 |
 | **Severity** | High |
-| **Discovered by** | Huynh Gia An|
+| **Discovered by** | Huỳnh Gia An |
 | **Date discovered** | 20/05/2026 |
 | **Status** | Open |
 
@@ -391,5 +393,3 @@ Serious privacy and access control violation. Any Member can freely look up and 
 
 **Suggested Fix:**
 When a Member submits a lookup query, the backend/controller must validate that the searched Member ID matches the currently logged-in user's ID. If it does not match, the system must return an empty result set or an access-denied message. This filter should be enforced server-side (or in the state management layer), not only on the UI.
-
----
