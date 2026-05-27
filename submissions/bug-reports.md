@@ -270,7 +270,7 @@ Check whether the overdue warning has been implemented and whether the display c
 | Attribute | Details |
 |-----------|---------|
 | **Bug ID** | BUG-06 |
-| **Related TC** | `TC-31` |
+| **Related TC** | `TC-32` |
 | **Related REQ** | `REQ-07` |
 | **Severity** | `Medium` |
 | **Reported by** | `Cao Chí Bảo` |
@@ -316,7 +316,7 @@ Check whether the overdue warning has been implemented and whether the display c
 | Attribute | Details |
 |-----------|---------|
 | **Bug ID** | BUG-07 |
-| **Related TC** | `TC-32` |
+| **Related TC** | `TC-33` |
 | **Related REQ** | `REQ-07` |
 | **Severity** | `High` |
 | **Reported by** | `Cao Chí Bảo` |
@@ -353,7 +353,7 @@ Check whether the overdue warning has been implemented and whether the display c
 | Attribute | Details |
 |-----------|---------|
 | **Bug ID** | BUG-08 |
-| **Related TC** | TC-35 |
+| **Related TC** | TC-36 |
 | **Related REQ** | REQ-08 |
 | **Severity** | High |
 | **Discovered by** | Huỳnh Gia An |
