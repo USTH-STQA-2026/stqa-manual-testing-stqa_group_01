@@ -73,7 +73,7 @@ Only accept emails in the correct format: `email@domain.ext`
 
 | Attribute | Details |
 |-----------|---------|
-| **Bug ID** | BUG-01 |
+| **Bug ID** | BUG-02 |
 | **Related TC** | `TC-11` |
 | **Related REQ** | `REQ-03` |
 | **Severity** | `Medium` |
@@ -223,7 +223,7 @@ Adjust the `borrow_count` logic condition from `<=3` to `<3`.
 
 | Attribute | Details |
 |-----------|---------|
-| **Bug ID** | BUG-03 |
+| **Bug ID** | BUG-05 |
 | **Related TC** | `TC-19` |
 | **Related REQ** | `REQ-05` |
 | **Severity** | `Medium` |
@@ -269,8 +269,8 @@ Check whether the overdue warning has been implemented and whether the display c
 
 | Attribute | Details |
 |-----------|---------|
-| **Bug ID** | BUG-01 |
-| **Related TC** | `TC-04` |
+| **Bug ID** | BUG-06 |
+| **Related TC** | `TC-31` |
 | **Related REQ** | `REQ-07` |
 | **Severity** | `Medium` |
 | **Reported by** | `Cao Chí Bảo` |
@@ -315,8 +315,8 @@ Check whether the overdue warning has been implemented and whether the display c
 
 | Attribute | Details |
 |-----------|---------|
-| **Bug ID** | BUG-02 |
-| **Related TC** | `TC-05` |
+| **Bug ID** | BUG-07 |
+| **Related TC** | `TC-32` |
 | **Related REQ** | `REQ-07` |
 | **Severity** | `High` |
 | **Reported by** | `Cao Chí Bảo` |
@@ -353,7 +353,7 @@ Check whether the overdue warning has been implemented and whether the display c
 | Attribute | Details |
 |-----------|---------|
 | **Bug ID** | BUG-08 |
-| **Related TC** | TC35 |
+| **Related TC** | TC-35 |
 | **Related REQ** | REQ-08 |
 | **Severity** | High |
 | **Discovered by** | Huỳnh Gia An |
