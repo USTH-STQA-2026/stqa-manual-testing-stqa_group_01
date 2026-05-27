@@ -31,6 +31,14 @@
 | Ô nhập có rỗng? | Không rỗng | (giá trị bất kỳ) | Xử lý bình thường |
 | | Rỗng | `""` | Thông báo "Vui lòng nhập..." |
 
+### IDM — Tìm kiếm sách (REQ-02)
+
+| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+|---|---|---|---|
+| Sách có sẵn không? | Có | Nút dấu cộng | Mượn sách thành công |
+| Dùng xong quyển sách chưa? | Rồi | Nút trả sách | Trả sách thành công |
+| Quản lý mượn/trả sách đối vớ thủ thư | CÓ | Hiển thị thông tin mượn/trả sách của từng thành viên | Hiển thị thông tin sách |
+
 ### IDM — Tìm kiếm sách (REQ-03)
 
 | Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
