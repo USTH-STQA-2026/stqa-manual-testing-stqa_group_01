@@ -54,6 +54,14 @@
 | Số sách đang mượn? | < 3 (BVA: 0, 1, 2) | MEM006 (0 sách) | Cho phép mượn |
 | | = 3 (BVA: giới hạn) | MEM đã mượn 3 sách | Từ chối, thông báo vượt giới hạn |
 
+### IDM — Trả sách (REQ-05)
+| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+|---|---|---|---|
+| Trạng thái sách? | Đang mượn | BOOK013 | Cho phép trả sách |
+| | Đã trả | BOOK005 | Sách chuyển về trạng thái "Có sẵn" |
+| Sách quá hạn? | Quá hạn | BOOK003 | Hiển thị **cảnh báo quá hạn** khi trả |
+| | Không quá hạn | BOOK013 | Không hiển thị **cảnh báo quá hạn** khi trả |
+
 ### IDM — Xử lý sách quá hạn (REQ-06)
 
 | Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
