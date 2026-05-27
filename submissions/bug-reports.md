@@ -393,3 +393,52 @@ Serious privacy and access control violation. Any Member can freely look up and 
 
 **Suggested Fix:**
 When a Member submits a lookup query, the backend/controller must validate that the searched Member ID matches the currently logged-in user's ID. If it does not match, the system must return an empty result set or an access-denied message. This filter should be enforced server-side (or in the state management layer), not only on the UI.
+
+--
+
+
+## BUG-09
+
+| Attribute | Details |
+|-----------|---------|
+| **Bug ID** | BUG-09 |
+| **Related TC** | TC-21 |
+| **Related REQ** | REQ-05 |
+| **Severity** | High |
+| **Discovered by** | Nguyễn Xuân Dương |
+| **Date discovered** | 27/05/2026 |
+| **Status** | Open |
+
+**Title:**
+Member can return other members' books
+
+**Environment:**
+- Browser: Firefox
+- Operating System: Windows
+- Interface language: Vietnamese (default)
+
+**Preconditions:**
+- The book is in "Borrowed" status
+- Logged in as Member MEM002 (`ba.nguyen@email.com` / `password123`)
+- Member with the initial borrowing slip in the "Borrowed" status (MEM006)
+
+**Steps to Reproduce:**
+1. Log in as member MEM002
+2. Navigate to the "Mượn/Trả" tab
+3. Click on the "Tra cứu phiếu mượn" and enter "MEM006" in the search bar
+4. Click on the "Return book" button on the slip
+
+**Expected Result:**
+The system should not allow the member (MEM002) to return the other member' (MEM006) book
+
+**Actual Result:**
+The system allows the member (MEM002) to returnthe other member' (MEM006) book
+
+**Impact:**
+- Access control violation. Any member can freely return another member' books simply by knowing (or guessing) their Member ID. This might mess with the management of books and create inconveniences for other members.
+
+**Evidence:**
+![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/579ecc6927b0d1df912e0e52bf5ca13737203985/screenshots/REQ-05_trasachthanhvienkhac.png)
+
+**Suggested Fix:**
+When a Member submits a lookup query, the backend/controller must validate that the searched Member ID matches the currently logged-in user's ID. If it still shows the other members' borrowing slips, the "Return book" button must not appear or it must not be able to return correctly and display an access-denied message.
