@@ -20,9 +20,9 @@
 | TC-02 | Login | Display an error when the email does not exist | The system displays the message “Member not found” | Pass | |-|
 | TC-03 | Login | Display an error when the password is incorrect | The system displays the message “Incorrect password” | Pass | |-|
 | TC-04 | Login | Reject invalid email format and do not allow login | The system accepts the email `example@email` and logs in successfully | Fail | | BUG-01 |
-|TC-05|Borrow books|Book changes to the "Borrowed" status|Successfully changes to the borrowed status| Pass |![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/screenshot-2026-05-19_15.41.40.png)|-|
-|TC-06|Return books|Book changes to the "Returned" status|Successfully changes to the returned status| Pass |![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/screenshot-2026-05-19_15.49.03.png)|-|
-|TC-07|Display borrowed book information|Member sees the books they borrowed; librarian sees all borrowed books|Successfully displays borrowed books for the librarian| Pass |![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/screenshot-2026-05-19_15.54.03.png)|-|
+| TC-05 | View book list | The system displays the full book list for both Librarian and Member roles | The system successfully displays the complete book list after login | Pass | ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/screenshot-2026-05-19_15.41.40.png) | - |
+| TC-06 | View book list | Each book displays complete information including title, author, category, publication year, and status | The system correctly displays complete information for every book in the list | Pass | ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/screenshot-2026-05-19_15.49.03.png) | - |
+| TC-07 | View book list | The system displays the correct status for each book ("Available", "Borrowed", or "Lost") | The system correctly displays the current status of each book | Pass | ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/screenshot-2026-05-19_15.54.03.png) | - |
 |TC-08|Book Search and Filter (REQ-03)|Accurate search by both book title and author name. If the input string does not exist, the message `'No books found.'` must be displayed.|The filter works well with specific author names and book titles. When entering the junk string "ABCxyz123", the screen hides all books and correctly displays `'No books found.'`.| Pass |After step 2: <img width="2048" height="1189" alt="REQ-03_TC-01_01" src="https://github.com/user-attachments/assets/d6ae9610-25bb-4028-a694-420714d83541" /> <br>After step 3: <img width="2048" height="1189" alt="REQ-03_TC-01_02" src="https://github.com/user-attachments/assets/bd1bb0a1-4a8f-4984-b04f-5e9a2829bb9e" /> <br>After step 4: <img width="2048" height="1189" alt="REQ-03_TC-01_03" src="https://github.com/user-attachments/assets/c0f0a146-793b-496f-a056-f7bdd4017c8f" />|-|
 |TC-09|Book Search and Filter (REQ-03)|The search system is case-insensitive. Entering mixed-case text should still correctly filter 2 books by author `"Nguyễn Minh Đức"` and 1 book `"Lập trình Flutter cơ bản"`.|The system normalizes strings correctly and displays the corresponding book cards accurately for both mixed-data strings.| Pass |After step 3: <img width="2048" height="1189" alt="REQ-03_TC-02_01" src="https://github.com/user-attachments/assets/4d56dfee-0697-4502-b6a5-8e9798957c8b" /> <br>After step 6: <img width="2048" height="1189" alt="REQ-03_TC-02_02" src="https://github.com/user-attachments/assets/b50df567-28d1-4914-854c-71cc4294edb2" />|-|
 |TC-10|Book Search and Filter (REQ-03)|Entering the category `"Công nghệ"` displays exactly 8 books in this category. Entering a non-existent category displays the message 'No books found.'.|The system correctly filters the list of 8 Technology book codes. When entering an invalid category, the list is empty and the message `'No books found.'` is displayed correctly.| Pass |After step 3: <img width="2048" height="1189" alt="REQ-03_TC-03_01" src="https://github.com/user-attachments/assets/eb646747-1f1e-4594-81a1-ee7280943c7c" /> <br>After step 5: <img width="2048" height="1189" alt="REQ-03_TC-03_02" src="https://github.com/user-attachments/assets/8a2f2f1f-ac4f-4295-93c7-3f5d6f673f82" />|-|
@@ -44,27 +44,28 @@
 | TC-26 | Overdue book handling (REQ-06) | A slip with `dueDate` equal to the current date is marked "Overdue" | Slip BR006 (due date matching the simulated system date) is changed to the "Overdue" status | Pass | ![AltText](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/An05.png) | — |
 | TC-27 | Overdue book handling (REQ-06) | A slip that is not yet due (`dueDate` > current date) is NOT marked "Overdue" | Slip BR006 (due date in the future) remains in the "Borrowed" status after checking | Pass | ![AltText](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/An06.png) | — |
 | TC-28 | Overdue book handling (REQ-06) | Overdue slips are displayed by default as "Borrowed" BEFORE pressing the button | Before clicking the "Check overdue" button, BR001 and BR003 are still displaying the "Borrowed" status | Pass | ![AltText](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/An07.png) | — |
-|TC-29|Exclusive Add Member feature (for librarian)|"Add member" icon does not appear|The "Add member" icon does not appear on the borrower account|Pass|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC01.png)|---|
-|TC-30|Add member with full first and last name| The system reports an error due to missing first and last name information | The system responds with "Name cannot be empty"|Pass|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC02.png)|---|
-|TC-31|Check email syntax validation| The system reports an error because the email is missing "@"| The system responds with "Invalid email"|Pass|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC03.png)|---|
-|TC-32|Check email syntax validation| The system reports an error because the email is missing "."| Member is added successfully even though the email is invalid|Fail|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC04.png)|invalid email was still added successfully|
-|TC-33|Basic functionality test of Add member feature| The system adds a member successfully| The system reports invalid email|Fail|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC05.png)|Unable to add a member even when the input information contains no errors|
+| TC-29 |Exclusive Add Member feature (for librarian)|"Add member" icon does not appear|The "Add member" icon does not appear on the borrower account|Pass|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC01.png)|---|
+| TC-30 |Add member with full first and last name| The system reports an error due to missing first and last name information | The system responds with "Name cannot be empty"|Pass|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC02.png)|---|
+| TC-31 |Check email syntax validation| The system reports an error because the email is missing "@"| The system responds with "Invalid email"|Pass|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC03.png)|---|
+| TC-32 |Check email syntax validation| The system reports an error because the email is missing "."| Member is added successfully even though the email is invalid|Fail|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC04.png)|invalid email was still added successfully|
+| TC-33 |Basic functionality test of Add member feature| The system adds a member successfully| The system reports invalid email|Fail|![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC05.png)|Unable to add a member even when the input information contains no errors|
 | TC-34 | Borrow Record Lookup (REQ-08) | Librarian can view all borrow records (BR001–BR005) across all members | Logged in as Librarian → "Mượn / Trả" tab → all 5 records (BR001–BR005) are visible with correct member names, book titles, dates, and statuses | Pass | ![AltText](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/An08.png) | — |
 | TC-35 | Borrow Record Lookup (REQ-08) | Member MEM002 sees only their own records (BR001, BR004) in the default view — no other members' records shown | Logged in as MEM002 → "Mượn / Trả" tab → only BR001 ("Đang mượn") and BR004 ("Đã trả") are displayed; BR002, BR003, BR005 are not visible | Pass | ![AltText](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/An09.png) | — |
 | TC-36 | Borrow Record Lookup (REQ-08) | Member MEM002 enters MEM006's ID in the lookup field — should NOT see BR003 | Logged in as MEM002 → "Mượn / Trả" tab → entered MEM006 in the "Tra cứu phiếu mượn" search field → BR003 (Quản trị nhân sự hiện đại, belonging to Hoàng Cá Biệt) is displayed to MEM002 — unauthorized access | **Fail** | ![AltText](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/An10.png) | BUG-08 |
 | TC-37 | Borrow Record Lookup (REQ-08) | All 5 required fields are present in each borrow record: Record ID, Book, Borrow date, Due date, Status | Logged in as Librarian → inspected BR001 → all fields visible: BR001, "Kiểm thử phần mềm nhập môn", 01/09/2024, 15/09/2024, "Đang mượn" (before clicking "Kiểm tra sách quá hạn") | Pass | ![AltText](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/An11.png) | — |
+| TC-38 | View book list | When a book status changes, the displayed status is updated immediately in the book list | After borrowing and returning books, the displayed status changes correctly between "Available" and "Borrowed" | Pass | | - |
 
 ---
 ## Test Result Summary
 
 | Metric | Value |
 |--------|---------|
-| Total Test Cases | 36 |
+| Total Test Cases | 38 |
 | Pass | 28 |
-| Fail | 8 |
+| Fail | 9 |
 | Blocked | 0 |
 | Not Run | 0 |
-| **Pass Rate** | 77.78% |
+| **Pass Rate** | 73.68% |
 
 ### Result by Functional Group
 
@@ -74,7 +75,7 @@
 | Borrow / Return Core Actions | 3 | 3 | 0 | 100.00% |
 | Search and Filter Books | 4 | 3 | 1 | 75.00% |
 | Borrowing Permission Rules | 6 | 4 | 2 | 66.67% |
-| Return-book Behavior | 3 | 2 | 1 | 66.67% |
+| Return-book Behavior | 4 | 2 | 2 | 50% |
 | Overdue Handling | 7 | 7 | 0 | 100.00% |
 | Add Member / Validation | 5 | 3 | 2 | 60.00% |
 | Borrow Record Visibility / Lookup | 4 | 3 | 1 | 75.00% |
