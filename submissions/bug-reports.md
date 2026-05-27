@@ -432,10 +432,10 @@ Member can return other members' books
 The system should not allow the member (MEM002) to return the other member' (MEM006) book
 
 **Actual Result:**
-The system allows the member (MEM002) to returnthe other member' (MEM006) book
+The system allows the member (MEM002) to return the other member' (MEM006) book
 
 **Impact:**
-- Access control violation. Any member can freely return another member' books simply by knowing (or guessing) their Member ID. This might mess with the management of books and create inconveniences for other members.
+Access control violation. Any member can freely return another member' books simply by knowing (or guessing) their Member ID. This might mess with the management of books and create inconveniences for other members.
 
 **Evidence:**
 ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/579ecc6927b0d1df912e0e52bf5ca13737203985/screenshots/REQ-05_trasachthanhvienkhac.png)
