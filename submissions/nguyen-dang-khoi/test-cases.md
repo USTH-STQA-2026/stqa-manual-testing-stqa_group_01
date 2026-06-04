@@ -26,18 +26,20 @@
 
 | Characteristic | Block | Representative Value | Expected Result |
 |----------------|-------|----------------------|-----------------|
-| User role | Active member | Member account | Member can borrow and return books |
-| User role | Librarian | Librarian account | Librarian can view all borrowed books and process overdue returns |
-| Borrow action | Book available | Press "+" button on available book | Book status changes from "Available" → "Borrowed", borrow button hidden, return button shown |
-| Borrow action | Book already borrowed | Book displayed as "Borrowed" | "+" button is hidden for other users |
-| Return action | Member returns on time | Press return button | Book status changes to "Returned", status displays "Available", "+" button reappears |
-| Return action | Librarian processes overdue | Press return button (overdue) | Book status changes to "Returned", displayed as "Available" |
-| Borrowing info visibility | Member view | Member borrows a book | Member sees their own borrowed book in the list |
-| Borrowing info visibility | Librarian view | Member borrows a book | Librarian sees all currently borrowed books |
-| Book information display | Complete information | Author name, category, publication year, book ID | All required fields are displayed correctly below the book title |
-| Book status display | Available | Book not borrowed | System displays "Available" correctly |
-| Book status display | Borrowed | Book currently borrowed | System displays "Borrowed" correctly |
-| Book status display | Lost | Book marked as lost | System displays "Lost" correctly |
+| Book status? | Available | BOOK001 (Lập trình Flutter cơ bản) | Borrow button "+" displayed, can borrow |
+| | Borrowed | BOOK013 (Quản trị nhân sự hiện đại) | Displays "Borrowed", "+" button hidden for others, return button shown for borrower |
+| | Lost | BOOK007 (Kinh tế vi mô) | Displays "Lost", cannot borrow |
+| Member status? | Active | MEM002 (Nguyễn Học Bá) | Allowed to borrow |
+| | Suspended | MEM004 (Lê Cần Cù) | Rejected, error notification |
+| | Expired | MEM005 (Phạm Trung Bình) | Rejected, error notification |
+| Return action | On time | MEM002 presses return button on BOOK013 | Displays "Returned", status changes to "Available", "+" button reappears |
+| | Overdue | MEM001 (Librarian) presses return button on overdue book | Displays "Returned", status changes to "Available" |
+| Borrowing info visibility | Member view | MEM002 borrows BOOK001 | Member sees only their own borrowed books |
+| | Librarian view | MEM001 (Librarian) checks borrowed list | Librarian sees all borrowed books |
+| Book information display | Complete info | BOOK001 — Nguyễn Minh Đức • Công nghệ • 2023 | Author name, category, publication year, book ID all displayed correctly below title |
+| Book status display | Available | BOOK008 (Mạng máy tính) | System displays "Available" correctly |
+| | Borrowed | BOOK013 (Quản trị nhân sự hiện đại) | System displays "Borrowed" correctly |
+| | Lost | BOOK020 (Dẫn luận ngôn ngữ học) | System displays "Lost" correctly |
 
 ## Bước 2: Test Cases
 
