@@ -22,6 +22,23 @@
 
 ---
 
+## IDM — REQ-02: Book Borrowing, Returning & Display
+
+| Characteristic | Block | Representative Value | Expected Result |
+|----------------|-------|----------------------|-----------------|
+| User role | Active member | Member account | Member can borrow and return books |
+| User role | Librarian | Librarian account | Librarian can view all borrowed books and process overdue returns |
+| Borrow action | Book available | Press "+" button on available book | Book status changes from "Available" → "Borrowed", borrow button hidden, return button shown |
+| Borrow action | Book already borrowed | Book displayed as "Borrowed" | "+" button is hidden for other users |
+| Return action | Member returns on time | Press return button | Book status changes to "Returned", status displays "Available", "+" button reappears |
+| Return action | Librarian processes overdue | Press return button (overdue) | Book status changes to "Returned", displayed as "Available" |
+| Borrowing info visibility | Member view | Member borrows a book | Member sees their own borrowed book in the list |
+| Borrowing info visibility | Librarian view | Member borrows a book | Librarian sees all currently borrowed books |
+| Book information display | Complete information | Author name, category, publication year, book ID | All required fields are displayed correctly below the book title |
+| Book status display | Available | Book not borrowed | System displays "Available" correctly |
+| Book status display | Borrowed | Book currently borrowed | System displays "Borrowed" correctly |
+| Book status display | Lost | Book marked as lost | System displays "Lost" correctly |
+
 ## Bước 2: Test Cases
 
 <!-- Tự tổ chức bảng test case: có thể chia nhóm theo chức năng, theo REQ, hoặc theo luồng nghiệp vụ — tùy nhóm quyết định. -->
