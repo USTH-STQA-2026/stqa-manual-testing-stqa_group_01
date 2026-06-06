@@ -13,7 +13,7 @@
 
 ---
 
-### IDM — Login (REQ-01)
+## IDM — Login (REQ-01)
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
@@ -43,7 +43,7 @@
 | | Borrowed | BOOK013 (Quản trị nhân sự hiện đại) | System displays "Borrowed" correctly |
 | | Lost | BOOK020 (Introduction to Linguistics) | System displays "Lost" correctly |
 
-### IDM — Book Search (REQ-03)
+## IDM — Book Search (REQ-03)
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
@@ -53,7 +53,7 @@
 | Case-sensitive? | Lowercase | `"flutter"` | Same result as "Flutter" |
 | | Uppercase | `"FLUTTER"` | Same result as "Flutter" |
 
-### IDM — Borrow Books (REQ-04, REQ-05)
+## IDM — Borrow Books (REQ-04, REQ-05)
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
@@ -66,7 +66,7 @@
 | Number of books currently borrowed? | < 3 (BVA: 0, 1, 2) | MEM006 (0 books) | Allow borrowing |
 | | = 3 (BVA: limit) | MEM has already borrowed 3 books | Reject, report limit exceeded |
 
-### IDM — Return Books (REQ-05)
+## IDM — Return Books (REQ-05)
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
 | Book status? | Borrowed | BOOK013 | Allow returning the book |
@@ -74,7 +74,7 @@
 | Is the book overdue? | Overdue | BOOK003 | Display **overdue warning** when returning |
 | | Not overdue | BOOK013 | Do not display **overdue warning** when returning |
 
-### IDM — Overdue Book Handling (REQ-06)
+## IDM — Overdue Book Handling (REQ-06)
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
@@ -86,7 +86,7 @@
 | Visibility scope for Member? | Own slip | BR001 (owned by MEM002) | Sees own overdue slips |
 | | Another member’s slip | BR003 (owned by MEM006) | Does not see another member’s slip |
 
-### IDM — Add Member (REQ-07)
+## IDM — Add Member (REQ-07)
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
@@ -96,13 +96,13 @@
 | | 2. Missing `@` | `haivuemail.com` | Show invalid format error |
 | | 3. Missing `.` in domain | `trandat@emailcom` | Show invalid format error |
 
-### IDM — `<!-- Self-added group for REQ-05 to REQ-08 -->`
+## IDM — `<!-- Self-added group for REQ-05 to REQ-08 -->`
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
 | `<!-- Self-filled group -->` | | | |
 
-### IDM — Borrow Record Lookup (REQ-08)
+## IDM — Borrow Record Lookup (REQ-08)
 
 | Characteristic | Block / Partition | Representative Value | Expected Result |
 |---|---|---|---|
