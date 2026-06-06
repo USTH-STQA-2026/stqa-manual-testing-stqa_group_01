@@ -202,6 +202,8 @@
 ---
 
 ### GROUP 8:
+| Characteristic | Block | Representative Value | Expected Result |
+|---|---|---|---|
 | TC-34 | Verify Librarian can view all borrow records across all members | Logged in as Librarian (`librarian@library.com` / `admin123`). Initial seed data. | **Step 1:** Go to "Mượn / Trả" tab.<br>**Step 2:** Observe the full borrow record list.<br>**Step 3:** Verify BR001 (MEM002), BR002 (MEM003), BR003 (MEM006), BR004 (MEM002), BR005 (MEM003) are all listed. | All 5 seed records: BR001–BR005 | All 5 records are visible to the Librarian with correct member names, book titles, dates, and statuses | REQ-08 | EP |
 | TC-35 | Verify Member MEM002 sees only their own records in the default "my records" view | Logged in as MEM002 (`ba.nguyen@email.com` / `password123`). Initial seed data. | **Step 1:** Go to "Mượn / Trả" tab.<br>**Step 2:** Observe the borrow record list shown by default (without entering any search ID).<br>**Step 3:** Check which records are displayed. | MEM002 owns: BR001 (BOOK003 — "Đang mượn"), BR004 (BOOK005 — "Đã trả") | Only **BR001** and **BR004** are displayed. BR002, BR003, BR005 (belonging to other members) are **not visible**. | REQ-08 | EP |
 | TC-36 | Verify Member cannot view another member's records using the "lookup by member ID" feature | Logged in as MEM002 (`ba.nguyen@email.com` / `password123`). Initial seed data. | **Step 1** Go to "Mượn / Trả" tab.<br>**Step 2:** Locate the "Tra cứu phiếu mượn" (lookup) search field.<br>**Step 3:** Enter `MEM006` (belonging to biet.hoang).<br>**Step 4:** Observe the result. | Lookup input: `MEM006` (another member's ID) | System shows **no records** or displays an access-denied message. BR003 (MEM006's record) is **not shown** to MEM002. | REQ-08 | EP |
