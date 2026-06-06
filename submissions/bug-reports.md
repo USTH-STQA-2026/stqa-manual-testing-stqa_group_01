@@ -9,9 +9,14 @@
 | **Nhóm** | `STQA_Group_01` |
 | **Ngày báo cáo** | `23/05/2026` |
 
+**Environment:**
+- Browser: Firefox, Google Chrome
+- Operating system: Linux, Windows, macOS 
+- Interface language: Vietnamese
+
 ---
 
-## BUG-01
+## BUG-01: The system accepts an invalid email format in the login function
 
 | Attribute | Details |
 |-----------|---------|
@@ -22,14 +27,6 @@
 | **Reported by** | Nguyễn Anh Tuấn |
 | **Date found** | `17/05/2026` |
 | **Status** | Open |
-
-**Title:**
-The system accepts an invalid email format in the login function
-
-**Environment:**
-- Browser: Firefox
-- Operating system: Ubuntu Linux
-- Interface language: Vietnamese
 
 **Preconditions:**
 - A member account has already been created in the system with an invalid email format: example@email
@@ -69,7 +66,7 @@ Only accept emails in the correct format: `email@domain.ext`
 ---
 ---
 
-## BUG-02
+## BUG-02: The category filtering feature is case-sensitive and returns no results when lowercase text is entered
 
 | Attribute | Details |
 |-----------|---------|
@@ -80,15 +77,6 @@ Only accept emails in the correct format: `email@domain.ext`
 | **Reported by** | `Vũ Trần Nam Khánh` |
 | **Date found** | `17/05/2026` |
 | **Status** | `Open` |
-
-**Title:**
-The category filtering feature is case-sensitive and returns no results when lowercase text is entered
-
-**Environment:**
-- Browser: Chrome
-- Operating system: Windows 11 / macOS
-- Interface language: Vietnamese
-- System platform: Flutter Web
 
 **Preconditions:**
 Successfully logged in to the system and currently in the "Books" tab.
@@ -117,7 +105,7 @@ This negatively affects the user experience (UX). Users who naturally type in lo
 **Suggested fix:**
 Developers need to normalize both the user input string and the book category attribute in the database to the same format (for example, using `.toLowerCase()` or `.toUpperCase()`) before comparing strings.
 
-## BUG-03
+## BUG-03: The system reports 'Expired member' instead of 'Suspended member' when borrowing books with a member account in the "Suspended" status
 
 | Attribute | Details |
 |-----------|---------|
@@ -128,14 +116,6 @@ Developers need to normalize both the user input string and the book category at
 | **Reported by** | `Nguyễn Xuân Dương và Vũ Trần Nam Khánh` |
 | **Date found** | `18/05/2026` |
 | **Status** | `Open` |
-
-**Title:**
-The system reports 'Expired member' instead of 'Suspended member' when borrowing books with a member account in the "Suspended" status
-
-**Environment:**
-- Browser: Chrome
-- Operating system: `Windows`
-- Interface language: Vietnamese
 
 **Preconditions:**
 `Suspended member, book in "Available" status`
@@ -163,7 +143,7 @@ Review the branching logic structure and separate the condition clauses for memb
 
 ---
 
-## BUG-04
+## BUG-04: A member can borrow up to 4 books instead of the limit 3 books in the system
 
 | Attribute | Details |
 |-----------|---------|
@@ -174,14 +154,6 @@ Review the branching logic structure and separate the condition clauses for memb
 | **Reported by** | `Nguyễn Xuân Dương và Vũ Trần Nam Khánh` |
 | **Date found** | `18/05/2026` |
 | **Status** | `Open` |
-
-**Title:**
-A member can borrow up to 4 books instead of 3 books in the system
-
-**Environment:**
-- Browser: Chrome
-- Operating system: `Windows`
-- Interface language: Vietnamese
 
 **Preconditions:**
 `Active member, books in "Available" status`
@@ -219,7 +191,7 @@ Adjust the `borrow_count` logic condition from `<=3` to `<3`.
 
 ---
 
-## BUG-05
+## BUG-05; The system does not display the **overdue warning** when returning an overdue book
 
 | Attribute | Details |
 |-----------|---------|
@@ -230,9 +202,6 @@ Adjust the `borrow_count` logic condition from `<=3` to `<3`.
 | **Reported by** | `Nguyễn Xuân Dương` |
 | **Date found** | `18/05/2026` |
 | **Status** | `Open` |
-
-**Title:**
-The system does not display the **overdue warning** when returning an overdue book
 
 **Environment:**
 - Browser: Firefox
@@ -265,7 +234,7 @@ Check whether the overdue warning has been implemented and whether the display c
 
 ---
 
-## BUG-06
+## BUG-06: The system accepts invalid-format email when adding a member
 
 | Attribute | Details |
 |-----------|---------|
@@ -276,14 +245,6 @@ Check whether the overdue warning has been implemented and whether the display c
 | **Reported by** | `Cao Chí Bảo` |
 | **Date found** | `19/05/2026` |
 | **Status** | `Open` |
-
-**Title:**
-`The system accepts invalid-format email when adding a member`
-
-**Environment:**
-- Browser: Chrome `148`
-- Operating system: `Windows 11`
-- Interface language: Vietnamese
 
 **Preconditions:**
 `Log in as librarian, access the add-member function`
@@ -311,44 +272,44 @@ Check whether the overdue warning has been implemented and whether the display c
 
 ---
 
-## BUG-07
+## BUG-07: The system does not allow adding a member even with complete and valid information
 
 | Attribute | Details |
 |-----------|---------|
 | **Bug ID** | BUG-07 |
-| **Related TC** | `TC-33` |
-| **Related REQ** | `REQ-07` |
-| **Severity** | `High` |
-| **Reported by** | `Cao Chí Bảo` |
+| **Related TC** | TC-33 |
+| **Related REQ** | REQ-07 |
+| **Severity** | High |
+| **Reported by** | Cao Chí Bảo |
 | **Date found** | `19/05/2026` |
-| **Status** | `Open` |
+| **Status** | Open |
 
-**Title:**
-`The system does not allow adding a member even with complete and valid information`
+**Preconditions**
+- Logged in with the librarian account.
 
 **Steps to reproduce:**
-1. `Access the book borrowing system https://stqa.rbc.vn/ and log in as the librarian`
-2. `Click the "Add member" icon in the top-right corner`
-3. `Enter complete information with correct syntax`
+1. Access the book borrowing system https://stqa.rbc.vn/ and log in as the librarian
+2. Click the "Add member" icon in the top-right corner
+3. Enter complete information with correct syntax
 
 **Expected result:**
-`The system reports that the member has been added successfully`
+The system reports that the member has been added successfully
 
 **Actual result:**
-`The system reports invalid email`
+The system reports invalid email
 
 **Impact:**
-`The add-member function completely loses its core workflow`
+The add-member function completely loses its core workflow
 
 **Evidence:**
 ![Alt text](https://github.com/USTH-STQA-2026/stqa-manual-testing-stqa_group_01/blob/main/screenshots/REQ-07_TC05.png)
 
 **Suggested fix:**
-`Quickly review the API logic in the "Add member" module so the system accepts valid information and saves the member successfully`
+Quickly review the API logic in the "Add member" module so the system accepts valid information and saves the member successfully
 
 ---
 
-## BUG-08
+## BUG-08: One member can view another member's private borrow records
 
 | Attribute | Details |
 |-----------|---------|
@@ -359,14 +320,6 @@ Check whether the overdue warning has been implemented and whether the display c
 | **Discovered by** | Huỳnh Gia An |
 | **Date discovered** | 20/05/2026 |
 | **Status** | Open |
-
-**Title:**
-Member can view another member's private borrow records by entering their Member ID in the "Tra cứu phiếu mượn" lookup field
-
-**Environment:**
-- Browser: Chrome (latest version)
-- Operating System: Windows / MacOS / Linux
-- Interface language: Vietnamese (default)
 
 **Preconditions:**
 - System is at initial seed data state
@@ -397,7 +350,7 @@ When a Member submits a lookup query, the backend/controller must validate that 
 --
 
 
-## BUG-09
+## BUG-09: Member can return other members' books
 
 | Attribute | Details |
 |-----------|---------|
@@ -408,14 +361,6 @@ When a Member submits a lookup query, the backend/controller must validate that 
 | **Discovered by** | Nguyễn Xuân Dương |
 | **Date discovered** | 27/05/2026 |
 | **Status** | Open |
-
-**Title:**
-Member can return other members' books
-
-**Environment:**
-- Browser: Firefox
-- Operating System: Windows
-- Interface language: Vietnamese (default)
 
 **Preconditions:**
 - The book is in "Borrowed" status
