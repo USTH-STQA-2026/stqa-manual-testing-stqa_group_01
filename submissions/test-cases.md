@@ -13,82 +13,94 @@
 
 ---
 
-## Bước 1: Mô hình hóa miền đầu vào — Input Domain Modeling (IDM)
+### IDM — Login (REQ-01)
 
-> 📖 **Textbook:** Chương 6 — *Input Domain Modeling*, Paul Ammann & Jeff Offutt.
->
-> **Trước khi viết Test Case**, nhóm **phải** phân tích miền đầu vào bằng bảng IDM bên dưới.
-> Mỗi chức năng cần xác định: **Đặc tính (Characteristic)**, **Phân vùng (Block/Partition)**, và **Giá trị đại diện (Value)**.
-
-### IDM — Đăng nhập (REQ-01)
-
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+| Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
-| Email có tồn tại trong DB? | Có | `librarian@library.com` | Đăng nhập thành công |
-| | Không | `noone@email.com` | Thông báo lỗi |
-| Mật khẩu có đúng? | Đúng | `admin123` | Đăng nhập thành công |
-| | Sai | `wrongpass` | Thông báo lỗi |
-| Ô nhập có rỗng? | Không rỗng | (giá trị bất kỳ) | Xử lý bình thường |
-| | Rỗng | `""` | Thông báo "Vui lòng nhập..." |
+| Does the email exist in the DB? | Yes | `librarian@library.com` | Login successful |
+| | No | `noone@email.com` | Error message |
+| Is the password correct? | Correct | `admin123` | Login successful |
+| | Incorrect | `wrongpass` | Error message |
+| Is the input field empty? | Not empty | (any value) | Process normally |
+| | Empty | `""` | Display "Please enter..." |
 
-### IDM — Tìm kiếm sách (REQ-03)
+## IDM — REQ-02: Book Borrowing, Returning & Display
 
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+| Characteristic | Block | Representative Value | Expected Result |
+|----------------|-------|----------------------|-----------------|
+| Book status? | Available | BOOK001 (Lập trình Flutter cơ bản) | Borrow button "+" displayed, can borrow |
+| | Borrowed | BOOK013 (Quản trị nhân sự hiện đại) | Displays "Borrowed", "+" button hidden for others, return button shown for borrower |
+| | Lost | BOOK007 (Kinh tế vi mô) | Displays "Lost", cannot borrow |
+| Member status? | Active | MEM002 (Nguyễn Học Bá) | Allowed to borrow |
+| | Suspended | MEM004 (Lê Cần Cù) | Rejected, error notification |
+| | Expired | MEM005 (Phạm Trung Bình) | Rejected, error notification |
+| Return action | On time | MEM002 presses return button on BOOK013 | Displays "Returned", status changes to "Available", "+" button reappears |
+| | Overdue | MEM001 (Librarian) presses return button on overdue book | Displays "Returned", status changes to "Available" |
+| Borrowing info visibility | Member view | MEM002 borrows BOOK001 | Member sees only their own borrowed books |
+| | Librarian view | MEM001 (Librarian) checks borrowed list | Librarian sees all borrowed books |
+| Book information display | Complete info | BOOK001 — Nguyễn Minh Đức • Technology • 2023 | Author name, category, publication year, book ID all displayed correctly below title |
+| Book status display | Available | BOOK008 (Computer Networks) | System displays "Available" correctly |
+| | Borrowed | BOOK013 (Quản trị nhân sự hiện đại) | System displays "Borrowed" correctly |
+| | Lost | BOOK020 (Introduction to Linguistics) | System displays "Lost" correctly |
+
+### IDM — Book Search (REQ-03)
+
+| Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
-| Từ khóa có tồn tại trong DB? | Có (tên sách) | `"Flutter"` | Hiển thị sách chứa "Flutter" |
-| | Có (tên tác giả) | `"Nguyễn"` | Hiển thị sách của tác giả Nguyễn |
-| | Không | `"XYZ123"` | Danh sách rỗng |
-| Phân biệt HOA/thường? | Chữ thường | `"flutter"` | Kết quả giống "Flutter" |
-| | Chữ HOA | `"FLUTTER"` | Kết quả giống "Flutter" |
+| Does the keyword exist in the DB? | Yes (book title) | `"Flutter"` | Display books containing "Flutter" |
+| | Yes (author name) | `"Nguyễn"` | Display books by the author Nguyễn |
+| | No | `"XYZ123"` | Empty list |
+| Case-sensitive? | Lowercase | `"flutter"` | Same result as "Flutter" |
+| | Uppercase | `"FLUTTER"` | Same result as "Flutter" |
 
-### IDM — Mượn sách (REQ-04, REQ-05)
+### IDM — Borrow Books (REQ-04, REQ-05)
 
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+| Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
-| Trạng thái sách? | Có sẵn | BOOK001 | Cho phép mượn |
-| | Đang mượn | BOOK003 | Không cho phép |
-| | Thất lạc | BOOK007 | Không cho phép |
-| Trạng thái thành viên? | Hoạt động | MEM002 | Cho phép mượn |
-| | Tạm ngưng | MEM004 | Từ chối, thông báo lỗi |
-| | Hết hạn | MEM005 | Từ chối, thông báo lỗi |
-| Số sách đang mượn? | < 3 (BVA: 0, 1, 2) | MEM006 (0 sách) | Cho phép mượn |
-| | = 3 (BVA: giới hạn) | MEM đã mượn 3 sách | Từ chối, thông báo vượt giới hạn |
+| Book status? | Available | BOOK001 | Allow borrowing |
+| | Borrowed | BOOK003 | Do not allow |
+| | Lost | BOOK007 | Do not allow |
+| Member status? | Active | MEM002 | Allow borrowing |
+| | Suspended | MEM004 | Reject, error message |
+| | Expired | MEM005 | Reject, error message |
+| Number of books currently borrowed? | < 3 (BVA: 0, 1, 2) | MEM006 (0 books) | Allow borrowing |
+| | = 3 (BVA: limit) | MEM has already borrowed 3 books | Reject, report limit exceeded |
 
-### IDM — Trả sách (REQ-05)
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+### IDM — Return Books (REQ-05)
+| Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
-| Trạng thái sách? | Đang mượn | BOOK013 | Cho phép trả sách |
-| | Đã trả | BOOK005 | Sách chuyển về trạng thái "Có sẵn" |
-| Sách quá hạn? | Quá hạn | BOOK003 | Hiển thị **cảnh báo quá hạn** khi trả |
-| | Không quá hạn | BOOK013 | Không hiển thị **cảnh báo quá hạn** khi trả |
+| Book status? | Borrowed | BOOK013 | Allow returning the book |
+| | Returned | BOOK005 | Book changes to "Available" status |
+| Is the book overdue? | Overdue | BOOK003 | Display **overdue warning** when returning |
+| | Not overdue | BOOK013 | Do not display **overdue warning** when returning |
 
-### IDM — Xử lý sách quá hạn (REQ-06)
+### IDM — Overdue Book Handling (REQ-06)
 
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+| Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
-| Vai trò người dùng? | Thủ thư | `librarian@library.com` | Thấy nút "Kiểm tra quá hạn", có thể nhấn |
-| | Thành viên | `ba.nguyen@email.com` | Không thấy nút "Kiểm tra quá hạn" |
-| Trạng thái phiếu mượn? | Đang mượn, dueDate ≤ hôm nay | BR001 (hạn 15/09/2024) | Bị đánh dấu "Quá hạn" sau khi nhấn nút |
-| | Đang mượn, dueDate > hôm nay | Phiếu mới tạo hôm nay | Giữ nguyên "Đang mượn" |
-| | Đã trả, dueDate ≤ hôm nay | BR002, BR005 | Giữ nguyên "Đã trả", không đổi thành "Quá hạn" |
-| Phạm vi hiển thị cho Thành viên? | Phiếu của chính mình | BR001 (của MEM002) | Thấy phiếu quá hạn của mình |
-| | Phiếu của người khác | BR003 (của MEM006) | Không thấy phiếu của người khác |
+| User role? | Librarian | `librarian@library.com` | Sees the "Check overdue" button and can click it |
+| | Member | `ba.nguyen@email.com` | Does not see the "Check overdue" button |
+| Borrowing slip status? | Borrowed, dueDate ≤ today | BR001 (due 15/09/2024) | Marked as "Overdue" after clicking the button |
+| | Borrowed, dueDate > today | Newly created slip today | Remains "Borrowed" |
+| | Returned, dueDate ≤ today | BR002, BR005 | Remains "Returned", not changed to "Overdue" |
+| Visibility scope for Member? | Own slip | BR001 (owned by MEM002) | Sees own overdue slips |
+| | Another member’s slip | BR003 (owned by MEM006) | Does not see another member’s slip |
 
-### IDM — Thêm thành viên (REQ-07)
+### IDM — Add Member (REQ-07)
 
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+| Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
-| **Họ và tên** | 1. Có nhập chữ (Valid) | Nguyễn Văn A | Thêm thành công |
-| | 2. Để trống (Invalid) | *(Để trống)* | Báo lỗi thiếu Họ tên |
-| **Email** | 1. Đúng cú pháp (Valid) | `legit@gmail.com` | Thêm thành công |
-| | 2. Thiếu ký tự `@` (Invalid) | `haivuemail.com` | Báo lỗi sai định dạng |
-| | 3. Thiếu dấu `.` ở domain (Invalid) | `trandat@emailcom` | Báo lỗi sai định dạng |
+| **Full name** | 1. Text entered (Valid) | Nguyễn Văn A | Added successfully |
+| | 2. Left blank (Invalid) | *(Blank)* | Show missing full name error |
+| **Email** | 1. Valid format | `legit@gmail.com` | Added successfully |
+| | 2. Missing `@` | `haivuemail.com` | Show invalid format error |
+| | 3. Missing `.` in domain | `trandat@emailcom` | Show invalid format error |
 
-### IDM — `<!-- Nhóm tự bổ sung cho REQ-05 đến REQ-08 -->`
+### IDM — `<!-- Self-added group for REQ-05 to REQ-08 -->`
 
-| Đặc tính (Characteristic) | Phân vùng (Block) | Giá trị đại diện (Value) | Kết quả mong đợi |
+| Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
-| `<!-- Nhóm tự điền -->` | | | |
+| `<!-- Self-filled group -->` | | | |
 
 ### IDM — Borrow Record Lookup (REQ-08)
 
@@ -173,9 +185,4 @@
 | Overdue handling | 7 | REQ-06 | EP, BVA |
 | Add member/Validation | 5 | REQ-07 | EP, BVA, Decision Table |
 | Borrow record visibility / Lookup | 4 | REQ-08 | EP |
-
-
-
-
-
 | **Tổng** | 38 | 8 | Black-box Testing, EP, BVA, Input Validation, Decision Table, State Transition |
