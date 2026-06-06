@@ -135,7 +135,7 @@
 
 ---
 
-### GROUP 2: 
+### GROUP 2: VIEW BOOK LIST
 | TC Code | Test Objective | Preconditions | Steps | Input Data | Expected Result | REQ | Technique |
 |---|---|---|---|---|---|---|---|
 | TC-05 | Verify that the book list is displayed for both Librarian and Member roles | The user has a valid account and is logged in as either Librarian or Member | 1. Log in to the system. <br> 2. Open the "Books" section. <br> 3. Observe the displayed book list. | Any valid Librarian or Member account | The system displays the full book list successfully for both roles | REQ-02 | EP |
@@ -145,7 +145,7 @@
 
 ---
 
-### GROUP 3: 
+### GROUP 3: SEARCH & FILTER BOOKS
 | TC Code | Test Objective | Preconditions | Steps | Input Data | Expected Result | REQ | Technique |
 |---|---|---|---|---|---|---|---|
 |TC-08| Check the function '"Search by Book Title, Author Name"' and handle cases where there is no matching data.| Successfully log in to the system and are in the `'Books'` section| Step 1. Click on the search bar. <br>2. Enter an author name and confirm the filter. <br>3. Clear the search bar, then enter a specific book title. <br>4. Clear the search bar, then enter a non-existent character string.| `"Nguyễn Minh Đức"`, `"Lập trình Flutter cơ bản"` and `"ABCxyz123"`| After step 2, the book with code `BOOK001` (Lập trình Flutter cơ bản) and `BOOK009` (Nhập môn lập trình Python) will be displayed. <br>After step 3, only 1 book with code `BOOK001` (Lập trình Flutter cơ bản) is displayed. <br>After step 4, the exact string `"No books found."` will be displayed| REQ-03 | EP |
@@ -155,7 +155,7 @@
 
 ---
 
-### GROUP 4: 
+### GROUP 4: BORROW BOOK 
 | TC Code | Test Objective | Preconditions | Steps | Input Data | Expected Result | REQ | Technique |
 |---|---|---|---|---|---|---|---|
 | TC-12 | Check borrowing permission for a suspended member | The member is suspended, and the book is in the "Available" status | 1. Log in with the suspended account 2. Borrow any available book | Suspended account (MEM004) | The member is not allowed to borrow books and the correct rejection reason is displayed | REQ-04 | EP |
@@ -167,7 +167,7 @@
 
 ---
 
-### GROUP 5:
+### GROUP 5: RETURN BOOK
 | TC Code | Test Objective | Preconditions | Steps | Input Data | Expected Result | REQ | Technique |
 |---|---|---|---|---|---|---|---|
 | TC-18 | Return a borrowed book | The book is in the "Borrowed" status | 1. Go to the "Borrow/Return" section 2. Click the "Return book" button of the borrowing slip in the "Borrowed" status 3. Go back to the "Books" section and check the status of the returned book | Member with the original borrowing slip for book BOOK013 | The book returns to the "Available" status | REQ-05 | EP |
@@ -177,7 +177,7 @@
 
 ---
 
-### GROUP 6:
+### GROUP 6: OVERDUE HANDLING
 | TC Code | Test Objective | Preconditions | Steps | Input Data | Expected Result | REQ | Technique |
 |---|---|---|---|---|---|---|---|
 | TC-22 | Check that when the librarian clicks "Check overdue", overdue borrowing slips are correctly marked | Log in with the Librarian account (`librarian@library.com` / `admin123`). Initial data state. | **Step 1:** Go to the "Borrow / Return" tab.<br>**Step 2:** Click the "Check overdue" button.<br>**Step 3:** Observe the status of BR001 (dueDate: 15/09/2024) and BR003 (dueDate: 15/10/2024) | BR001 (MEM002 + BOOK003, due 15/09/2024); BR003 (MEM006 + BOOK013, due 15/10/2024) | BR001 and BR003 change from "Borrowed" to "Overdue" (both have dueDate ≤ 18/05/2026) | REQ-06 | EP |
@@ -190,7 +190,7 @@
 
 ---
 
-### GROUP 7:
+### GROUP 7: MEMBER MANAGEMENT
 | TC Code | Test Objective | Preconditions | Steps | Input Data | Expected Result | REQ | Technique |
 |---|---|---|---|---|---|---|---|
 |TC-29|Check permission to add members for a non-librarian account|Logged in as a member account|Check whether the "Add member" icon appears in the top-right corner|Login: ba.nguyen@email.com, Password: password123|The "Add member" icon does not appear|REQ-07|Decision Table (Authorization) |
@@ -201,7 +201,7 @@
 
 ---
 
-### GROUP 8:
+### GROUP 8: BORROW RECORD LOOKUP
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
 | TC-34 | Verify Librarian can view all borrow records across all members | Logged in as Librarian (`librarian@library.com` / `admin123`). Initial seed data. | **Step 1:** Go to "Mượn / Trả" tab.<br>**Step 2:** Observe the full borrow record list.<br>**Step 3:** Verify BR001 (MEM002), BR002 (MEM003), BR003 (MEM006), BR004 (MEM002), BR005 (MEM003) are all listed. | All 5 seed records: BR001–BR005 | All 5 records are visible to the Librarian with correct member names, book titles, dates, and statuses | REQ-08 | EP |
@@ -211,12 +211,6 @@
 
 ---
 
-
-
----
-
-
----
 
 ## Tổng hợp
 
