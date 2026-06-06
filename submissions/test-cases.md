@@ -125,13 +125,17 @@
 
 <!-- Tự tổ chức bảng test case: có thể chia nhóm theo chức năng, theo REQ, hoặc theo luồng nghiệp vụ — tùy nhóm quyết định. -->
 <!-- Mỗi TC phải ánh xạ ngược về ít nhất 1 dòng trong bảng IDM ở Bước 1. -->
-
+### GROUP 1 LOGIN FUNCTION
 | TC Code | Test Objective | Preconditions | Steps | Input Data | Expected Result | REQ | Technique |
 |---|---|---|---|---|---|---|---|
 | TC-01 | Check that the user can log in successfully with a valid email and password | The user already has an account in the system and is on the login page | 1. Enter a valid email in the "Email" field. 2. Enter the correct password in the "Password" field. 3. Click the "Login" button | Username: `ba.nguyen@email.com`, password: `password123` | The system logs in successfully and navigates to the home page. The user name and role are displayed | REQ-01 | Black-box Testing |
 | TC-02 | Check that the system displays an error when the email does not exist | The user is on the login page | 1. Enter a non-existent email in the "Email" field. 2. Enter any password. 3. Click the "Login" button | Username: `random@email.com`, password: `123`| The system displays "Member not found" | REQ-01 | Black-box Testing, EP |
 | TC-03 | Check that the system displays an error when the password is incorrect | The user already has an account in the system and is on the login page | 1. Enter a valid email in the "Email" field. 2. Enter the wrong password in the "Password" field. 3. Click the "Login" button | Username: `ba.nguyen@email.com`, password: `hello` (incorrect password) | The system displays "Incorrect password" | REQ-01 | Black-box Testing, EP |
 | TC-04 | Check that the system rejects login when the email format is invalid | The user is on the login page and already has an account in the system (but the email format is invalid) | 1. Enter an invalid email format (but one that exists in the system) in the "Email" field (for example: `example@email`). 2. Enter the correct password in the "Password" field. 3. Click the "Login" button | Username: `example@email`, password: `password123` | The system rejects the login and shows the error "Invalid email format" | REQ-01 | Black-box Testing, Input Validation |
+
+---
+| TC Code | Test Objective | Preconditions | Steps | Input Data | Expected Result | REQ | Technique |
+|---|---|---|---|---|---|---|---|
 | TC-05 | Verify that the book list is displayed for both Librarian and Member roles | The user has a valid account and is logged in as either Librarian or Member | 1. Log in to the system. <br> 2. Open the "Books" section. <br> 3. Observe the displayed book list. | Any valid Librarian or Member account | The system displays the full book list successfully for both roles | REQ-02 | EP |
 | TC-06 | Verify that each book displays complete information | The user is logged in and is viewing the book list | 1. Open the "Books" section. <br> 2. Observe the information shown for each book card/row. | Any book in the list | Each book displays its title, author, category, publication year, and status | REQ-02 | EP |
 | TC-07 | Verify that the correct book status is displayed | The user is logged in and is viewing the book list | 1. Open the "Books" section. <br> 2. Check the status shown for books with different states. | Books in different statuses | The system displays the correct status for each book, such as "Available", "Borrowed", or "Lost" | REQ-02 | EP |
