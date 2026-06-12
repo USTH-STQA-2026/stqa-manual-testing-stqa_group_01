@@ -252,7 +252,7 @@ Check whether the overdue warning has been implemented and whether the display c
 **Steps to reproduce:**
 1. `Access the book borrowing system https://stqa.rbc.vn/ and log in as the librarian`
 2. `Click the "Add member" icon in the top-right corner`
-3. `Enter full name, phone number, and an email missing "@"`
+3. `Enter full name, phone number, and an email missing "."`
 
 **Expected result:**
 `The system reports an error because the email syntax is invalid`
