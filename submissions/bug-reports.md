@@ -166,6 +166,7 @@ Review the branching logic structure and separate the condition clauses for memb
 
 **Impact:**
 - Violates the business requirement.
+- Creates inconveniences for the librarian in managing books.
 
 **Evidence:**
 - Borrowed 3 books:
@@ -186,7 +187,7 @@ Adjust the `borrow_count` logic condition from `<=3` to `<3`.
 
 ---
 
-## BUG-05; The system does not display the **overdue warning** when returning an overdue book
+## BUG-05: The system does not display the **overdue warning** when returning an overdue book
 
 | Attribute | Details |
 |-----------|---------|
@@ -214,6 +215,7 @@ Adjust the `borrow_count` logic condition from `<=3` to `<3`.
 
 **Impact:**
 - Violates business requirement BO-02.
+- Many fines might be unpaid because the users don't know that they have returned overdue books.
 
 **Evidence**
 
