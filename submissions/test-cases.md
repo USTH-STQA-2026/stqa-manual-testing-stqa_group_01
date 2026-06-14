@@ -96,12 +96,6 @@
 | | 2. Missing `@` | `haivuemail.com` | Show invalid format error |
 | | 3. Missing `.` in domain | `trandat@emailcom` | Show invalid format error |
 
-## IDM — `<!-- Self-added group for REQ-05 to REQ-08 -->`
-
-| Characteristic | Block | Representative Value | Expected Result |
-|---|---|---|---|
-| `<!-- Self-filled group -->` | | | |
-
 ## IDM — Borrow Record Lookup (REQ-08)
 
 | Characteristic | Block / Partition | Representative Value | Expected Result |
