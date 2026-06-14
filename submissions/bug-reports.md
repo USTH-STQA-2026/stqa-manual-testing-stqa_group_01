@@ -1,15 +1,11 @@
-# Bug Reports — Báo cáo lỗi
+# BUG REPORT
 
-> **Hướng dẫn**: Tạo 1 mục bug cho mỗi TC có kết quả **Fail**.
-> Xem [examples/sample-bug-report.md](../examples/sample-bug-report.md) để hiểu cách viết bug report tốt.
-> Mỗi bug cần: tiêu đề mô tả hành vi lỗi, bước tái hiện, expected vs actual, severity + giải thích.
-
-| Thông tin | |
+| Information | |
 |---|---|
-| **Nhóm** | `STQA_Group_01` |
-| **Ngày báo cáo** | `23/05/2026` |
+| **Group** | `Group 01 |
+| **Date** | `23/05/2026` |
 
-**Environment:**
+## Environment
 - Browser: Firefox, Google Chrome
 - Operating system: Linux, Windows, macOS 
 - Interface language: Vietnamese
@@ -63,7 +59,6 @@ Add email format validation in:
 
 Only accept emails in the correct format: `email@domain.ext`
 
----
 ---
 
 ## BUG-02: The category filtering feature is case-sensitive and returns no results when lowercase text is entered
@@ -202,11 +197,6 @@ Adjust the `borrow_count` logic condition from `<=3` to `<3`.
 | **Reported by** | `Nguyễn Xuân Dương` |
 | **Date found** | `18/05/2026` |
 | **Status** | `Open` |
-
-**Environment:**
-- Browser: Firefox
-- Operating system: `Windows`
-- Interface language: Vietnamese
 
 **Preconditions:**
 `Member has a borrowing slip initially in "Borrowed" status and overdue; overdue book is in "Borrowed" status`
@@ -348,7 +338,6 @@ Serious privacy and access control violation. Any Member can freely look up and 
 When a Member submits a lookup query, the backend/controller must validate that the searched Member ID matches the currently logged-in user's ID. If it does not match, the system must return an empty result set or an access-denied message. This filter should be enforced server-side (or in the state management layer), not only on the UI.
 
 --
-
 
 ## BUG-09: Member can return other members' books
 

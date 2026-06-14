@@ -1,19 +1,17 @@
-# Test Cases — Bảng trường hợp kiểm thử
+# TEST CASES
 
-> **Hướng dẫn**: Viết tối thiểu **20 TC** phủ đủ các chức năng chính (REQ-01 → REQ-08).
-> Xem [examples/sample-test-case.md](../examples/sample-test-case.md) để hiểu cách viết TC tốt.
-> Tự tổ chức và phân nhóm test case theo cách hợp lý nhất.
-
-| Thông tin | |
+| Information | |
 |---|---|
-| **Nhóm** | `STQA_Group_01` |
-| **Ngày tạo** | `16/05/2026` |
-| **Hệ thống** | https://stqa.rbc.vn |
-| **Tham chiếu** | SRS v1.0 |
+| **Group** | GROUP 01 |
+| **Day created** | 16/05/2026 |
+| **System Under Test** | https://stqa.rbc.vn |
+| **VERSION** | SRS v1.0 |
 
 ---
 
-## IDM — Login (REQ-01)
+## STEP 1: INPUT DOMAIN MODELING (IDM)
+
+### IDM — Login (REQ-01)
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
@@ -24,7 +22,7 @@
 | Is the input field empty? | Not empty | (any value) | Process normally |
 | | Empty | `""` | Display "Please enter..." |
 
-## IDM — REQ-02: Book Borrowing, Returning & Display
+### IDM — REQ-02: Book Borrowing, Returning & Display
 
 | Characteristic | Block | Representative Value | Expected Result |
 |----------------|-------|----------------------|-----------------|
@@ -43,7 +41,7 @@
 | | Borrowed | BOOK013 (Quản trị nhân sự hiện đại) | System displays "Borrowed" correctly |
 | | Lost | BOOK020 (Introduction to Linguistics) | System displays "Lost" correctly |
 
-## IDM — Book Search (REQ-03)
+### IDM — Book Search (REQ-03)
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
@@ -53,7 +51,7 @@
 | Case-sensitive? | Lowercase | `"flutter"` | Same result as "Flutter" |
 | | Uppercase | `"FLUTTER"` | Same result as "Flutter" |
 
-## IDM — Borrow Books (REQ-04, REQ-05)
+### IDM — Borrow Books (REQ-04, REQ-05)
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
@@ -66,7 +64,7 @@
 | Number of books currently borrowed? | < 3 (BVA: 0, 1, 2) | MEM006 (0 books) | Allow borrowing |
 | | = 3 (BVA: limit) | MEM has already borrowed 3 books | Reject, report limit exceeded |
 
-## IDM — Return Books (REQ-05)
+### IDM — Return Books (REQ-05)
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
 | Book status? | Borrowed | BOOK013 | Allow returning the book |
@@ -74,7 +72,7 @@
 | Is the book overdue? | Overdue | BOOK003 | Display **overdue warning** when returning |
 | | Not overdue | BOOK013 | Do not display **overdue warning** when returning |
 
-## IDM — Overdue Book Handling (REQ-06)
+### IDM — Overdue Book Handling (REQ-06)
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
@@ -86,7 +84,7 @@
 | Visibility scope for Member? | Own slip | BR001 (owned by MEM002) | Sees own overdue slips |
 | | Another member’s slip | BR003 (owned by MEM006) | Does not see another member’s slip |
 
-## IDM — Add Member (REQ-07)
+### IDM — Add Member (REQ-07)
 
 | Characteristic | Block | Representative Value | Expected Result |
 |---|---|---|---|
@@ -96,7 +94,7 @@
 | | 2. Missing `@` | `haivuemail.com` | Show invalid format error |
 | | 3. Missing `.` in domain | `trandat@emailcom` | Show invalid format error |
 
-## IDM — Borrow Record Lookup (REQ-08)
+### IDM — Borrow Record Lookup (REQ-08)
 
 | Characteristic | Block / Partition | Representative Value | Expected Result |
 |---|---|---|---|
@@ -111,14 +109,10 @@
 | | Returned late | BR005 | Status = "Đã trả" |
 | | Overdue (after Librarian check) | BR001 (post Check Overdue) | Status = "Quá hạn" |
 
-> 💡 **Gợi ý kỹ thuật**: Sử dụng **Phân lớp tương đương (EP)** cho các phân vùng rời rạc, **Phân tích giá trị biên (BVA)** cho các phân vùng số (ví dụ: giới hạn 3 sách). Xem textbook §6.1–6.3.
-
 ---
 
-## Bước 2: Test Cases
+## STEP 2: DETAIL TEST CASES
 
-<!-- Tự tổ chức bảng test case: có thể chia nhóm theo chức năng, theo REQ, hoặc theo luồng nghiệp vụ — tùy nhóm quyết định. -->
-<!-- Mỗi TC phải ánh xạ ngược về ít nhất 1 dòng trong bảng IDM ở Bước 1. -->
 ### GROUP 1: LOGIN FUNCTION
 | TC Code | Test Objective | Preconditions | Steps | Input Data | Expected Result | REQ | Technique |
 |---|---|---|---|---|---|---|---|
@@ -206,9 +200,9 @@
 ---
 
 
-## Tổng hợp
+## Summary
 
-| Nhóm chức năng | Số TC | REQ phủ | Kỹ thuật IDM áp dụng |
+| Function | Number of TCs | REQ | IDM technique |
 |----------------|-------|---------|----------------------|
 | Login | 4 | REQ-01 | Black-box Testing, EP, Input Validation |
 | Borrow/Return core actions | 4 | REQ-02 | EP, State Transition, Decision Table |
@@ -218,4 +212,4 @@
 | Overdue handling | 7 | REQ-06 | EP, BVA |
 | Add member/Validation | 5 | REQ-07 | EP, BVA, Decision Table |
 | Borrow record visibility / Lookup | 4 | REQ-08 | EP |
-| **Tổng** | 38 | 8 | Black-box Testing, EP, BVA, Input Validation, Decision Table, State Transition |
+| **Total** | 38 | 8 | Black-box Testing, EP, BVA, Input Validation, Decision Table, State Transition |

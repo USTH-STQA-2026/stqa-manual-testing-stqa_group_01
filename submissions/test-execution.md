@@ -1,18 +1,15 @@
-# Test Execution — Kết quả thực thi kiểm thử
+# TEST EXECUTION
 
-> **Hướng dẫn**: Chạy từng TC trên hệ thống https://stqa.rbc.vn, ghi lại kết quả thực tế.
-> Kết luận: **Pass** (kết quả đúng), **Fail** (kết quả sai → tạo bug report), **Blocked** (không thực hiện được vì lỗi khác chặn), **Not Run** (chưa chạy).
-
-| Thông tin | |
+| Information | |
 |---|---|
-| **Nhóm** | `STQA_Group_01` |
-| **Ngày thực thi** | `16/05/2026` |
-| **Trình duyệt** | Chrome + Firefox |
-| **Hệ điều hành** | Windows + MacOS + Linux |
+| **Group** | Group 01 |
+| **Date** | `16/05/2026` |
+| **Browser** | Chrome + Firefox |
+| **OS** | Windows + MacOS + Linux |
 
 ---
 
-## Kết quả chi tiết
+## DETAIL RESULTS
 
 | TC Code | Functional Group | Expected Result (summary) | Actual Result | Conclusion | Evidence | Bug |
 |-------|---------------|---------------------------|-----------------|---------|-----------|----| 

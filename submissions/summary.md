@@ -1,17 +1,15 @@
-# Test Summary — Báo cáo tổng hợp kiểm thử
-
-> **Hướng dẫn**: Đây là hoạt động **Quality Assurance** — bạn đánh giá chất lượng tổng thể của phần mềm, không chỉ liệt kê lỗi.
+# TEST SUMMARY
 
 ---
 
-## 1. Thông tin nhóm
+## 1. Group Information
 
-| Mục | Thông tin |
+| Information | |
 |-----|----------|
-| **Nhóm** | `STQA_Group_01` |
-| **Lớp** | ICT Class 1 |
-| **Ngày báo cáo** | 27/05/2026 |
-| **Hệ thống kiểm thử** | https://stqa.rbc.vn — v1.0 |
+| **Group** | `STQA_Group_01` |
+| **Class** | ICT Class 1 |
+| **Date** | 27/05/2026 |
+| **System Under Test** | https://stqa.rbc.vn — v1.0 |
 
 ---
 
@@ -108,7 +106,7 @@ The system is not ready for release. Although the overdue module and several cor
 
 ---
 
-## 7. Bài học rút ra (Tùy chọn)
+## 7. Lesson learnt
 1. It is important to have Testing techniques in the development of a software, such as: Input Validation Testing, Boundary Value Analysis, Access Control and Security Testing, Equivalence Partitioning.
 2. We should not only test what would work, but also test what would not work (misused, invalid actions, unexpected behaviors).
 3. Always verify correct error messages and user feedback: Test case sensitivity, localization, and search usability.
@@ -118,13 +116,3 @@ The system is not ready for release. Although the overdue module and several cor
   - Session handling
   - Basic injection vulnerabilities
 5. It is important to focus on the System Requirements Specifications if we want our Testing process can be able to point out if the system is functioning correctly or not
-
----
-
-## 8. Khai báo sử dụng AI (Tùy chọn)
-
-> Nếu nhóm có sử dụng công cụ AI (ChatGPT, Copilot, Gemini...), hãy ghi rõ bên dưới. Khai báo trung thực **không ảnh hưởng điểm** — đây là kỹ năng minh bạch trong nghề.
-
-| Công cụ AI | Dùng cho phần nào | Bạn đã kiểm tra/chỉnh sửa thế nào |
-|------------|-------------------|-----------------------------------|
-| | | |
